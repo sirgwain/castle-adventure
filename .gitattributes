@@ -1,0 +1,2 @@
+# Original 1984 distribution: keep bytes exactly as shipped (CP437, CRLF)
+Castle.1984/** -text -diff

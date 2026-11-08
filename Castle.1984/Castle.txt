@@ -1,0 +1,28 @@
+CASTLE: It is one  of the best public domain games  we've  ever  come across.
+        You  move  this little guy around a  castle  picking  up things. 
+        You are trapped in a deserted Castle and you must escape. It is rumored
+        that the  castle is  full of treasures.  Can you find them all?  
+
+Use the cursor keypad to move your man around the rooms.  To pick up a visible 
+item,  just run into it.  To pick up an item not displayed  on  the screen, use
+the command  GET.  To  attack  monsters just  run  into  them,  but only if you
+have a weapon.The computer accepts most two word commands. There are 83 rooms &
+13 treasures.  To  see the High Score , look at the wall in the courtyard. 
+
+LOOK AT EVERYTHING CAREFULLY!           To save a game type : SAVE + Filename 
+                                        To load a game type : LOAD + Filename 
+                                        To End the game type: QUIT
+  
+ You can also use  many words such as LOOK, FIND, OPEN, .....   but, alwayse
+ in a two words sentense as: FIND KEY or LOOK DESK or OPEN DOOR or .......  
+
+You are  encouraged to share  this  program with other users on the conditions
+that the program is not distributed  modified, that no fee or consideration is
+charged and that this notice is not bypassed or removed. If you are using this
+program and finding if enjoyable, or  of  value, then your contribution ( $10
+suggested )  will  be  greatly appreciated.  
+
+FREEWARE GAMES: by Kevin Bales ,  1250 Lindenwood Lane,  Atlanta,Georgia 30319
+                Phone# (404) 321-3841  
+
+Comments, ideas, suggestions, critque, and questions welcome! 

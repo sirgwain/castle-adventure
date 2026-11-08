@@ -1,0 +1,137 @@
+                                   ÚÄÄÄÄÄÄÄÄ¿
+                                   ³ CASTLE ³
+                                   ÀÄÄÄÄÄÄÄÄÙ
+         
+         FICHIERS: CASTLE.EXE: Le programme
+                   CASTLE.RAN: Un fichier auxiliaire n‚cessaire … la       
+                               mise en oeuvre du programme principal
+                   CASTLE.US:  Documentation am‚ricaine.
+                   CASTLE.DOC: Ce fichier
+         
+         OBJET:    Vous devez rechercher les tr‚sors dans un chateau
+                   myst‚rieux... Mais attention, vous n'ˆtes pas seul...
+                   Et, il vous faudra terrasser des monstres ou leur       
+                   ‚chapper, si vous voulez en ressortir vivant!
+         
+         
+         COMMANDES:
+                   Le chateau comporte 83 piŠces, r‚parties sur            
+                   plusieurs ‚tages dans lesquelles 13 tr‚sors sont
+                   dissimul‚s.
+         
+                   - Vous AVANCEZ avec les flŠches du curseur:
+                   FlŠche droite/gauche: vous allez … droite/gauche,
+                   FlŠche haute/basse: vous montez/descendez sur l'‚cran
+                   
+                   - Pour ATTRAPER un objet:
+                   S'il est visible,  positionnez vous dessus,
+                   S'il est invisible, utilisez l'ordre "GET".
+              
+                   - Vous ne pouvez ATTAQUER un monstre que si vous ˆtes
+                   arm‚. Pour l'avoir il suffit de vous montrer et il      
+                   arrivera...Puis placer le curseur sur lui.
+              
+                   - Le programme accepte n'importe quel ORDRE, qui peut
+                   ˆtre compos‚ d'un verbe seul ou accompagn‚ d'un         
+                   compl‚ment. Voici quelques exemples:
+                   GET  (attrape -sous entendu: l'objet invisible-),       
+                   FIND KEY (trouve  cl‚),
+                   LOOK DESK  (regarde bureau),
+                   OPEN DOOR  (ouvre porte)...
+                   
+                   - Pour voir le meilleur score, reportez-vous au
+                   mur qui est dans le "courtyard" (cour royale).
+         
+                   - Il est possible d'interrompre une partie et de la
+                   sauvegarder: tapez  SAVE PARTIE1 , de reprendre         
+                   une partie pr‚c‚dente  LOAD PARTIE1  et d'abandonner
+                   une partie sans la terminer par  QUIT .
+         
+                   - Pressez <Ctrl BREAK> pour sortir du jeu et            
+                   retourner au DOS.
+         
+         VOCABULAIRE et ASTUCES:
+                   - Liste des ordres du programme:
+                    DROP         Laisser un objet
+                    FIND         Trouver un objet
+                    GET          Prendre un objet
+
+
+
+
+                    INVENTORY    Liste des objets en votre possession
+                    LOOK         Regarder … un endroit particulier
+                    OPEN         Ouvrir une porte
+                    PLAY         Jouer de la harpe
+                    READ         Lire le livre
+                    SHOW         Montrer la croix
+                    WAVE         Agiter la baguette magique
+         
+                   - Liste des objets … trouver:
+                   CROSS         La croix: sert … tuer le vampire.         
+                                 Taper  SHOW CROSS .
+                   CRYSTAL BALL  La boule de cristal: elle est cach‚e      
+                                 derriŠre le mirroir des magiciens;        
+                                 montre o— est  le sceptre avec
+                                 LOOK BALL .
+                   DIAMOND       Le diamant: Tr‚sor cach‚ derriŠre les     
+                                 f‚es.
+                   EYEGLASSES    Les lunettes: sont sur le bureau du       
+                                 "guest room" (chambre d'h“te);            
+                                 n‚cessaires pour lire le livre avec       
+                                 READ BOOK .
+                   GEM           La pierre pr‚cieuse cach‚e dans la        
+                                 fontaine.
+                   GOBLET        La coupe: Tr‚sor.
+                   GOLD BAR      Le lingot: Tr‚sor dans le labyrinthe.
+                   HARP          La harpe: Eloigne les f‚es avec  PLAY     
+                                 HARP .
+                   HELMET        Le Casque: Vous protŠge en cas de         
+                                 combat avec les monstres.
+                   HOURGLASS     Le sablier: Tr‚sor.
+                   JADE FIGURINE La figurine de jade: Tr‚sor derriŠre le
+                                 vampire.
+                   KEY           La Clef: est sur le bureau du roi et      
+                                 sert … ouvrir la porte du donjon.
+                   LAMP          La lampe: est dans le jardin. Elle est
+                                 n‚cessaire pour aller dans des piŠces     
+                                 sombres (cuisine et couloir du roi).
+                   NECKLACE      Le collier; tr‚sor cach‚ dans la statue
+                                 du roi; vous protŠge des trappes.
+                   RUBYS         Les rubis; tr‚sor.
+                   SCEPTER       Le sceptre; est cach‚ dans une chambre
+                                 d‚rob‚e. Muni de la cl‚, du collier, de
+                                 la lampe  et de la baguette magique,      
+                                 allez dans le donjon. Deux fois dans le
+                                 corridor agitez la baguette magique et
+                                 un passage secret apparaŒtra. Allez y     
+                                 pour prendre le sceptre ;puis revenez     
+                                 par la cour et agitez le sceptre … la     
+                                 porte pour vous ‚chapper.           
+                   SWORD         L'‚p‚e; d‚cisive dans les combats avec
+                                 les monstres.
+                   WAND          La baguette magique; sert pour le         
+                                 mirroir des magiciens et le couloir du
+                                 roi.
+                   WINE FLASK    La carafe … vin; est sur la table de la
+                                 cuisine.                       
+         
+                            
+         AUTEUR:                  Kevin Bales
+                                  1250 Lindenwood Lane
+                                  Atlanta,Georgia 30319
+                                  Tel: (404)321-3841
+         
+                   Si vous avez trouv‚ ce jeu divertissant, vous ˆtes
+                   invit‚ … envoyer … son auteur une contribution de 10
+                   Dollars. Vous pouvez faire circuler librement CASTLE
+                   dans la mesure o— vous ne le modifiez pas.
+                   Tous commentaires, suggestions, critiques et            
+                   questions de votre part sont les bienvenus.
+         
+         
+         
+         ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+         ³TEXTE  SOFT*SYSTEM³
+         ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+                            

@@ -1,0 +1,348 @@
+{
+ "objects": [
+  {
+   "id": 1,
+   "name": "LAMP",
+   "room": 17,
+   "char": 6,
+   "glyph": "♠",
+   "row": 14,
+   "col": 19,
+   "hidden": false,
+   "start_room": 17
+  },
+  {
+   "id": 2,
+   "name": "HARP",
+   "room": 65,
+   "char": 14,
+   "glyph": "♫",
+   "row": 8,
+   "col": 16,
+   "hidden": false,
+   "start_room": 65
+  },
+  {
+   "id": 3,
+   "name": "NECKLACE",
+   "room": 119,
+   "char": 21,
+   "glyph": "§",
+   "row": 196,
+   "col": 179,
+   "hidden": true,
+   "start_room": 19
+  },
+  {
+   "id": 4,
+   "name": "BOOK",
+   "room": 158,
+   "char": 22,
+   "glyph": "▬",
+   "row": 219,
+   "col": 219,
+   "hidden": true,
+   "start_room": 58
+  },
+  {
+   "id": 5,
+   "name": "MAGIC WAND",
+   "room": 24,
+   "char": 45,
+   "glyph": "-",
+   "row": 9,
+   "col": 4,
+   "hidden": false,
+   "start_room": 24
+  },
+  {
+   "id": 6,
+   "name": "SWORD",
+   "room": 12,
+   "char": 197,
+   "glyph": "┼",
+   "row": 5,
+   "col": 11,
+   "hidden": false,
+   "start_room": 12
+  },
+  {
+   "id": 7,
+   "name": "KEY",
+   "room": 156,
+   "char": 231,
+   "glyph": "τ",
+   "row": 196,
+   "col": 179,
+   "hidden": true,
+   "start_room": 56
+  },
+  {
+   "id": 8,
+   "name": "EYE GLASSES",
+   "room": 140,
+   "char": 236,
+   "glyph": "∞",
+   "row": 196,
+   "col": 179,
+   "hidden": true,
+   "start_room": 40
+  },
+  {
+   "id": 9,
+   "name": "CRYSTAL BALL",
+   "room": 66,
+   "char": 248,
+   "glyph": "°",
+   "row": 13,
+   "col": 10,
+   "hidden": false,
+   "start_room": 66
+  },
+  {
+   "id": 10,
+   "name": "HELMET",
+   "room": 22,
+   "char": 155,
+   "glyph": "¢",
+   "row": 5,
+   "col": 12,
+   "hidden": false,
+   "start_room": 22
+  },
+  {
+   "id": 11,
+   "name": "WINE FLASK",
+   "room": 110,
+   "char": 33,
+   "glyph": "!",
+   "row": 196,
+   "col": 179,
+   "hidden": true,
+   "start_room": 10
+  },
+  {
+   "id": 12,
+   "name": "HOLY CROSS",
+   "room": 37,
+   "char": 116,
+   "glyph": "t",
+   "row": 13,
+   "col": 15,
+   "hidden": false,
+   "start_room": 37
+  },
+  {
+   "id": 13,
+   "name": "DIAMOND",
+   "room": 57,
+   "char": 4,
+   "glyph": "♦",
+   "row": 10,
+   "col": 13,
+   "hidden": false,
+   "start_room": 57
+  },
+  {
+   "id": 14,
+   "name": "SILVER BARS",
+   "room": 26,
+   "char": 240,
+   "glyph": "≡",
+   "row": 8,
+   "col": 7,
+   "hidden": false,
+   "start_room": 26
+  },
+  {
+   "id": 15,
+   "name": "RUBYS",
+   "room": 60,
+   "char": 58,
+   "glyph": ":",
+   "row": 16,
+   "col": 4,
+   "hidden": false,
+   "start_room": 60
+  },
+  {
+   "id": 16,
+   "name": "JADE FIGURINE",
+   "room": 29,
+   "char": 157,
+   "glyph": "¥",
+   "row": 10,
+   "col": 13,
+   "hidden": false,
+   "start_room": 29
+  },
+  {
+   "id": 17,
+   "name": "SCEPTER",
+   "room": 83,
+   "char": 225,
+   "glyph": "ß",
+   "row": 10,
+   "col": 12,
+   "hidden": false,
+   "start_room": 83
+  },
+  {
+   "id": 18,
+   "name": "HOURGLASS",
+   "room": 20,
+   "char": 232,
+   "glyph": "Φ",
+   "row": 14,
+   "col": 6,
+   "hidden": false,
+   "start_room": 20
+  },
+  {
+   "id": 19,
+   "name": "LARGE GEM",
+   "room": 118,
+   "char": 233,
+   "glyph": "Θ",
+   "row": 196,
+   "col": 179,
+   "hidden": true,
+   "start_room": 18
+  },
+  {
+   "id": 20,
+   "name": "GOLDBAR",
+   "room": 74,
+   "char": 254,
+   "glyph": "■",
+   "row": 14,
+   "col": 23,
+   "hidden": false,
+   "start_room": 74
+  },
+  {
+   "id": 21,
+   "name": "FANCY GOBLET",
+   "room": 8,
+   "char": 230,
+   "glyph": "µ",
+   "row": 14,
+   "col": 6,
+   "hidden": false,
+   "start_room": 8
+  },
+  {
+   "id": 22,
+   "name": "CROWN",
+   "room": 14,
+   "char": 127,
+   "glyph": "⌂",
+   "row": 5,
+   "col": 9,
+   "hidden": false,
+   "start_room": 14
+  }
+ ],
+ "monsters": [
+  {
+   "id": 1,
+   "name": "UGLY OGRE",
+   "room": 4,
+   "char": 1,
+   "glyph": "☺",
+   "row": 9,
+   "col": 13,
+   "hp": 80
+  },
+  {
+   "id": 2,
+   "name": "UGLY OGRE",
+   "room": 21,
+   "char": 1,
+   "glyph": "☺",
+   "row": 12,
+   "col": 12,
+   "hp": 80
+  },
+  {
+   "id": 3,
+   "name": "ANGRY DEMON",
+   "room": 14,
+   "char": 2,
+   "glyph": "☻",
+   "row": 7,
+   "col": 13,
+   "hp": 120
+  },
+  {
+   "id": 4,
+   "name": "ANGRY DEMON",
+   "room": 24,
+   "char": 2,
+   "glyph": "☻",
+   "row": 10,
+   "col": 6,
+   "hp": 120
+  },
+  {
+   "id": 5,
+   "name": "BIG SPIDER",
+   "room": 73,
+   "char": 15,
+   "glyph": "☼",
+   "row": 14,
+   "col": 18,
+   "hp": 80
+  },
+  {
+   "id": 6,
+   "name": "SMALL SPIDER",
+   "room": 70,
+   "char": 42,
+   "glyph": "*",
+   "row": 5,
+   "col": 17,
+   "hp": 40
+  },
+  {
+   "id": 7,
+   "name": "BAT",
+   "room": 68,
+   "char": 40,
+   "glyph": "(",
+   "row": 7,
+   "col": 18,
+   "hp": 10
+  },
+  {
+   "id": 8,
+   "name": "SNAKE",
+   "room": 17,
+   "char": 235,
+   "glyph": "δ",
+   "row": 14,
+   "col": 17,
+   "hp": 60
+  },
+  {
+   "id": 9,
+   "name": "VAMPIRE",
+   "room": 28,
+   "char": 5,
+   "glyph": "♣",
+   "row": 10,
+   "col": 24,
+   "hp": 1
+  },
+  {
+   "id": 10,
+   "name": "FAIRY",
+   "room": 0,
+   "char": 246,
+   "glyph": "÷",
+   "row": 0,
+   "col": 0,
+   "hp": 1
+  }
+ ]
+}

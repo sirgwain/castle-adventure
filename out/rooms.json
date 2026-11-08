@@ -1,0 +1,3034 @@
+{
+  "rooms": [
+    {
+      "id": 1,
+      "map": [
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓▓▓▓▓▓▓▓▓▓════▓▓▓▓▓▓▓▓▓▓"
+      ],
+      "description_lines": [
+        "You are in the Castle    ",
+        "Courtyard. To the north  ",
+        "is a large Doorway.To the",
+        "south is a large gate.   ",
+        "                         "
+      ],
+      "description": "You are in the Castle Courtyard. To the north is a large Doorway.To the south is a large gate.",
+      "exits_raw": "N2",
+      "exits": {
+        "N": 2
+      }
+    },
+    {
+      "id": 2,
+      "map": [
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         "
+      ],
+      "description_lines": [
+        "You are in the Entrance  ",
+        "room. Exits are to the   ",
+        "north & south.           ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in the Entrance room. Exits are to the north & south.",
+      "exits_raw": "N3S1",
+      "exits": {
+        "N": 3,
+        "S": 1
+      }
+    },
+    {
+      "id": 3,
+      "map": [
+        "         ▓    ▓         ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        "▓▓                    ▓▓",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "▓▓                    ▓▓",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ ",
+        "         ▓    ▓         "
+      ],
+      "description_lines": [
+        "You are in The Welcome   ",
+        "Hall. This room was used ",
+        "to welcome guests. There ",
+        "are large archways in    ",
+        "all four walls.          "
+      ],
+      "description": "You are in The Welcome Hall. This room was used to welcome guests. There are large archways in all four walls.",
+      "exits_raw": "N7S2E5W4",
+      "exits": {
+        "N": 7,
+        "S": 2,
+        "E": 5,
+        "W": 4
+      }
+    },
+    {
+      "id": 4,
+      "map": [
+        "         ▓    ▓         ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ ",
+        " ▓                    ▓ ",
+        " ▓                  U ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓▓",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                    ▓▓",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are in The West      ",
+        "Ballroom. There are arch ",
+        "ways to the north & east;",
+        "a spiral staircase in one",
+        "corner.                  "
+      ],
+      "description": "You are in The West Ballroom. There are arch ways to the north & east; a spiral staircase in one corner.",
+      "exits_raw": "N8E3U20",
+      "exits": {
+        "N": 8,
+        "E": 3,
+        "U": 20
+      }
+    },
+    {
+      "id": 5,
+      "map": [
+        "         ▓    ▓         ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ ",
+        " ▓                    ▓ ",
+        " ▓ U                  ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        "▓▓                    ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "▓▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are in The East      ",
+        "Ballroom. There are arch ",
+        "ways to the north & west;",
+        "a spiral staircase in one",
+        "corner.                  "
+      ],
+      "description": "You are in The East Ballroom. There are arch ways to the north & west; a spiral staircase in one corner.",
+      "exits_raw": "N6W3U21",
+      "exits": {
+        "N": 6,
+        "W": 3,
+        "U": 21
+      }
+    },
+    {
+      "id": 6,
+      "map": [
+        "         ▓    ▓         ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓  ",
+        " ▓                   ▓  ",
+        " ▓                   ▓  ",
+        " ▓                   ▓▓▓",
+        " ▓                      ",
+        "▓▓                      ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "▓▓                      ",
+        " ▓                      ",
+        " ▓                   ▓▓▓",
+        " ▓                   ▓  ",
+        " ▓                   ▓  ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓  ",
+        "         ▓    ▓         "
+      ],
+      "description_lines": [
+        "You are in the East      ",
+        "Dining room. The large   ",
+        "opening to the east leads",
+        "to the garden patio.     ",
+        "                         "
+      ],
+      "description": "You are in the East Dining room. The large opening to the east leads to the garden patio.",
+      "exits_raw": "N12S5E18W7",
+      "exits": {
+        "N": 12,
+        "S": 5,
+        "E": 18,
+        "W": 7
+      }
+    },
+    {
+      "id": 7,
+      "map": [
+        "         ▓    ▓         ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        "▓▓                    ▓▓",
+        "                        ",
+        "           UU           ",
+        "           UU           ",
+        "                        ",
+        "▓▓                    ▓▓",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ ",
+        "         ▓    ▓         "
+      ],
+      "description_lines": [
+        "You are in The Central   ",
+        "Hall. Exits are in all   ",
+        "directions. There is a   ",
+        "large spiral staircase   ",
+        "in the middle.           "
+      ],
+      "description": "You are in The Central Hall. Exits are in all directions. There is a large spiral staircase in the middle.",
+      "exits_raw": "N13S3E6W8U23",
+      "exits": {
+        "N": 13,
+        "S": 3,
+        "E": 6,
+        "W": 8,
+        "U": 23
+      }
+    },
+    {
+      "id": 8,
+      "map": [
+        "    ▓  ▓        ▓  ▓    ",
+        " ▓▓▓▓  ▓▓▓▓▓▓▓▓▓▓  ▓▓▓▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓▓",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                    ▓▓",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ ",
+        "         ▓    ▓         "
+      ],
+      "description_lines": [
+        "You are in the West      ",
+        "Dining room. There 2 door",
+        "ways to the north, & arch",
+        "ways to the east & south.",
+        "                         "
+      ],
+      "description": "You are in the West Dining room. There 2 door ways to the north, & arch ways to the east & south.",
+      "exits_raw": "N9S4E7",
+      "exits": {
+        "N": 9,
+        "S": 4,
+        "E": 7
+      }
+    },
+    {
+      "id": 9,
+      "map": [
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "   ▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓  ",
+        "   ▓                 ▓▓▓",
+        "   ▓                    ",
+        "   ▓                 ▓▓▓",
+        "   ▓                 ▓  ",
+        "   ▓                 ▓  ",
+        "   ▓    █████████    ▓  ",
+        "   ▓    █████████    ▓  ",
+        "   ▓                 ▓  ",
+        "   ▓                 ▓  ",
+        "   ▓                 ▓  ",
+        "   ▓                 ▓  ",
+        "   ▓                 ▓  ",
+        "   ▓▓  ▓▓▓▓▓▓▓▓▓▓  ▓▓▓  ",
+        "    ▓  ▓        ▓  ▓    ",
+        "    ▓  ▓        ▓  ▓    "
+      ],
+      "description_lines": [
+        "You are in The Kitchen.  ",
+        "In the Center is a large ",
+        "stone table.             ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in The Kitchen. In the Center is a large stone table.",
+      "exits_raw": "N11S8E10",
+      "exits": {
+        "N": 11,
+        "S": 8,
+        "E": 10
+      }
+    },
+    {
+      "id": 10,
+      "map": [
+        "  ▓▓▓▓▓▓▓▓▓▓▓           ",
+        "  ▓      ███▓           ",
+        "  ▓         ▓           ",
+        "▓▓▓         ▓           ",
+        "            ▓           ",
+        "▓▓▓         ▓           ",
+        "  ▓         ▓           ",
+        "  ▓         ▓           ",
+        "  ▓         ▓           ",
+        "  ▓         ▓           ",
+        "  ▓   ┌──┐  ▓           ",
+        "  ▓   └──┘  ▓           ",
+        "  ▓         ▓           ",
+        "  ▓▓▓▓▓▓▓▓▓▓▓           ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are in The Chef's    ",
+        "Quarters. There is a     ",
+        "small desk & a Bed here. ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in The Chef's Quarters. There is a small desk & a Bed here.",
+      "exits_raw": "W9",
+      "exits": {
+        "W": 9
+      }
+    },
+    {
+      "id": 11,
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓     ",
+        "▓                 ▓     ",
+        "▓ D               ▓     ",
+        "▓     █████████   ▓     ",
+        "▓                 ▓     ",
+        "▓                 ▓     ",
+        "▓     █████████   ▓     ",
+        "▓                 ▓     ",
+        "▓                 ▓     ",
+        "▓                 ▓     ",
+        "▓▓▓▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓     ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          "
+      ],
+      "description_lines": [
+        "You are in the Storage   ",
+        "room. There are Two large",
+        "shelves in the middle,and",
+        "a Small Staircase in one ",
+        "corner.                  "
+      ],
+      "description": "You are in the Storage room. There are Two large shelves in the middle,and a Small Staircase in one corner.",
+      "exits_raw": "S9D68",
+      "exits": {
+        "S": 9,
+        "D": 68
+      }
+    },
+    {
+      "id": 12,
+      "map": [
+        "                        ",
+        "       ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  ",
+        "       ▓             ▓  ",
+        "       ▓             ▓  ",
+        "       ▓             ▓▓▓",
+        "       ▓                ",
+        "       ▓                ",
+        "       ▓                ",
+        "       ▓                ",
+        "       ▓                ",
+        "       ▓                ",
+        "       ▓                ",
+        "       ▓                ",
+        "       ▓             ▓▓▓",
+        "       ▓             ▓  ",
+        "       ▓             ▓  ",
+        "       ▓▓▓    ▓▓▓▓▓▓▓▓  ",
+        "         ▓    ▓         "
+      ],
+      "description_lines": [
+        "You are in The Castle    ",
+        "Museum. This room was    ",
+        "once decorated with many ",
+        "artifacts.               ",
+        "                         "
+      ],
+      "description": "You are in The Castle Museum. This room was once decorated with many artifacts.",
+      "exits_raw": "S6E17",
+      "exits": {
+        "S": 6,
+        "E": 17
+      }
+    },
+    {
+      "id": 13,
+      "map": [
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "      ▓▓▓▓    ▓▓▓▓      ",
+        "      ▓          ▓      ",
+        "      ▓          ▓      ",
+        "      ▓          ▓      ",
+        "      ▓          ▓      ",
+        "      ▓          ▓      ",
+        "      ▓          ▓      ",
+        "      ▓▓▓▓    ▓▓▓▓      ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         "
+      ],
+      "description_lines": [
+        "You are in the Ante Room.",
+        "Here People waited for   ",
+        "an audience with the King",
+        "It was once lined with   ",
+        "benches.                 "
+      ],
+      "description": "You are in the Ante Room. Here People waited for an audience with the King It was once lined with benches.",
+      "exits_raw": "N14S7",
+      "exits": {
+        "N": 14,
+        "S": 7
+      }
+    },
+    {
+      "id": 14,
+      "map": [
+        "                        ",
+        "                        ",
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        "▓▓        █  █        ▓▓",
+        "          █──█          ",
+        "▓▓                    ▓▓",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ ",
+        "         ▓    ▓         "
+      ],
+      "description_lines": [
+        "You are in the Throne    ",
+        "Room. There is a Large   ",
+        "Throne at one end of the ",
+        "room.                    ",
+        "                         "
+      ],
+      "description": "You are in the Throne Room. There is a Large Throne at one end of the room.",
+      "exits_raw": "S13E16W15",
+      "exits": {
+        "S": 13,
+        "E": 16,
+        "W": 15
+      }
+    },
+    {
+      "id": 15,
+      "map": [
+        "      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        "      ▓               ▓ ",
+        "      ▓               ▓ ",
+        "      ▓               ▓▓",
+        "      ▓                 ",
+        "      ▓               ▓▓",
+        "      ▓             U ▓ ",
+        "      ▓               ▓ ",
+        "      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are In the Kings     ",
+        "Dressing room. It was    ",
+        "Once Filled with clothes.",
+        "There is a Staircase in  ",
+        "one corner.              "
+      ],
+      "description": "You are In the Kings Dressing room. It was Once Filled with clothes. There is a Staircase in one corner.",
+      "exits_raw": "E14U31",
+      "exits": {
+        "E": 14,
+        "U": 31
+      }
+    },
+    {
+      "id": 16,
+      "map": [
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ",
+        " ▓               ▓      ",
+        " ▓               ▓      ",
+        "▓▓               ▓      ",
+        "                 ▓      ",
+        "▓▓               ▓      ",
+        " ▓ U             ▓      ",
+        " ▓               ▓      ",
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are in the Queen's   ",
+        "Dressing room. It was    ",
+        "once filled with clothes.",
+        "There is a Staircase in  ",
+        "one corner.              "
+      ],
+      "description": "You are in the Queen's Dressing room. It was once filled with clothes. There is a Staircase in one corner.",
+      "exits_raw": "W14U30",
+      "exits": {
+        "W": 14,
+        "U": 30
+      }
+    },
+    {
+      "id": 17,
+      "map": [
+        "                        ",
+        "  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        "  ▓                   ▓ ",
+        "  ▓     ▒             ▓ ",
+        "▓▓▓               ░   ▓ ",
+        "              ▒       ▓ ",
+        "            ▒         ▓ ",
+        "       ░          ░   ▓ ",
+        "                      ▓ ",
+        "         ▒   ░        ▓ ",
+        "                      ▓ ",
+        "          ▒      ▒    ▓ ",
+        "                      ▓ ",
+        "▓▓▓  ░       ░        ▓ ",
+        "  ▓                ░  ▓ ",
+        "  ▓                   ▓ ",
+        "  ▓           ░       ▓ ",
+        "  ▓                   ▓ "
+      ],
+      "description_lines": [
+        "You are In The North end ",
+        "of the Castle Garden. It ",
+        "is overgrown with bushes.",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are In The North end of the Castle Garden. It is overgrown with bushes.",
+      "exits_raw": "S18W12",
+      "exits": {
+        "S": 18,
+        "W": 12
+      }
+    },
+    {
+      "id": 18,
+      "map": [
+        "  ▓░              ░   ▓ ",
+        "  ▓                   ▓ ",
+        "  ▓        ▒          ▓ ",
+        "  ▓                   ▓ ",
+        "▓▓▓    ░              ▓ ",
+        "                 ░    ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "          ┌─┐         ▓ ",
+        "          │Γ│         ▓ ",
+        "          └─┘     ▒   ▓ ",
+        "       ░              ▓ ",
+        "                      ▓ ",
+        "▓▓▓      ▒            ▓ ",
+        "  ▓            ░      ▓ ",
+        "  ▓                   ▓ ",
+        "  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are in The South end ",
+        "of The Castle garden. In ",
+        "the center is a fountain.",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in The South end of The Castle garden. In the center is a fountain.",
+      "exits_raw": "N17W6",
+      "exits": {
+        "N": 17,
+        "W": 6
+      }
+    },
+    {
+      "id": 19,
+      "map": [
+        "         ▓    ▓         ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "          ┌─┐           ",
+        "          │α│           ",
+        "          └─┘           ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        "                        "
+      ],
+      "description_lines": [
+        "You are in the center of ",
+        "The upper Hall. There is ",
+        "a statue of the King in  ",
+        "the middle.              ",
+        "                         "
+      ],
+      "description": "You are in the center of The upper Hall. There is a statue of the King in the middle.",
+      "exits_raw": "N23E21W20",
+      "exits": {
+        "N": 23,
+        "E": 21,
+        "W": 20
+      }
+    },
+    {
+      "id": 20,
+      "map": [
+        "         ▓    ▓         ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        " ▓                      ",
+        " ▓                  D   ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        "                        "
+      ],
+      "description_lines": [
+        "You are in the west end  ",
+        "of the Upper hall. There ",
+        "is a staircase leading   ",
+        "down.                    ",
+        "                         "
+      ],
+      "description": "You are in the west end of the Upper hall. There is a staircase leading down.",
+      "exits_raw": "N24E19D4",
+      "exits": {
+        "N": 24,
+        "E": 19,
+        "D": 4
+      }
+    },
+    {
+      "id": 21,
+      "map": [
+        "         ▓    ▓         ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ ",
+        "                      ▓ ",
+        "   D                  ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are in the east end  ",
+        "of the Upper Hall. There ",
+        "is a Staircase leading   ",
+        "down.                    ",
+        "                         "
+      ],
+      "description": "You are in the east end of the Upper Hall. There is a Staircase leading down.",
+      "exits_raw": "N22W19D5",
+      "exits": {
+        "N": 22,
+        "W": 19,
+        "D": 5
+      }
+    },
+    {
+      "id": 22,
+      "map": [
+        "                 ▓  ▓   ",
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  ▓▓▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        "▓▓                    ▓▓",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "▓▓                    ▓▓",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ ",
+        "         ▓    ▓         "
+      ],
+      "description_lines": [
+        "You are in The Guards    ",
+        "Hall. This room was once ",
+        "used to honor Members of ",
+        "the Royal Guard.         ",
+        "                         "
+      ],
+      "description": "You are in The Guards Hall. This room was once used to honor Members of the Royal Guard.",
+      "exits_raw": "N25S21E33W23",
+      "exits": {
+        "N": 25,
+        "S": 21,
+        "E": 33,
+        "W": 23
+      }
+    },
+    {
+      "id": 23,
+      "map": [
+        "          ▓  ▓          ",
+        " ▓▓▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        "▓▓                    ▓▓",
+        "                        ",
+        "           DD           ",
+        "           DD           ",
+        "                        ",
+        "▓▓                    ▓▓",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ ",
+        "         ▓    ▓         "
+      ],
+      "description_lines": [
+        "You are in the Anex Hall.",
+        "There is a large spiral  ",
+        "staircase in the middle. ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in the Anex Hall. There is a large spiral staircase in the middle.",
+      "exits_raw": "N28S19E22W24D7",
+      "exits": {
+        "N": 28,
+        "S": 19,
+        "E": 22,
+        "W": 24,
+        "D": 7
+      }
+    },
+    {
+      "id": 24,
+      "map": [
+        "   ▓  ▓                 ",
+        " ▓▓▓  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓▓",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                    ▓▓",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ ",
+        "         ▓    ▓         "
+      ],
+      "description_lines": [
+        "You are in The Knights   ",
+        "Hall. This room was once ",
+        "used to Honor The King's ",
+        "Knights.                 ",
+        "                         "
+      ],
+      "description": "You are in The Knights Hall. This room was once used to Honor The King's Knights.",
+      "exits_raw": "N26S20E23",
+      "exits": {
+        "N": 26,
+        "S": 20,
+        "E": 23
+      }
+    },
+    {
+      "id": 25,
+      "map": [
+        "               ▓▓▓▓▓▓▓▓ ",
+        "               ▓      ▓ ",
+        "               ▓  UU  ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓▓▓  ▓▓▓ ",
+        "                 ▓  ▓   ",
+        "                 ▓  ▓   "
+      ],
+      "description_lines": [
+        "You are in a lower       ",
+        "Battlement. There is a   ",
+        "staircase at one end.    ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in a lower Battlement. There is a staircase at one end.",
+      "exits_raw": "S22U42",
+      "exits": {
+        "S": 22,
+        "U": 42
+      }
+    },
+    {
+      "id": 26,
+      "map": [
+        " ▓▓▓▓▓▓▓▓               ",
+        " ▓      ▓               ",
+        " ▓  UU  ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓▓▓  ▓▓▓               ",
+        "   ▓  ▓                 "
+      ],
+      "description_lines": [
+        "You are In a Lower       ",
+        "Battlement. There is a   ",
+        "staircase at one end.    ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are In a Lower Battlement. There is a staircase at one end.",
+      "exits_raw": "S24U45",
+      "exits": {
+        "S": 24,
+        "U": 45
+      }
+    },
+    {
+      "id": 27,
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓▓▓▓",
+        "   ▓                    ",
+        "   ▓                    ",
+        "   ▓                ▓▓▓▓",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are In a Guest room. ",
+        "                         ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are In a Guest room.",
+      "exits_raw": "E28",
+      "exits": {
+        "E": 28
+      }
+    },
+    {
+      "id": 28,
+      "map": [
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "                       ▓",
+        "                        ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓▓  ▓▓         ",
+        "          ▓  ▓          "
+      ],
+      "description_lines": [
+        "You are in a Cooridor.   ",
+        "                         ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in a Cooridor.",
+      "exits_raw": "N32S23E29W27",
+      "exits": {
+        "N": 32,
+        "S": 23,
+        "E": 29,
+        "W": 27
+      }
+    },
+    {
+      "id": 29,
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "▓▓▓▓                ▓   ",
+        "▓                   ▓   ",
+        "                    ▓   ",
+        "▓▓▓▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are In a Guest Room. ",
+        "                         ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are In a Guest Room.",
+      "exits_raw": "W28",
+      "exits": {
+        "W": 28
+      }
+    },
+    {
+      "id": 30,
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ",
+        " ▓               ▓      ",
+        " ▓               ▓      ",
+        " ▓ D             ▓      ",
+        "▓▓               ▓      ",
+        "                 ▓      ",
+        "                 ▓      ",
+        "▓▓               ▓      ",
+        " ▓               ▓      ",
+        " ▓               ▓      ",
+        " ▓               ▓      ",
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are in the Queen's   ",
+        "Bed room. It was once    ",
+        "furnished but is now     ",
+        "empty. there is a stair  ",
+        "case in one corner.      "
+      ],
+      "description": "You are in the Queen's Bed room. It was once furnished but is now empty. there is a stair case in one corner.",
+      "exits_raw": "W32D16",
+      "exits": {
+        "W": 32,
+        "D": 16
+      }
+    },
+    {
+      "id": 31,
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        "     ▓                ▓ ",
+        "     ▓              D ▓ ",
+        "     ▓                ▓▓",
+        "     ▓                  ",
+        "     ▓                  ",
+        "     ▓                ▓▓",
+        "     ▓                ▓ ",
+        "     ▓                ▓ ",
+        "     ▓                ▓ ",
+        "     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are In the Kings room",
+        ". It was once Furnished  ",
+        "but is now empty. There  ",
+        "is a staircase in one    ",
+        "corner.                  "
+      ],
+      "description": "You are In the Kings room . It was once Furnished but is now empty. There is a staircase in one corner.",
+      "exits_raw": "E32D15",
+      "exits": {
+        "E": 32,
+        "D": 15
+      }
+    },
+    {
+      "id": 32,
+      "map": [
+        "                        ",
+        "         ▓▓▓▓▓▓         ",
+        "         ▓    ▓         ",
+        "         ▓ UU ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "                        ",
+        "                        ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         "
+      ],
+      "description_lines": [
+        "You are In a Cooridor.   ",
+        "There is a staircase at  ",
+        "one end.                 ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are In a Cooridor. There is a staircase at one end.",
+      "exits_raw": "S28E30W31U34",
+      "exits": {
+        "S": 28,
+        "E": 30,
+        "W": 31,
+        "U": 34
+      }
+    },
+    {
+      "id": 33,
+      "map": [
+        "                        ",
+        " ▓▓▓▓▓▓█─┐              ",
+        " ▓       │              ",
+        " ▓       ├              ",
+        " ▓       │              ",
+        " ▓       ├              ",
+        "▓▓       │              ",
+        "         │              ",
+        "         ├              ",
+        "         ├              ",
+        "         │              ",
+        "▓▓       │              ",
+        " ▓       ├              ",
+        " ▓       │              ",
+        " ▓       ├              ",
+        " ▓       │              ",
+        " ▓▓▓▓▓▓█─┘              ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are on a Balcony     ",
+        "looking over the Castle  ",
+        "Gardens.                 ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are on a Balcony looking over the Castle Gardens.",
+      "exits_raw": "W22",
+      "exits": {
+        "W": 22
+      }
+    },
+    {
+      "id": 34,
+      "map": [
+        "                        ",
+        "         ▓▓▓▓▓▓         ",
+        "         ▓    ▓         ",
+        "         ▓ DD ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "                        ",
+        "                        ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         "
+      ],
+      "description_lines": [
+        "You are In a Cooridor.   ",
+        "there is a staircase at  ",
+        "on end.                  ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are In a Cooridor. there is a staircase at on end.",
+      "exits_raw": "S41E40W39D32",
+      "exits": {
+        "S": 41,
+        "E": 40,
+        "W": 39,
+        "D": 32
+      }
+    },
+    {
+      "id": 35,
+      "map": [
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "     ▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓▓▓",
+        "     ▓                  ",
+        "     ▓                  ",
+        "     ▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓▓▓",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          "
+      ],
+      "description_lines": [
+        "You are in a Cooridor.   ",
+        "                         ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in a Cooridor.",
+      "exits_raw": "N39S37E41",
+      "exits": {
+        "N": 39,
+        "S": 37,
+        "E": 41
+      }
+    },
+    {
+      "id": 36,
+      "map": [
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "▓▓▓▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓     ",
+        "                  ▓     ",
+        "                  ▓     ",
+        "▓▓▓▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓     ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          "
+      ],
+      "description_lines": [
+        "You are in a Cooridor.   ",
+        "                         ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in a Cooridor.",
+      "exits_raw": "N40S38W41",
+      "exits": {
+        "N": 40,
+        "S": 38,
+        "W": 41
+      }
+    },
+    {
+      "id": 37,
+      "map": [
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "   ▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓  ██        ██  ▓   ",
+        "   ▓  ██        ██  ▓   ",
+        "   ▓  ██        ██  ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are in The Red Room. ",
+        "This is decorated all in ",
+        "red. It is mostly empty  ",
+        "now except for 2 beds.   ",
+        "                         "
+      ],
+      "description": "You are in The Red Room. This is decorated all in red. It is mostly empty now except for 2 beds.",
+      "exits_raw": "N35",
+      "exits": {
+        "N": 35
+      }
+    },
+    {
+      "id": 38,
+      "map": [
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "   ▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓  ██        ██  ▓   ",
+        "   ▓  ██        ██  ▓   ",
+        "   ▓  ██        ██  ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are in the Blue room.",
+        "This room is decorated   ",
+        "all in blue. It is now   ",
+        "empty except for 2 beds. ",
+        "                         "
+      ],
+      "description": "You are in the Blue room. This room is decorated all in blue. It is now empty except for 2 beds.",
+      "exits_raw": "N36",
+      "exits": {
+        "N": 36
+      }
+    },
+    {
+      "id": 39,
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ",
+        "   ▓                ▓   ",
+        "   ▓ ████           ▓   ",
+        "   ▓ ████           ▓   ",
+        "   ▓                ▓▓▓▓",
+        "   ▓                    ",
+        "   ▓                    ",
+        "   ▓                ▓▓▓▓",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓   ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          "
+      ],
+      "description_lines": [
+        "You are in the Purple    ",
+        "room. It is Decorated all",
+        "in purple. There is 1 bed",
+        "left.                    ",
+        "                         "
+      ],
+      "description": "You are in the Purple room. It is Decorated all in purple. There is 1 bed left.",
+      "exits_raw": "S35E34",
+      "exits": {
+        "S": 35,
+        "E": 34
+      }
+    },
+    {
+      "id": 40,
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ",
+        "   ▓                ▓   ",
+        "   ▓ ████           ▓   ",
+        "   ▓ ████           ▓   ",
+        "▓▓▓▓                ▓   ",
+        "                    ▓   ",
+        "                    ▓   ",
+        "▓▓▓▓                ▓   ",
+        "   ▓            ┌─┐ ▓   ",
+        "   ▓            └─┘ ▓   ",
+        "   ▓                ▓   ",
+        "   ▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓   ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          "
+      ],
+      "description_lines": [
+        "You are in the Yellow    ",
+        "room. It is decorated all",
+        "in Yellow.Now it is empty",
+        "except for a desk & bed. ",
+        "                         "
+      ],
+      "description": "You are in the Yellow room. It is decorated all in Yellow.Now it is empty except for a desk & bed.",
+      "exits_raw": "S36W34",
+      "exits": {
+        "S": 36,
+        "W": 34
+      }
+    },
+    {
+      "id": 41,
+      "map": [
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "                        ",
+        "                        ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "         ▓ UU ▓         ",
+        "         ▓    ▓         ",
+        "         ▓▓▓▓▓▓         ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are in a cooridor.   ",
+        "There is a staircase at  ",
+        "one end.                 ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in a cooridor. There is a staircase at one end.",
+      "exits_raw": "N34E36W35U53",
+      "exits": {
+        "N": 34,
+        "E": 36,
+        "W": 35,
+        "U": 53
+      }
+    },
+    {
+      "id": 42,
+      "map": [
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        "                      ▓ ",
+        "                  DU  ▓ ",
+        "                      ▓ ",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ "
+      ],
+      "description_lines": [
+        "You are in An upper      ",
+        "Battlement. There is a   ",
+        "staircase in one corner. ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in An upper Battlement. There is a staircase in one corner.",
+      "exits_raw": "S43W45U49D25",
+      "exits": {
+        "S": 43,
+        "W": 45,
+        "U": 49,
+        "D": 25
+      }
+    },
+    {
+      "id": 43,
+      "map": [
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓▓",
+        "               ▓       ▓",
+        "               ▓      D▓",
+        "               ▓      D▓",
+        "               ▓       ▓",
+        "               ▓      ▓▓",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ "
+      ],
+      "description_lines": [
+        "You are In an Upper      ",
+        "Battlement. There is a   ",
+        "long staircase leading   ",
+        "down.                    ",
+        "                         "
+      ],
+      "description": "You are In an Upper Battlement. There is a long staircase leading down.",
+      "exits_raw": "N42S46D82",
+      "exits": {
+        "N": 42,
+        "S": 46,
+        "D": 82
+      }
+    },
+    {
+      "id": 44,
+      "map": [
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               "
+      ],
+      "description_lines": [
+        "You are in an Upper      ",
+        "Batlement.               ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in an Upper Batlement.",
+      "exits_raw": "N45S47",
+      "exits": {
+        "N": 45,
+        "S": 47
+      }
+    },
+    {
+      "id": 45,
+      "map": [
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        " ▓                      ",
+        " ▓  UD                  ",
+        " ▓                      ",
+        " ▓      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               "
+      ],
+      "description_lines": [
+        "You are in an Upper      ",
+        "Battlement. There is a   ",
+        "staircase in one corner. ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in an Upper Battlement. There is a staircase in one corner.",
+      "exits_raw": "S44E42U48D26",
+      "exits": {
+        "S": 44,
+        "E": 42,
+        "U": 48,
+        "D": 26
+      }
+    },
+    {
+      "id": 46,
+      "map": [
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ "
+      ],
+      "description_lines": [
+        "You are in an Upper      ",
+        "Battlement.              ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in an Upper Battlement.",
+      "exits_raw": "N43W47",
+      "exits": {
+        "N": 43,
+        "W": 47
+      }
+    },
+    {
+      "id": 47,
+      "map": [
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
+      ],
+      "description_lines": [
+        "You are in an Upper      ",
+        "Battlement.              ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in an Upper Battlement.",
+      "exits_raw": "N44E46",
+      "exits": {
+        "N": 44,
+        "E": 46
+      }
+    },
+    {
+      "id": 48,
+      "map": [
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        " ▓                      ",
+        " ▓  DD                  ",
+        " ▓                      ",
+        " ▓      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               "
+      ],
+      "description_lines": [
+        "You are on the Castle    ",
+        "wall. There is a stair   ",
+        "case leading down in one ",
+        "corner.                  ",
+        "                         "
+      ],
+      "description": "You are on the Castle wall. There is a stair case leading down in one corner.",
+      "exits_raw": "S61E49D45",
+      "exits": {
+        "S": 61,
+        "E": 49,
+        "D": 45
+      }
+    },
+    {
+      "id": 49,
+      "map": [
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        "                      ▓ ",
+        "                  DD  ▓ ",
+        "                      ▓ ",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ "
+      ],
+      "description_lines": [
+        "You are on the Castle    ",
+        "wall. There is a stair   ",
+        "case leading down in one ",
+        "corner.                  ",
+        "                         "
+      ],
+      "description": "You are on the Castle wall. There is a stair case leading down in one corner.",
+      "exits_raw": "S50W48D42",
+      "exits": {
+        "S": 50,
+        "W": 48,
+        "D": 42
+      }
+    },
+    {
+      "id": 50,
+      "map": [
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "              ▓▓      ▓▓",
+        "              ▓        ▓",
+        "              ▓   UU   ▓",
+        "              ▓   UU   ▓",
+        "              ▓        ▓",
+        "              ▓▓      ▓▓",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ "
+      ],
+      "description_lines": [
+        "You are at the Bottom of ",
+        "the East Tower.          ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are at the Bottom of the East Tower.",
+      "exits_raw": "N49S51U63",
+      "exits": {
+        "N": 49,
+        "S": 51,
+        "U": 63
+      }
+    },
+    {
+      "id": 51,
+      "map": [
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ "
+      ],
+      "description_lines": [
+        "You are on the Castle    ",
+        "wall.                    ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are on the Castle wall.",
+      "exits_raw": "N50W60",
+      "exits": {
+        "N": 50,
+        "W": 60
+      }
+    },
+    {
+      "id": 52,
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        "▓                       ",
+        "                        ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         "
+      ],
+      "description_lines": [
+        "You are in a Cooridor.   ",
+        "                         ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in a Cooridor.",
+      "exits_raw": "S53E56W57",
+      "exits": {
+        "S": 53,
+        "E": 56,
+        "W": 57
+      }
+    },
+    {
+      "id": 53,
+      "map": [
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "                        ",
+        "                        ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "         ▓ DD ▓         ",
+        "         ▓    ▓         ",
+        "         ▓▓▓▓▓▓         ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are in a Cooridor.   ",
+        "there is a Stairway going",
+        "down.                    ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in a Cooridor. there is a Stairway going down.",
+      "exits_raw": "N52E55W54D41",
+      "exits": {
+        "N": 52,
+        "E": 55,
+        "W": 54,
+        "D": 41
+      }
+    },
+    {
+      "id": 54,
+      "map": [
+        "          ▓ ▓▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "     ▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓▓▓",
+        "     ▓                  ",
+        "     ▓                  ",
+        "     ▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓▓▓",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          "
+      ],
+      "description_lines": [
+        "You are in a Cooridor.   ",
+        "                         ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in a Cooridor.",
+      "exits_raw": "N57S58E53",
+      "exits": {
+        "N": 57,
+        "S": 58,
+        "E": 53
+      }
+    },
+    {
+      "id": 55,
+      "map": [
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "▓▓▓▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓     ",
+        "                  ▓     ",
+        "                  ▓     ",
+        "▓▓▓▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓     ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          "
+      ],
+      "description_lines": [
+        "You are in a Cooridor.   ",
+        "                         ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in a Cooridor.",
+      "exits_raw": "N56S59W53",
+      "exits": {
+        "N": 56,
+        "S": 59,
+        "W": 53
+      }
+    },
+    {
+      "id": 56,
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ",
+        "   ▓                ▓   ",
+        "   ▓     ┌────┐     ▓   ",
+        "   ▓     │    │     ▓   ",
+        "▓▓▓▓     └────┘     ▓   ",
+        "                    ▓   ",
+        "                    ▓   ",
+        "▓▓▓▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓   ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          "
+      ],
+      "description_lines": [
+        "You are in the King's    ",
+        "Study. A large Wooden    ",
+        "Desk is all that is left.",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in the King's Study. A large Wooden Desk is all that is left.",
+      "exits_raw": "S55W52",
+      "exits": {
+        "S": 55,
+        "W": 52
+      }
+    },
+    {
+      "id": 57,
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓▓▓▓",
+        "   ▓                   ▓",
+        "   ▓                    ",
+        "   ▓                ▓▓▓▓",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓   ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓ ▓▓          "
+      ],
+      "description_lines": [
+        "You are in a totally     ",
+        "Empty room.              ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in a totally Empty room.",
+      "exits_raw": "S54E52",
+      "exits": {
+        "S": 54,
+        "E": 52
+      }
+    },
+    {
+      "id": 58,
+      "map": [
+        "          ▓  ▓          ",
+        "    ▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓▓▓",
+        "    ▓                   ",
+        "    ▓                   ",
+        "    ▓                   ",
+        "    ▓                   ",
+        "    ▓                   ",
+        "    ▓  ███████   ███████",
+        "    ▓                   ",
+        "    ▓                   ",
+        "    ▓  ███████   ███████",
+        "    ▓                   ",
+        "    ▓                   ",
+        "    ▓  ███████   ███████",
+        "    ▓                   ",
+        "    ▓                   ",
+        "    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        "                        "
+      ],
+      "description_lines": [
+        "You are in the west end  ",
+        "of The King's Library. It",
+        "is full of shelves.      ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in the west end of The King's Library. It is full of shelves.",
+      "exits_raw": "N54E59",
+      "exits": {
+        "N": 54,
+        "E": 59
+      }
+    },
+    {
+      "id": 59,
+      "map": [
+        "          ▓  ▓          ",
+        "▓▓▓▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓    ",
+        "                   ▓    ",
+        "                   ▓    ",
+        "                   ▓    ",
+        "                   ▓    ",
+        "                   ▓    ",
+        "███████   ███████  ▓    ",
+        "                   ▓    ",
+        "                   ▓    ",
+        "███████   ███████  ▓    ",
+        "                   ▓    ",
+        "                   ▓    ",
+        "███████   ███████  ▓    ",
+        "                   ▓    ",
+        "                   ▓    ",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓    ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are in the East end  ",
+        "of the King's Library. It",
+        "is full of shelves.      ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in the East end of the King's Library. It is full of shelves.",
+      "exits_raw": "N55W58",
+      "exits": {
+        "N": 55,
+        "W": 58
+      }
+    },
+    {
+      "id": 60,
+      "map": [
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
+      ],
+      "description_lines": [
+        "You are on the Castle    ",
+        "Wall.                    ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are on the Castle Wall.",
+      "exits_raw": "N61E51",
+      "exits": {
+        "N": 61,
+        "E": 51
+      }
+    },
+    {
+      "id": 61,
+      "map": [
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        "▓▓      ▓▓              ",
+        "▓        ▓              ",
+        "▓   UU   ▓              ",
+        "▓   UU   ▓              ",
+        "▓        ▓              ",
+        "▓▓      ▓▓              ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               "
+      ],
+      "description_lines": [
+        "You are Below the West   ",
+        "Tower. there is a large  ",
+        "staircase leading up the ",
+        "tower.                   ",
+        "                         "
+      ],
+      "description": "You are Below the West Tower. there is a large staircase leading up the tower.",
+      "exits_raw": "N48S60U62",
+      "exits": {
+        "N": 48,
+        "S": 60,
+        "U": 62
+      }
+    },
+    {
+      "id": 62,
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        " ▓▓▓▓▓▓▓▓               ",
+        "▓▓      ▓▓              ",
+        "▓        ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        "▓   DU                  ",
+        "▓   DU                  ",
+        "▓        ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        "▓▓      ▓▓              ",
+        " ▓▓▓▓▓▓▓▓               ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are in the West Tower",
+        ".There is a Passage to   ",
+        "the East.                ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in the West Tower .There is a Passage to the East.",
+      "exits_raw": "E67U64D61",
+      "exits": {
+        "E": 67,
+        "U": 64,
+        "D": 61
+      }
+    },
+    {
+      "id": 63,
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "               ▓▓▓▓▓▓▓▓ ",
+        "              ▓▓      ▓▓",
+        "              ▓        ▓",
+        "              ▓   UD   ▓",
+        "              ▓   UD   ▓",
+        "              ▓        ▓",
+        "              ▓▓      ▓▓",
+        "               ▓▓▓▓▓▓▓▓ ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are in The East Tower",
+        ". There are Stairs Going ",
+        "both up & down.          ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in The East Tower . There are Stairs Going both up & down.",
+      "exits_raw": "U65D50",
+      "exits": {
+        "U": 65,
+        "D": 50
+      }
+    },
+    {
+      "id": 64,
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        " ▓▓────▓▓               ",
+        "▓▓      ▓▓              ",
+        "▓        ▓              ",
+        "│   DD   │              ",
+        "│   DD   │              ",
+        "▓        ▓              ",
+        "▓▓      ▓▓              ",
+        " ▓▓────▓▓               ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are at the top of the",
+        "West tower.              ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are at the top of the West tower.",
+      "exits_raw": "D62",
+      "exits": {
+        "D": 62
+      }
+    },
+    {
+      "id": 65,
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "               ▓▓────▓▓ ",
+        "              ▓▓      ▓▓",
+        "              ▓        ▓",
+        "              │   DD   │",
+        "              │   DD   │",
+        "              ▓        ▓",
+        "              ▓▓      ▓▓",
+        "               ▓▓────▓▓ ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are at the top of the",
+        "East Tower.              ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are at the top of the East Tower.",
+      "exits_raw": "D63",
+      "exits": {
+        "D": 63
+      }
+    },
+    {
+      "id": 66,
+      "map": [
+        "                        ",
+        "                        ",
+        "    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        "    ▓                  ▓",
+        "    ▓                  ▓",
+        "    ▓                  ▓",
+        "    ▓                  ▓",
+        "▓▓▓▓▓                  ▓",
+        "                       ▓",
+        "                       ▓",
+        "▓▓▓▓▓                  ▓",
+        "    ▓                  ▓",
+        "    ▓                  ▓",
+        "    ▓                  ▓",
+        "    ▓                  ▓",
+        "    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        "                        ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are in the Sorcerers ",
+        "secret laboratory.       ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in the Sorcerers secret laboratory.",
+      "exits_raw": "W67",
+      "exits": {
+        "W": 67
+      }
+    },
+    {
+      "id": 67,
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓    ",
+        "     ▓             ▓    ",
+        "     ▓ ████        ▓    ",
+        "     ▓ ████       ┌▓    ",
+        "▓▓▓▓▓▓            │▓    ",
+        "                  │▓    ",
+        "                  │▓    ",
+        "▓▓▓▓▓▓            │▓    ",
+        "     ▓ ████       └▓    ",
+        "     ▓ ████        ▓    ",
+        "     ▓             ▓    ",
+        "     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓    ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are in the Sorcerers ",
+        "Quarters. Two Beds and a ",
+        "large mirror are all that",
+        "is left.                 ",
+        "                         "
+      ],
+      "description": "You are in the Sorcerers Quarters. Two Beds and a large mirror are all that is left.",
+      "exits_raw": "W62E66",
+      "exits": {
+        "W": 62,
+        "E": 66
+      }
+    },
+    {
+      "id": 68,
+      "map": [
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓     ",
+        "▓                 ▓     ",
+        "▓  ████     ████  ▓     ",
+        "▓  ████     ████  ▓     ",
+        "▓                 ▓     ",
+        "▓           ████  ▓     ",
+        "▓ U         ████  ▓     ",
+        "▓                 ▓     ",
+        "▓  ████     ████  ▓     ",
+        "▓  ████     ████  ▓     ",
+        "▓                 ▓     ",
+        "▓  ████     ████  ▓     ",
+        "▓  ████     ████  ▓     ",
+        "▓                 ▓     ",
+        "▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓     ",
+        "       ▓  ▓             ",
+        "       ▓  ▓             ",
+        "       ▓  ▓             "
+      ],
+      "description_lines": [
+        "You are in the Royal Wine",
+        "Cellar. It is filled with",
+        "many Barrels. At one end ",
+        "is a Large metal Door.   ",
+        "                         "
+      ],
+      "description": "You are in the Royal Wine Cellar. It is filled with many Barrels. At one end is a Large metal Door.",
+      "exits_raw": "S69U11",
+      "exits": {
+        "S": 69,
+        "U": 11
+      }
+    },
+    {
+      "id": 69,
+      "map": [
+        "       ▓  ▓             ",
+        "       ▓  ▓             ",
+        "       ▓  ▓             ",
+        "       ▓  ▓             ",
+        "       ▓  ▓             ",
+        "       ▓  ▓             ",
+        "       ▓  ▓             ",
+        "       ▓  ▓             ",
+        "       ▓  ▓             ",
+        "       ▓  ▓             ",
+        "       ▓  ▓             ",
+        "       ▓  ▓             ",
+        "       ▓  ▓             ",
+        "       ▓  ▓             ",
+        "       ▓  ▓             ",
+        "       ▓  ▓             ",
+        "       ▓  ▓             ",
+        "       ▓  ▓             "
+      ],
+      "description_lines": [
+        "You are in a long        ",
+        "Passageway.              ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in a long Passageway.",
+      "exits_raw": "N68S70",
+      "exits": {
+        "N": 68,
+        "S": 70
+      }
+    },
+    {
+      "id": 70,
+      "map": [
+        "       ▓  ▓             ",
+        "       ▓  ▓             ",
+        "▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓▓▓▓▓▓▓▓▓▓▓  ▓  ▓▓▓▓▓  ▓",
+        "▓     ▓▒▒▒▓  ▓  ▓      ▓",
+        "▓     ▓▒▒▒▓  ▓  ▓      ▓",
+        "▓  ▓▓▓▓▓▓▓▓  ▓  ▓  ▓▓▓▓▓",
+        "▓            ▓  ▓       ",
+        "▓            ▓  ▓       ",
+        "▓ ▓▓▓▓▓▓ ▓▓▓▓▓  ▓▓▓▓▓▓▓▓",
+        "▓ ▓        ▓▒▓  ▓       ",
+        "▓ ▓ ▓▓▓▓▓▓ ▓▒▓  ▓    ▓▓▓",
+        "▓ ▓      ▓ ▓▒▓  ▓ ▓  ▓▒▒",
+        "▓ ▓▓▓▓▓▓ ▓ ▓▓▓  ▓ ▓  ▓▓▓",
+        "▓ ▓      ▓        ▓     ",
+        "▓ ▓ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
+      ],
+      "description_lines": [
+        "You are in a Maze.       ",
+        "                         ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in a Maze.",
+      "exits_raw": "N69S72E71",
+      "exits": {
+        "N": 69,
+        "S": 72,
+        "E": 71
+      }
+    },
+    {
+      "id": 71,
+      "map": [
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  ▓",
+        "▓  ▓                ▓  ▓",
+        "▓  ▓                ▓  ▓",
+        "▓  ▓  ▓▓▓▓▓▓▓▓      ▓  ▓",
+        "▓  ▓  ▓      ▓      ▓  ▓",
+        "▓  ▓  ▓ ▓▓▓  ▓▓▓▓▓  ▓  ▓",
+        "   ▓  ▓ ▓▒▓  ▓▒▒▒▓  ▓  ▓",
+        "   ▓  ▓ ▓▒▓  ▓▒▒▒▓  ▓  ▓",
+        "▓▓▓▓  ▓ ▓▒▓  ▓▒▒▒▓  ▓  ▓",
+        "   ▓  ▓ ▓▒▓  ▓▒▒▒▓  ▓  ▓",
+        "▓  ▓    ▓▒▓  ▓▒▒▒▓  ▓  ▓",
+        "▓  ▓▓▓▓▓▓▓▓  ▓▒▒▒▓  ▓  ▓",
+        "▓            ▓▒▒▒▓     ▓",
+        "             ▓▒▒▒▓     ▓",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▓▓▓▓▓▓▓"
+      ],
+      "description_lines": [
+        "You are in a Maze.       ",
+        "                         ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in a Maze.",
+      "exits_raw": "W70",
+      "exits": {
+        "W": 70
+      }
+    },
+    {
+      "id": 72,
+      "map": [
+        "▓ ▓ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        "▓ ▓                    ▓",
+        "▓ ▓                    ▓",
+        "▓ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ▓",
+        "▓    ▓               ▓ ▓",
+        "▓▓▓▓ ▓               ▓ ▓",
+        "▓    ▓     ▓▓▓▓▓▓▓▓  ▓ ▓",
+        "▓ ▓▓▓▓▓▓▓  ▓▒▒▒▒▒▒▓  ▓ ▓",
+        "▓    ▓▒▒▓  ▓▓▓▓▓▓▓▓  ▓ ▓",
+        "▓▓▓  ▓▒▒▓  ▓           ▓",
+        "▓▒▓  ▓▒▒▓  ▓           ▓",
+        "▓▒▓  ▓▒▒▓  ▓  ▓▓  ▓▓▓▓▓▓",
+        "▓▒▓  ▓▒▒▓  ▓  ▓▓  ▓▒▓   ",
+        "▓▓▓  ▓▒▒▓  ▓  ▓▓  ▓▒▓   ",
+        "▓    ▓▒▒▓  ▓  ▓▓  ▓▓▓  ▓",
+        "▓  ▓▓▓▒▒▓  ▓           ▓",
+        "▓  ▓▒▒▒▒▓  ▓           ▓",
+        "▓  ▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓▓▓▓▓"
+      ],
+      "description_lines": [
+        "You are in a Maze.       ",
+        "                         ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in a Maze.",
+      "exits_raw": "N70S74E73",
+      "exits": {
+        "N": 70,
+        "S": 74,
+        "E": 73
+      }
+    },
+    {
+      "id": 73,
+      "map": [
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        "▓     ▓▓      ▓▓      ▓▓",
+        "▓  ▓      ▓▓      ▓▓   ▓",
+        "▓  ▓▓▓  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ▓",
+        "▓    ▓               ▓ ▓",
+        "▓▓▓▓ ▓▓▓▓            ▓ ▓",
+        "▓    ▓     ▓▓▓▓▓▓▓▓  ▓ ▓",
+        "▓  ▓▓▓  ▓  ▓▒▒▒▒▒▒▓  ▓ ▓",
+        "▓  ▓▒▓  ▓  ▓▓▓▓▓▓▓▓  ▓ ▓",
+        "▓  ▓▒▓  ▓  ▓           ▓",
+        "▓  ▓▒▓  ▓  ▓           ▓",
+        "▓  ▓▒▓  ▓  ▓           ▓",
+        "   ▓▒▓  ▓  ▓           ▓",
+        "   ▓▒▓  ▓  ▓           ▓",
+        "▓▓▓▓▒▓  ▓  ▓           ▓",
+        "▓▒▒▒▒▓  ▓  ▓           ▓",
+        "▓▒▒▒▒▓  ▓  ▓           ▓",
+        "▓▓▓▓▓▓  ▓  ▓▓▓  ▓▓▓▓▓▓▓▓"
+      ],
+      "description_lines": [
+        "You are in a Maze.       ",
+        "                         ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in a Maze.",
+      "exits_raw": "S75W72",
+      "exits": {
+        "S": 75,
+        "W": 72
+      }
+    },
+    {
+      "id": 74,
+      "map": [
+        "▓  ▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        "▓  ▓    ▓               ",
+        "▓  ▓  ▓ ▓               ",
+        "▓  ▓  ▓ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ▓",
+        "▓  ▓  ▓ ▓            ▓ ▓",
+        "▓  ▓  ▓ ▓            ▓ ▓",
+        "▓  ▓  ▓ ▓  ▓▓▓▓▓▓▓▓  ▓ ▓",
+        "▓  ▓  ▓    ▓▒▒▒▒▒▒▓  ▓ ▓",
+        "▓  ▓  ▓▓▓▓▓▓▓▓▓▓▓▓▓  ▓ ▓",
+        "▓  ▓  ▓▒▒▒▒▓           ▓",
+        "▓  ▓  ▓▒kb▒▓           ▓",
+        "▓  ▓  ▓▒▒▒▒▓ ▓▓▓▓▓▓▓▓▓▓▓",
+        "▓  ▓  ▓▓▓▓▓▓ ▓    ▓▒▓   ",
+        "▓  ▓  ▓      ▓ ▓  ▓▒▓   ",
+        "▓  ▓  ▓ ▓▓▓▓▓▓ ▓  ▓▓▓  ▓",
+        "▓  ▓  ▓     ▓  ▓       ▓",
+        "▓     ▓▓▓▓     ▓       ▓",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
+      ],
+      "description_lines": [
+        "You are in a Maze.       ",
+        "                         ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in a Maze.",
+      "exits_raw": "N72E75",
+      "exits": {
+        "N": 72,
+        "E": 75
+      }
+    },
+    {
+      "id": 75,
+      "map": [
+        "▓▓▓▓▓▓  ▓  ▓▓▓  ▓▓▓▓▓▓▓▓",
+        "   ▓    ▓    ▓         ▓",
+        "   ▓    ▓▓▓  ▓▓▓▓▓▓▓▓  ▓",
+        "▓  ▓  ▓▓▓▒▓         ▓  ▓",
+        "▓  ▓    ▓▒▓▓▓▓▓▓▓▓  ▓  ▓",
+        "▓  ▓    ▓▒▒▒▒▒▒▒▒▓  ▓  ▓",
+        "▓  ▓▓▓  ▓▓▓▓▓▓▓▓▓▓  ▓  ▓",
+        "▓  ▓▒▓  ▓           ▓  ▓",
+        "▓  ▓▒▓  ▓  ▓▓▓▓▓▓▓▓▓▓  ▓",
+        "▓  ▓▒▓  ▓  ▓        ▓  ▓",
+        "▓  ▓▒▓  ▓  ▓        ▓  ▓",
+        "▓  ▓▒▓ ▓▓  ▓  ▓▓▓▓  ▓  ▓",
+        "   ▓▒▓ ▓  ▓▓  ▓░░▓  ▓  ▓",
+        "   ▓▒▓ ▓  ▓   ▓░░▓  ▓  ▓",
+        "▓▓▓▓▒▓ ▓  ▓  ▓▓░░▓  ▓  ▓",
+        "▓▒▒▒▒▓ ▓  ▓  ▓░░░▓  ▓  ▓",
+        "▓▒▒▒▒▓    ▓  ▓░░░▓     ▓",
+        "▓▓▓▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓▓▓"
+      ],
+      "description_lines": [
+        "You are in a Maze.       ",
+        "                         ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in a Maze.",
+      "exits_raw": "N73S76W74",
+      "exits": {
+        "N": 73,
+        "S": 76,
+        "W": 74
+      }
+    },
+    {
+      "id": 76,
+      "map": [
+        "          ▓  ▓          ",
+        "          ▓  ▓  ▓▓▓▓▓▓▓▓",
+        "          ▓  ▓  ▓       ",
+        "      ▓▓▓▓▓  ▓  ▓       ",
+        "      ▓      ▓  ▓  ▓▓▓▓▓",
+        "      ▓      ▓  ▓  ▓    ",
+        "      ▓  ▓▓▓▓▓  ▓  ▓    ",
+        "      ▓  ▓      ▓  ▓    ",
+        "      ▓  ▓      ▓  ▓    ",
+        "      ▓  ▓      ▓  ▓    ",
+        "      ▓  ▓      ▓  ▓    ",
+        "      ▓  ▓▓▓▓▓▓▓▓  ▓    ",
+        "      ▓            ▓    ",
+        "      ▓            ▓    ",
+        "      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓    ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are in a Winding     ",
+        "Passage.                 ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in a Winding Passage.",
+      "exits_raw": "N75E77",
+      "exits": {
+        "N": 75,
+        "E": 77
+      }
+    },
+    {
+      "id": 77,
+      "map": [
+        "          ▓  ▓          ",
+        "▓▓▓▓▓▓▓   ▓  ▓          ",
+        "      ▓   ▓  ▓          ",
+        "      ▓▓▓▓▓  ▓          ",
+        "▓▓▓▓  ▓      ▓          ",
+        "   ▓  ▓      ▓          ",
+        "   ▓  ▓  ▓▓▓▓▓▓▓▓       ",
+        "   ▓  ▓  ▓▒▒▒▒▒▒▓       ",
+        "   ▓  ▓  ▓░░░░░░▓▓▓▓▓▓▓ ",
+        "   ▓  ▓  ▓▒▒▒▒▒▒▓     ▓ ",
+        "   ▓  ▓  ▓░░░░░░▓     ▓ ",
+        "   ▓  ▓  ▓▓▓▓▓▓▓▓  ▓  ▓ ",
+        "   ▓  ▓            ▓  ▓ ",
+        "   ▓  ▓            ▓  ▓ ",
+        "   ▓  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓  ▓ ",
+        "   ▓                  ▓ ",
+        "   ▓                  ▓ ",
+        "   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ "
+      ],
+      "description_lines": [
+        "You are in a Winding     ",
+        "Passage.                 ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in a Winding Passage.",
+      "exits_raw": "N78W76S83",
+      "exits": {
+        "N": 78,
+        "W": 76,
+        "S": 83
+      }
+    },
+    {
+      "id": 78,
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "▓▓▓▓▓▓▓▓▓▓▓▓            ",
+        "▓          ▓            ",
+        "▓          ▓            ",
+        "▓  ▓▓▓▓▓▓  ▓            ",
+        "▓  ▓░░░░▓  ▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        "▓  ▓▓▓▓▓▓               ",
+        "▓       ▓               ",
+        "▓       ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        "▓▓▓▓▓▓       ▓          ",
+        "     ▓       ▓          ",
+        "     ▓▓▓▓▓▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          "
+      ],
+      "description_lines": [
+        "You are in a Winding     ",
+        "passage.                 ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in a Winding passage.",
+      "exits_raw": "S77E81",
+      "exits": {
+        "S": 77,
+        "E": 81
+      }
+    },
+    {
+      "id": 79,
+      "map": [
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "  ▓▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓  ",
+        "  ▓                  ▓  ",
+        "  ▓                  ▓  ",
+        "  ▓  ██              ▓  ",
+        "  ▓  ██              ▓  ",
+        "  ▓  ██             ≈▓  ",
+        "  ▓                  ▓  ",
+        "  ▓                  ▓  ",
+        "  ▓                 ≈▓  ",
+        "  ▓                  ▓  ",
+        "  ▓                  ▓  ",
+        "  ▓                  ▓  ",
+        "  ▓                  ▓  ",
+        "  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  ",
+        "                        ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are in the Toture    ",
+        "room. There are chains on",
+        "one wall, and a Large    ",
+        "Table.                   ",
+        "                         "
+      ],
+      "description": "You are in the Toture room. There are chains on one wall, and a Large Table.",
+      "exits_raw": "N81",
+      "exits": {
+        "N": 81
+      }
+    },
+    {
+      "id": 80,
+      "map": [
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        "▓       ▓       ▓      ▓",
+        "▓       ▓       ▓      ▓",
+        "▓       ▓ ▓▓▓▓▓▓▓      ▓",
+        "▓                      ▓",
+        "▓▓▓▓▓▓▓          ▓▓▓▓▓▓▓",
+        "▓     ▓          ▓     ▓",
+        "▓                      ▓",
+        "▓     ▓          ▓     ▓",
+        "▓▓▓▓▓▓▓          ▓▓▓▓▓▓▓",
+        "▓     ▓          ▓     ▓",
+        "▓     ▓          ▓     ▓",
+        "▓                      ▓",
+        "▓     ▓          ▓     ▓",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         "
+      ],
+      "description_lines": [
+        "You are in the Dungeon.  ",
+        "                         ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in the Dungeon.",
+      "exits_raw": "S81",
+      "exits": {
+        "S": 81
+      }
+    },
+    {
+      "id": 81,
+      "map": [
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "     ▓▓▓▓▓    ▓▓▓▓▓▓▓▓  ",
+        "     ▓               ▓  ",
+        "     ▓               ▓  ",
+        "▓▓▓▓▓▓               ▓▓▓",
+        "                        ",
+        "                        ",
+        "▓▓▓▓▓▓               ▓▓▓",
+        "     ▓               ▓  ",
+        "     ▓               ▓  ",
+        "     ▓               ▓  ",
+        "     ▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓  ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          "
+      ],
+      "description_lines": [
+        "You are in the Dungeon   ",
+        "Annex.                   ",
+        "                         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in the Dungeon Annex.",
+      "exits_raw": "N80S79E82W78",
+      "exits": {
+        "N": 80,
+        "S": 79,
+        "E": 82,
+        "W": 78
+      }
+    },
+    {
+      "id": 82,
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "             ▓▓▓▓▓▓▓▓▓▓▓",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓         ▓",
+        "                      U▓",
+        "                      U▓",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓         ▓",
+        "             ▓▓▓▓▓▓▓▓▓▓▓",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are in the Dungeon   ",
+        "entrace hall. There is a ",
+        "long staircase leading   ",
+        "up.                      ",
+        "                         "
+      ],
+      "description": "You are in the Dungeon entrace hall. There is a long staircase leading up.",
+      "exits_raw": "W81U43",
+      "exits": {
+        "W": 81,
+        "U": 43
+      }
+    },
+    {
+      "id": 83,
+      "map": [
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "    █▒█▒█▒█  █▒█▒█▒█    ",
+        "    ▒              ▒    ",
+        "    █              █    ",
+        "    ▒              ▒    ",
+        "    █              █    ",
+        "    ▒              ▒    ",
+        "    █              █    ",
+        "    ▒              ▒    ",
+        "    █              █    ",
+        "    ▒              ▒    ",
+        "    █▒█▒█▒█▒▒█▒█▒█▒█    ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "description_lines": [
+        "You are in the King's    ",
+        "Secret room. The walls   ",
+        "are many colors.         ",
+        "                         ",
+        "                         "
+      ],
+      "description": "You are in the King's Secret room. The walls are many colors.",
+      "exits_raw": "N77",
+      "exits": {
+        "N": 77
+      }
+    }
+  ],
+  "high_score_record": {
+    "name": "",
+    "score_field": "750                    \u0000\u0000"
+  }
+}

@@ -1,0 +1,77 @@
+These are some tips and cheats for the CASTLE game. You'll 
+probably enjoy the game more if you DON'T read this file... use 
+it if you get stuck.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Commands...
+
+INVENTORY:	Shows what you are carrying.
+GET:		Pick up something.
+DROP:		Loose sopmething.
+WAVE:		The wand.
+READ:		The book.
+PLAY:		Harp.
+LOOK:		See what something is.
+
+The things you can find are:
+
+Hourglass	A treasure.
+Helmet		Protects you when fighting monsters.
+Sword		Essential when fighting monsters.
+Cross		Zaps vampire. (SHOW CROSS)
+Harp		Zaps fairie. (PLAY HARP)
+Jade Figurine	A treasure behind vampire.
+Diamond		A treasure behind fairie.
+Wand		Zaps magician's mirror & king's passage.
+Crystal Ball	Behind magician's mirror. (LOOK BALL) shows where scepter is.
+Necklace	Treasure hidden on statue of king. Protects from traps.
+Gem		Hidden in fountain.
+Lamp		In garden. Needed in dark places (kitchen and king's passage.)
+Key		On desk in king's study. Needed for locked doors to dungeon.
+Eyeglasses	On desk in guest room. Needed to read book.
+Rubys		Treasure
+Wine Flask	On desk in cook's room.
+Gold Bar	Treasure in maze.
+Goblet		Treasure.
+Scepter		In secret room in winding passage. Get into dungeon with the
+		key,the necklace, the wand and the lamp. Two frames into the
+		passage WAVE WAND. A passage appears. Go in and get the 
+		scepter. Go back to the courtyard and wave the scepter at
+		the gate to escape.
+
+Monsters:
+
+Ogres, Deamons, Bat, Spiders, Snake. 
+		Kill 'em by ramming them and keeping them rammed 'til they
+		snuff it. Wear helmet and sword or they'll snuff you.
+Vampire, Fairie
+		Block passages.
+
+
