@@ -720,7 +720,7 @@ class Lifter:
         elif t == 0x15DE:
             self.emit("' (end of error handler: 'No RESUME')")
         elif t == 0x2582:
-            self.emit("' program start")
+            pass  # runtime start-up
         else:
             self.unknown[t] += 1
             self.emit(f"CALL RT_{t:04X}  ' bx={I('bx')} dx={I('dx')} si={R('si')} di={R('di')}")

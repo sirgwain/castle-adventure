@@ -1,6 +1,5 @@
 ' CASTLE.EXE - flat lift; labels are code addresses (matches castle.asm)
 L001A:                       ' @001A
-    ' program start
     GOSUB L6F44
     GOSUB L6B39
 

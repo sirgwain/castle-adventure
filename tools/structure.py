@@ -13,13 +13,15 @@ nothing jumps to.  Remaining labels get descriptive names.
 import re
 from collections import Counter
 
+import comments
+
 # Hand-picked names for the important entry points (code address -> name).
 LABEL_NAMES = {
     0x001A: "Start", 0x0039: "NewGame", 0x023E: "LoadRoomPage", 0x0469: "DrawRoom",
     0x0BFD: "InputLoop", 0x0C83: "WaitKey", 0x0CB1: "ReadKey", 0x103E: "MovePlayer",
     0x123C: "TakeExit", 0x142D: "DoCommand", 0x18A5: "NotUnderstood", 0x1911: "Bump",
     0x1B42: "PickUpBumped", 0x1BD7: "ShowMessage", 0x1CB8: "MonsterTurn",
-    0x1D02: "MonsterTurnNext", 0x1D24: "MonsterStep",
+    0x1D02: "MonsterNext", 0x1D24: "MonsterStep",
     0x1F1B: "MonsterAttacks", 0x20BF: "PlayerAttacks", 0x22EA: "CmdLook",
     0x2756: "LookMonster", 0x2854: "LookObject", 0x3670: "CmdDrop", 0x3769: "DropHere",
     0x38D5: "CmdGet", 0x3B6F: "GetMonsterCheck", 0x3C13: "TooHeavy", 0x3F61: "GetObject",
@@ -324,14 +326,17 @@ def tidy_tree(c):
     return f" {op} ".join(flat)
 
 
-def render(items, names, indent=1):
+def render(items, names, indent=1, notes=True):
     pad = "    " * indent
     out = []
     lab = lambda a: names.get(a, f"L{a:04X}")
     for it in items:
         k = it[0]
         if k == "label":
-            out.append(f"\n{lab(it[1])}:" + " " * max(1, 28 - len(lab(it[1]))) + f"' @{it[1]:04X}")
+            out.append("")
+            if notes:
+                out += comments.section_comment(lab(it[1]))
+            out.append(f"{lab(it[1])}:" + " " * max(1, 28 - len(lab(it[1]))) + f"' @{it[1]:04X}")
         elif k == "stmt":
             out.append(pad + it[1])
         elif k == "goto":
@@ -347,14 +352,14 @@ def render(items, names, indent=1):
             out.append(pad + f"IF {tidy(it[1])} THEN {pre}GOTO {lab(it[3])}")
         elif k == "for":
             out.append(pad + f"FOR {it[1]} = {it[2]} TO {it[3]}")
-            out += render(it[4], names, indent + 1)
+            out += render(it[4], names, indent + 1, notes)
             out.append(pad + f"NEXT {it[1]}")
         elif k == "doloop":
             if not it[1]:
                 out.append(pad + f"DO WHILE {tidy(it[2])}: LOOP")
             else:
                 out.append(pad + "DO")
-                out += render(it[1], names, indent + 1)
+                out += render(it[1], names, indent + 1, notes)
                 out.append(pad + f"LOOP WHILE {tidy(it[2])}")
         elif k == "ifblock":
             cond, then, els = tidy(it[1]), it[2], it[3]
@@ -365,10 +370,10 @@ def render(items, names, indent=1):
                     out.append(pad + f"IF {cond} THEN {body}")
                     continue
             out.append(pad + f"IF {cond} THEN")
-            out += render(then, names, indent + 1)
+            out += render(then, names, indent + 1, notes)
             if els:
                 out.append(pad + "ELSE")
-                out += render(els, names, indent + 1)
+                out += render(els, names, indent + 1, notes)
             out.append(pad + "END IF")
     return out
 
@@ -383,7 +388,9 @@ HEADER = """' CASTLE ADVENTURE (1984, Kevin Bales)
 def render_structured(items):
     s = structure(items)
     names = name_labels(s)
-    return HEADER + "\n".join(render(s, names)).lstrip("\n") + "\n"
+    body = comments.annotate(render(s, names))
+    return (HEADER + comments.PRIMER + comments.CONVENTIONS + comments.glossary() + "\n"
+            + "\n".join(body).lstrip("\n") + "\n" + comments.data_section())
 
 
 def render_flat(items):
@@ -391,4 +398,4 @@ def render_flat(items):
     refs = refcounts(items)
     flat = [it for it in items if not (it[0] == "label" and refs[it[1]] == 0)]
     return ("' CASTLE.EXE - flat lift; labels are code addresses (matches castle.asm)\n"
-            + "\n".join(render(flat, names)).lstrip("\n") + "\n")
+            + "\n".join(render(flat, names, notes=False)).lstrip("\n") + "\n")
