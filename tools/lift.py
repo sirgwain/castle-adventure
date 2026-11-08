@@ -208,7 +208,9 @@ def ref_text(e, t):
             else:
                 first.append(f"{txt}*{k}/4")
         col = (c - base) // 4
-        i1 = " + ".join(first + ([str(col)] if col or not first else []))
+        i1 = " + ".join(first) if first else str(col)
+        if first and col:
+            i1 += f" + {col}" if col > 0 else f" - {-col}"
         return f"{array_name(base, t)}({i1}, {' + '.join(second)})"
     return f"[{render_int(e)}]"
 
@@ -277,7 +279,7 @@ class Lifter:
             if lhs.strip() == rhs.strip():
                 return
         self.flush_pending()
-        self.lines.append("    " + s)
+        self.lines.append(("stmt", s))
 
     def flush_pending(self):
         p = getattr(self, "pending", None)
@@ -289,13 +291,13 @@ class Lifter:
                 for v, term in args:
                     txt += v + (term if term != "," else ", ")
                 ch = f"#{extra}, " if extra is not None else ""
-                self.lines.append(f"    PRINT {ch}{txt}".rstrip())
+                self.lines.append(("stmt", f"PRINT {ch}{txt}".rstrip()))
             elif kind == "FIELD":
-                self.lines.append(f"    FIELD #{extra}, " + ", ".join(args))
+                self.lines.append(("stmt", f"FIELD #{extra}, " + ", ".join(args)))
             elif kind == "INPUT#":
-                self.lines.append(f"    INPUT #{extra}, " + ", ".join(args))
+                self.lines.append(("stmt", f"INPUT #{extra}, " + ", ".join(args)))
             else:
-                self.lines.append(f"    {kind} " + ", ".join(args))
+                self.lines.append(("stmt", f"{kind} " + ", ".join(args)))
 
     def pend(self, kind, item, extra=None):
         p = getattr(self, "pending", None)
@@ -373,7 +375,7 @@ class Lifter:
                     if pre:
                         self.emit(pre)
                 self.flush_pending()
-                self.lines.append(f"{self.label(a)}:")
+                self.lines.append(("label", a))
                 st = State()
                 if a in fac_labels:
                     # FAC holds the incoming value for the variable stored here
@@ -396,8 +398,7 @@ class Lifter:
                 tgt = int(i.ops, 16)
                 if j.mnem == "jmp" and tgt == seq[n + 1] + j.size:
                     self.refcount[tgt] -= 1
-                    c = cond_text(st.flags, INVERT[i.mnem])
-                    self.emit_goto_if(c, int(j.ops, 16), st)
+                    self.emit_goto_if(st.flags, INVERT[i.mnem], int(j.ops, 16), st)
                     n += 2
                     continue
             self.step(i, st)
@@ -405,12 +406,11 @@ class Lifter:
             n += 1
         self.flush_pending()
 
-    def emit_goto_if(self, c, tgt, st):
-        pre = self.fac_flow(tgt, st)
-        if pre:
-            self.emit(f"IF {c} THEN {pre} : GOTO {self.label(tgt)}")
-        else:
-            self.emit(f"IF {c} THEN GOTO {self.label(tgt)}")
+    def emit_goto_if(self, flags, jcc, tgt, st):
+        """IF <jump condition> THEN GOTO tgt; also records the negated condition."""
+        self.flush_pending()
+        pos, neg = cond_text(flags, jcc), cond_text(flags, INVERT[jcc])
+        self.lines.append(("if", pos, neg, tgt, self.fac_flow(tgt, st)))
 
     def fac_flow(self, tgt, st):
         if tgt in self.fac_labels and st.fac is not None:
@@ -504,10 +504,11 @@ class Lifter:
             pre = self.fac_flow(tgt, st)
             if pre:
                 self.emit(pre)
-            self.emit(f"GOTO {self.label(tgt)}")
+            self.flush_pending()
+            self.lines.append(("goto", tgt))
         elif m in INVERT:
             tgt = int(i.ops, 16)
-            self.emit_goto_if(cond_text(st.flags, m), tgt, st)
+            self.emit_goto_if(st.flags, m, tgt, st)
         elif m in ("push", "pop", "nop", "lcall") or m == "sub" or m == "sbb":
             pass
         else:
@@ -700,15 +701,18 @@ class Lifter:
             self.pend("READ", R("bx", "s" if t == 0x260F else "n"))
         # --- control
         elif t == 0x1C9A:
-            self.emit(f"GOSUB {self.label(struct.unpack('<H', i.inline)[0])}")
+            self.flush_pending()
+            self.lines.append(("gosub", struct.unpack('<H', i.inline)[0]))
             st.__init__()
         elif t == 0x1CC3:
             self.emit("RETURN")
         elif t == 0x1CF1:
-            tg = [self.label(struct.unpack("<H", i.inline[1 + 2 * k:3 + 2 * k])[0]) for k in range(i.inline[0])]
-            self.emit(f"ON {I('bx')} GOTO {', '.join(tg)}")
+            tg = [struct.unpack("<H", i.inline[1 + 2 * k:3 + 2 * k])[0] for k in range(i.inline[0])]
+            self.flush_pending()
+            self.lines.append(("on", I("bx"), tg))
         elif t == 0x16BC:
-            self.emit(f"ON ERROR GOTO {self.label(st.r['bx'].a) if st.r['bx'] and st.r['bx'].k == 'imm' else I('bx')}")
+            self.flush_pending()
+            self.lines.append(("onerror", st.r["bx"].a))
         elif t == 0x13DB:
             self.emit("RANDOMIZE")
         elif t == 0x15E7:
@@ -733,7 +737,11 @@ def strip_cint(s):
             d += {"(": 1, ")": -1}.get(s[j], 0)
             if d == 0:
                 break
-        s = s[:k] + s[k + 5:j] + s[j + 1:]
+        inner = s[k + 5:j]
+        before, after = s[:k].rstrip(), s[j + 1:].lstrip()
+        ops = ("+", "-", "*", "/", "\\", "MOD")
+        bare = " " not in inner or not (before.endswith(ops) or after.startswith(ops))
+        s = s[:k] + (inner if bare else f"({inner})") + s[j + 1:]
 
 
 def arg(e):
@@ -764,11 +772,11 @@ def main():
     TEMPS.clear(); M.types.clear()
     L = Lifter()
     L.run()
-    out = sys.stdout
-    out.write("' CASTLE.EXE (1984, Kevin Bales) - lifted from IBM BASIC Compiler 1.0 output\n")
-    out.write("' Labels are code addresses. V/S names are DS addresses (V=number, S=string$).\n\n")
-    for ln in L.lines:
-        out.write(strip_cint(ln) + "\n")
+    import structure
+    outdir = Path(sys.argv[1] if len(sys.argv) > 1 else Path(__file__).resolve().parent.parent / "out")
+    items = [tuple(strip_cint(x) if isinstance(x, str) else x for x in it) for it in L.lines]
+    (outdir / "castle_flat.bas").write_text(structure.render_flat(items), encoding="utf-8")
+    (outdir / "castle.bas").write_text(structure.render_structured(items), encoding="utf-8")
     if L.unknown:
         print("unknown runtime calls:", {hex(k): v for k, v in L.unknown.items()}, file=sys.stderr)
 

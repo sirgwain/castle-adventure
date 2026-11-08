@@ -1,6 +1,6 @@
 # Castle Adventure (1984): game mechanics
 
-Taken from `castle.bas`, which was lifted from CASTLE.EXE. Labels such as `L1CB8` are code addresses in that listing.
+Taken from `castle.bas`, which was lifted from CASTLE.EXE. Section names such as `MonsterTurn` are labels in that listing (`castle_flat.bas` uses raw code addresses instead).
 Rooms are in `rooms.json`/`rooms.go`; objects and monsters are in `objects_monsters.json`.
 
 ## Screen (WIDTH 40)
@@ -11,13 +11,13 @@ Rooms are in `rooms.json`/`rooms.go`; objects and monsters are in `objects_monst
 - Prompt: row 23, column 26: `?` plus the typed command (max 14 characters, with a blinking `_`). `What???` appears at row 25.
 - The player is `CHR$(5)` (♣). `UNDER` remembers the character the player is standing on.
 
-## Input loop (`L0BFD`)
+## Input loop (`InputLoop`)
 - Keypad (extended INKEY$ codes): Home/↑/PgUp/←/→/End/↓/PgDn = 8-way movement (`G H I K M O P Q`).
 - Letters are upper-cased. Only A–Z and space are accepted, Backspace edits, Enter runs the command, and typing past 14 characters beeps.
-- Every pass through the loop with no key pressed does `IDLE += 1`. At 200 the **monsters take a turn** (`L1CB8`).
+- Every pass through the loop with no key pressed does `IDLE += 1`. At 200 the **monsters take a turn** (`MonsterTurn`).
   This was tied to CPU speed on the original PC. Use a timer in the port and tune it by feel.
 
-## Movement (`L103E`)
+## Movement (`MovePlayer`)
 - Moving past the map edge exits `N/S/W/E` and wraps you to the opposite edge. Stepping onto a `U` or `D` glyph takes stairs up or down.
 - The exit's room number is the digits after that letter in the exits string. If the letter is missing, the number is 0, and **room 0 means you escaped (win)**.
 - Entering room 68 or 83 without the LAMP (`OBJROOM(1) <> 0`) gives "It's too dark to go that way!"
@@ -28,7 +28,7 @@ Rooms are in `rooms.json`/`rooms.go`; objects and monsters are in `objects_monst
   - Anything else is a wall bump (`SOUND 50`).
 - Traps without the NECKLACE (you drown and the game ends): room 76 at column 15, rows 13–14; room 78 at column 18, rows 9–10.
 
-## Monsters (`L1CB8`, `L1D24`)
+## Monsters (`MonsterTurn`, `MonsterStep`)
 Monsters 1–8 (ogres, demons, spiders, bat, snake) are the only ones that move or fight.
 - On each monster tick, every monster with `MONROOM = ROOM` and `MONHP > -1` steps one cell toward the player:
   `dy = sgn(PY - row)` and `dx = sgn(PX - col)`, so diagonal moves are allowed.
@@ -47,7 +47,7 @@ Monsters 1–8 (ogres, demons, spiders, bat, snake) are the only ones that move 
 ## Objects
 - Hidden objects have `room = real room + 100`. To GET one you must stand next to (3×3 around you) a screen character whose code equals the object's `row` or `col` value.
   Those fields hold furniture glyphs instead of coordinates: 196/179 for a desk or table, 219 for a shelf.
-- LOOK/EXAMINE/SEARCH on an object gives per-object text (`ON I GOTO` at `L2894`). Room furniture (table, desk, beds, shelves, throne, fountain, statue, mirror, barrels, chains, walls, garden, stairs, balcony) has its own replies, mostly depending on the room.
+- LOOK/EXAMINE/SEARCH on an object gives per-object text (`ON I GOTO` in `LookObject`). Room furniture (table, desk, beds, shelves, throne, fountain, statue, mirror, barrels, chains, walls, garden, stairs, balcony) has its own replies, mostly depending on the room.
 - READ BOOK needs the EYE GLASSES and says "Wave Scepter". LOOK BALL shows a man waving a wand in a winding passage.
 - WAVE WAND in room 67 opens a secret passage behind the mirror. In room 77 it opens the passage at row 18.
 - WAVE SCEPTER in room 1 opens the gate. Walking south then exits to room 0, which wins the game.
@@ -56,7 +56,7 @@ Monsters 1–8 (ogres, demons, spiders, bat, snake) are the only ones that move 
   POUR spills the water, with a joke if you have the goblet.
 - Arriving from room 66 puts you in the Sorcerer's room ("puff of smoke"). Coming back from room 83 redraws the opened passage.
 
-## Scoring (`L6577`)
+## Scoring (`FinalScore`)
 - 13 treasures (objects 13–22 plus HARP, NECKLACE and HOLY CROSS) are worth 50 each, counted if carried or dropped in room 1.
 - Each dead monster from 1–8 is worth 100. Escaping is worth 100.
 - 1550 is a perfect score and plays a tune.
@@ -65,5 +65,5 @@ Monsters 1–8 (ogres, demons, spiders, bat, snake) are the only ones that move 
 ## Bugs in the original (decide whether to keep them)
 1. The damage formula adds 5 instead of subtracting it (see above).
 2. LOAD reads only `MONHP` for each monster, but SAVE writes `MONHP, MONROW, MONCOL` on that line. Loading a saved game therefore misreads every monster after the first.
-3. A high-score name longer than 14 characters runs `GOTO L3769`, which is the middle of the DROP routine.
+3. A high-score name longer than 14 characters runs `GOTO DropHere`, which is the middle of the DROP routine.
 4. Monster speed depends on how fast the input loop runs.
