@@ -1,0 +1,583 @@
+{
+  "floor": 1,
+  "name": "Upper Floor",
+  "rooms": [
+    {
+      "id": 19,
+      "name": "Center of The upper Hall",
+      "area": "Upper Floor",
+      "description": "You are in the center of The upper Hall. There is a statue of the King in the middle.",
+      "exits": {
+        "N": 23,
+        "E": 21,
+        "W": 20
+      },
+      "map": [
+        "         ▓    ▓         ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "          ┌─┐           ",
+        "          │α│           ",
+        "          └─┘           ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        "                        "
+      ],
+      "items": [
+        {
+          "id": "necklace",
+          "name": "NECKLACE",
+          "glyph": "§",
+          "hiddenIn": "─│",
+          "look": [
+            "On the back",
+            "it says:",
+            "",
+            "Protection from",
+            "Traps."
+          ],
+          "treasure": true
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "West end of the Upper hall",
+      "area": "Upper Floor",
+      "description": "You are in the west end of the Upper hall. There is a staircase leading down.",
+      "exits": {
+        "N": 24,
+        "E": 19,
+        "D": 4
+      },
+      "map": [
+        "         ▓    ▓         ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        " ▓                      ",
+        " ▓                  D   ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        "                        "
+      ],
+      "items": [
+        {
+          "id": "hourglass",
+          "name": "HOURGLASS",
+          "glyph": "Φ",
+          "row": 14,
+          "col": 6,
+          "look": [
+            "It's made of",
+            "Gold!"
+          ],
+          "treasure": true
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "name": "East end of the Upper Hall",
+      "area": "Upper Floor",
+      "description": "You are in the east end of the Upper Hall. There is a Staircase leading down.",
+      "exits": {
+        "N": 22,
+        "W": 19,
+        "D": 5
+      },
+      "map": [
+        "         ▓    ▓         ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ ",
+        "                      ▓ ",
+        "   D                  ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        "                        "
+      ],
+      "monsters": [
+        {
+          "id": "ogre2",
+          "name": "UGLY OGRE",
+          "glyph": "☺",
+          "kind": "fighter",
+          "hp": 80,
+          "row": 12,
+          "col": 12
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Guards Hall",
+      "area": "Upper Floor",
+      "description": "You are in The Guards Hall. This room was once used to honor Members of the Royal Guard.",
+      "exits": {
+        "N": 25,
+        "S": 21,
+        "E": 33,
+        "W": 23
+      },
+      "map": [
+        "                 ▓  ▓   ",
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  ▓▓▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        "▓▓                    ▓▓",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "▓▓                    ▓▓",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ ",
+        "         ▓    ▓         "
+      ],
+      "items": [
+        {
+          "id": "helmet",
+          "name": "HELMET",
+          "glyph": "¢",
+          "row": 5,
+          "col": 12,
+          "look": [
+            "It looks",
+            "Tough!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Anex Hall",
+      "area": "Upper Floor",
+      "description": "You are in the Anex Hall. There is a large spiral staircase in the middle.",
+      "exits": {
+        "N": 28,
+        "S": 19,
+        "E": 22,
+        "W": 24,
+        "D": 7
+      },
+      "map": [
+        "          ▓  ▓          ",
+        " ▓▓▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        "▓▓                    ▓▓",
+        "                        ",
+        "           DD           ",
+        "           DD           ",
+        "                        ",
+        "▓▓                    ▓▓",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ ",
+        "         ▓    ▓         "
+      ]
+    },
+    {
+      "id": 24,
+      "name": "Knights Hall",
+      "area": "Upper Floor",
+      "description": "You are in The Knights Hall. This room was once used to Honor The King's Knights.",
+      "exits": {
+        "N": 26,
+        "S": 20,
+        "E": 23
+      },
+      "map": [
+        "   ▓  ▓                 ",
+        " ▓▓▓  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓▓",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                    ▓▓",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ ",
+        "         ▓    ▓         "
+      ],
+      "items": [
+        {
+          "id": "wand",
+          "name": "MAGIC WAND",
+          "glyph": "-",
+          "row": 9,
+          "col": 4,
+          "look": [
+            "It looks",
+            "Magical!"
+          ]
+        }
+      ],
+      "monsters": [
+        {
+          "id": "demon2",
+          "name": "ANGRY DEMON",
+          "glyph": "☻",
+          "kind": "fighter",
+          "hp": 120,
+          "row": 10,
+          "col": 6
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Lower Battlement",
+      "area": "Upper Floor",
+      "description": "You are in a lower Battlement. There is a staircase at one end.",
+      "exits": {
+        "S": 22,
+        "U": 42
+      },
+      "map": [
+        "               ▓▓▓▓▓▓▓▓ ",
+        "               ▓      ▓ ",
+        "               ▓  UU  ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓▓▓  ▓▓▓ ",
+        "                 ▓  ▓   ",
+        "                 ▓  ▓   "
+      ]
+    },
+    {
+      "id": 26,
+      "name": "Lower Battlement",
+      "area": "Upper Floor",
+      "description": "You are In a Lower Battlement. There is a staircase at one end.",
+      "exits": {
+        "S": 24,
+        "U": 45
+      },
+      "map": [
+        " ▓▓▓▓▓▓▓▓               ",
+        " ▓      ▓               ",
+        " ▓  UU  ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓▓▓  ▓▓▓               ",
+        "   ▓  ▓                 "
+      ],
+      "items": [
+        {
+          "id": "bars",
+          "name": "SILVER BARS",
+          "glyph": "≡",
+          "row": 8,
+          "col": 7,
+          "look": [
+            "They look",
+            "Expensive!"
+          ],
+          "treasure": true
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Guest room",
+      "area": "Upper Floor",
+      "description": "You are In a Guest room.",
+      "exits": {
+        "E": 28
+      },
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓▓▓▓",
+        "   ▓                    ",
+        "   ▓                    ",
+        "   ▓                ▓▓▓▓",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ",
+        "                        ",
+        "                        ",
+        "                        "
+      ]
+    },
+    {
+      "id": 28,
+      "name": "Cooridor",
+      "area": "Upper Floor",
+      "description": "You are in a Cooridor.",
+      "exits": {
+        "N": 32,
+        "S": 23,
+        "E": 29,
+        "W": 27
+      },
+      "map": [
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "                       ▓",
+        "                        ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓▓  ▓▓         ",
+        "          ▓  ▓          "
+      ],
+      "monsters": [
+        {
+          "id": "vampire",
+          "name": "VAMPIRE",
+          "glyph": "♣",
+          "kind": "vampire",
+          "hp": 1,
+          "row": 10,
+          "col": 24
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "name": "Guest Room",
+      "area": "Upper Floor",
+      "description": "You are In a Guest Room.",
+      "exits": {
+        "W": 28
+      },
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "▓▓▓▓                ▓   ",
+        "▓                   ▓   ",
+        "                    ▓   ",
+        "▓▓▓▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "items": [
+        {
+          "id": "figurine",
+          "name": "JADE FIGURINE",
+          "glyph": "¥",
+          "row": 10,
+          "col": 13,
+          "look": [
+            "It looks",
+            "Expensive!"
+          ],
+          "treasure": true
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "name": "Queen's Bed room",
+      "area": "Upper Floor",
+      "description": "You are in the Queen's Bed room. It was once furnished but is now empty. there is a stair case in one corner.",
+      "exits": {
+        "W": 32,
+        "D": 16
+      },
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ",
+        " ▓               ▓      ",
+        " ▓               ▓      ",
+        " ▓ D             ▓      ",
+        "▓▓               ▓      ",
+        "                 ▓      ",
+        "                 ▓      ",
+        "▓▓               ▓      ",
+        " ▓               ▓      ",
+        " ▓               ▓      ",
+        " ▓               ▓      ",
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ",
+        "                        ",
+        "                        ",
+        "                        "
+      ]
+    },
+    {
+      "id": 31,
+      "name": "Kings room ",
+      "area": "Upper Floor",
+      "description": "You are In the Kings room . It was once Furnished but is now empty. There is a staircase in one corner.",
+      "exits": {
+        "E": 32,
+        "D": 15
+      },
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        "     ▓                ▓ ",
+        "     ▓              D ▓ ",
+        "     ▓                ▓▓",
+        "     ▓                  ",
+        "     ▓                  ",
+        "     ▓                ▓▓",
+        "     ▓                ▓ ",
+        "     ▓                ▓ ",
+        "     ▓                ▓ ",
+        "     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        "                        ",
+        "                        ",
+        "                        "
+      ]
+    },
+    {
+      "id": 32,
+      "name": "Cooridor",
+      "area": "Upper Floor",
+      "description": "You are In a Cooridor. There is a staircase at one end.",
+      "exits": {
+        "S": 28,
+        "E": 30,
+        "W": 31,
+        "U": 34
+      },
+      "map": [
+        "                        ",
+        "         ▓▓▓▓▓▓         ",
+        "         ▓    ▓         ",
+        "         ▓ UU ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "                        ",
+        "                        ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         "
+      ]
+    },
+    {
+      "id": 33,
+      "name": "Balcony looking over the Castle Gardens",
+      "area": "Upper Floor",
+      "description": "You are on a Balcony looking over the Castle Gardens.",
+      "exits": {
+        "W": 22
+      },
+      "map": [
+        "                        ",
+        " ▓▓▓▓▓▓█─┐              ",
+        " ▓       │              ",
+        " ▓       ├              ",
+        " ▓       │              ",
+        " ▓       ├              ",
+        "▓▓       │              ",
+        "         │              ",
+        "         ├              ",
+        "         ├              ",
+        "         │              ",
+        "▓▓       │              ",
+        " ▓       ├              ",
+        " ▓       │              ",
+        " ▓       ├              ",
+        " ▓       │              ",
+        " ▓▓▓▓▓▓█─┘              ",
+        "                        "
+      ]
+    }
+  ]
+}

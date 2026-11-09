@@ -1,0 +1,183 @@
+{
+  "floor": 4,
+  "name": "Towers",
+  "rooms": [
+    {
+      "id": 62,
+      "name": "West Tower ",
+      "area": "West Tower",
+      "description": "You are in the West Tower .There is a Passage to the East.",
+      "exits": {
+        "E": 67,
+        "U": 64,
+        "D": 61
+      },
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        " ▓▓▓▓▓▓▓▓               ",
+        "▓▓      ▓▓              ",
+        "▓        ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        "▓   DU                  ",
+        "▓   DU                  ",
+        "▓        ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        "▓▓      ▓▓              ",
+        " ▓▓▓▓▓▓▓▓               ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ]
+    },
+    {
+      "id": 63,
+      "name": "East Tower ",
+      "area": "East Tower",
+      "description": "You are in The East Tower . There are Stairs Going both up & down.",
+      "exits": {
+        "U": 65,
+        "D": 50
+      },
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "               ▓▓▓▓▓▓▓▓ ",
+        "              ▓▓      ▓▓",
+        "              ▓        ▓",
+        "              ▓   UD   ▓",
+        "              ▓   UD   ▓",
+        "              ▓        ▓",
+        "              ▓▓      ▓▓",
+        "               ▓▓▓▓▓▓▓▓ ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ]
+    },
+    {
+      "id": 66,
+      "name": "Sorcerers secret laboratory",
+      "area": "West Tower",
+      "description": "You are in the Sorcerers secret laboratory.",
+      "exits": {
+        "W": 67
+      },
+      "map": [
+        "                        ",
+        "                        ",
+        "    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        "    ▓                  ▓",
+        "    ▓                  ▓",
+        "    ▓                  ▓",
+        "    ▓                  ▓",
+        "▓▓▓▓▓                  ▓",
+        "                       ▓",
+        "                       ▓",
+        "▓▓▓▓▓                  ▓",
+        "    ▓                  ▓",
+        "    ▓                  ▓",
+        "    ▓                  ▓",
+        "    ▓                  ▓",
+        "    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        "                        ",
+        "                        "
+      ],
+      "items": [
+        {
+          "id": "ball",
+          "name": "CRYSTAL BALL",
+          "glyph": "°",
+          "row": 13,
+          "col": 10,
+          "look": [
+            "In the Cyrstal",
+            "Ball....",
+            "",
+            "You see a man",
+            "in a winding",
+            "passage,waving",
+            "a Wand."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "name": "Sorcerers Quarters",
+      "area": "West Tower",
+      "description": "You are in the Sorcerers Quarters. Two Beds and a large mirror are all that is left.",
+      "exits": {
+        "E": 66,
+        "W": 62
+      },
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓    ",
+        "     ▓             ▓    ",
+        "     ▓ ████        ▓    ",
+        "     ▓ ████       ┌▓    ",
+        "▓▓▓▓▓▓            │▓    ",
+        "                  │▓    ",
+        "                  │▓    ",
+        "▓▓▓▓▓▓            │▓    ",
+        "     ▓ ████       └▓    ",
+        "     ▓ ████        ▓    ",
+        "     ▓             ▓    ",
+        "     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓    ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "onArrive": [
+        {
+          "from": 66,
+          "row": 10,
+          "col": 17,
+          "message": [
+            "There is a puff",
+            "of smoke & you",
+            "appear in the",
+            "Sorcerers room!"
+          ]
+        }
+      ],
+      "onWave": [
+        {
+          "item": "wand",
+          "edits": [
+            {"row": 7, "col": 19, "text": " "},
+            {"row": 8, "col": 19, "text": " "},
+            {"row": 9, "col": 19, "text": " "},
+            {"row": 10, "col": 19, "text": " "},
+            {"row": 11, "col": 19, "text": " "},
+            {"row": 12, "col": 19, "text": " "},
+            {"row": 8, "col": 20, "text": "▓▓▓▓▓"},
+            {"row": 11, "col": 20, "text": "▓▓▓▓▓"},
+            {"row": 9, "col": 20, "text": " "},
+            {"row": 10, "col": 20, "text": " "}
+          ],
+          "message": [
+            "As you wave the",
+            "WAND....",
+            "",
+            "There is a",
+            "*Puff* of smoke",
+            "Revealing a",
+            "Secret passage!"
+          ]
+        }
+      ]
+    }
+  ]
+}

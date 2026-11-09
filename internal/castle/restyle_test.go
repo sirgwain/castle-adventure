@@ -4,6 +4,7 @@ import (
 	"os"
 	"strings"
 	"testing"
+	"testing/fstest"
 
 	"charm.land/lipgloss/v2"
 	"github.com/mattn/go-runewidth"
@@ -11,18 +12,27 @@ import (
 
 func loadTestRooms(t *testing.T) []*Room {
 	t.Helper()
+	w, err := LoadWorld()
+	if err != nil {
+		t.Fatal(err)
+	}
+	return w.Rooms
+}
+
+func loadRAN(t *testing.T) []*Room {
+	t.Helper()
 	b, err := os.ReadFile("../../Castle.1984/CASTLE.RAN")
 	if err != nil {
 		t.Fatal(err)
 	}
-	rooms, err := LoadRooms(b)
+	rooms, err := LoadRAN(b)
 	if err != nil {
 		t.Fatal(err)
 	}
 	return rooms
 }
 
-func TestLoadRooms(t *testing.T) {
+func TestLoadWorld(t *testing.T) {
 	rooms := loadTestRooms(t)
 	if len(rooms) != NumRooms+1 || rooms[0] != nil {
 		t.Fatalf("got %d rooms, want 1-based slice of %d", len(rooms), NumRooms)
@@ -42,6 +52,48 @@ func TestLoadRooms(t *testing.T) {
 				t.Errorf("room %d exit %c -> %d is not two-way", r.ID, d, to)
 			}
 		}
+	}
+	items, monsters := 0, 0
+	for _, r := range rooms[1:] {
+		items += len(r.Items)
+		monsters += len(r.Monsters)
+	}
+	if items != 22 || monsters != 10 {
+		t.Errorf("%d items and %d monsters, want 22 and 10", items, monsters)
+	}
+}
+
+// The level files started as an export of CASTLE.RAN. This shows any drift;
+// update it when you change a room on purpose.
+func TestLevelsMatchRAN(t *testing.T) {
+	ran, json := loadRAN(t), loadTestRooms(t)
+	for id := 1; id <= NumRooms; id++ {
+		a, b := ran[id], json[id]
+		if a.Map != b.Map {
+			t.Errorf("room %d map differs from CASTLE.RAN", id)
+		}
+		// The level files add a space where the original's 25-column lines broke
+		// without one ("theWest"), so compare the words, not the spacing.
+		if strings.ReplaceAll(a.Desc, " ", "") != strings.ReplaceAll(b.Desc, " ", "") {
+			t.Errorf("room %d description %q, CASTLE.RAN has %q", id, b.Desc, a.Desc)
+		}
+		if len(a.Exits) != len(b.Exits) {
+			t.Errorf("room %d exits %v, CASTLE.RAN has %v", id, b.Exits, a.Exits)
+		}
+		for d, to := range a.Exits {
+			if b.Exits[d] != to {
+				t.Errorf("room %d exit %c = %d, CASTLE.RAN has %d", id, d, b.Exits[d], to)
+			}
+		}
+	}
+}
+
+func TestLevelValidation(t *testing.T) {
+	bad := `{"floor": 0, "name": "x", "rooms": [{"id": 1, "name": "r", "exits": {}, "map": ["` +
+		strings.Repeat("x", 25) + `"]}]}`
+	_, err := LoadWorldFS(fstest.MapFS{"floor_0.json": {Data: []byte(bad)}})
+	if err == nil || !strings.Contains(err.Error(), "rows") {
+		t.Errorf("want a map-size error, got %v", err)
 	}
 }
 

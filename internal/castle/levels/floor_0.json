@@ -1,0 +1,684 @@
+{
+  "floor": 0,
+  "name": "Ground Floor",
+  "rooms": [
+    {
+      "id": 1,
+      "name": "Castle Courtyard",
+      "area": "Ground Floor",
+      "description": "You are in the Castle Courtyard. To the north is a large Doorway.To the south is a large gate.",
+      "exits": {
+        "N": 2
+      },
+      "map": [
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓▓▓▓▓▓▓▓▓▓════▓▓▓▓▓▓▓▓▓▓"
+      ],
+      "onWave": [
+        {
+          "item": "scepter",
+          "edits": [
+            {"row": 18, "col": 11, "text": "    "}
+          ],
+          "message": [
+            "As you wave the",
+            "scepter...",
+            "",
+            "The Gate opens",
+            "by itself!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Entrance room",
+      "area": "Ground Floor",
+      "description": "You are in the Entrance room. Exits are to the north & south.",
+      "exits": {
+        "N": 3,
+        "S": 1
+      },
+      "map": [
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓                      ▓",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         "
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Welcome Hall",
+      "area": "Ground Floor",
+      "description": "You are in The Welcome Hall. This room was used to welcome guests. There are large archways in all four walls.",
+      "exits": {
+        "N": 7,
+        "S": 2,
+        "E": 5,
+        "W": 4
+      },
+      "map": [
+        "         ▓    ▓         ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        "▓▓                    ▓▓",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "▓▓                    ▓▓",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ ",
+        "         ▓    ▓         "
+      ]
+    },
+    {
+      "id": 4,
+      "name": "West Ballroom",
+      "area": "Ground Floor",
+      "description": "You are in The West Ballroom. There are arch ways to the north & east; a spiral staircase in one corner.",
+      "exits": {
+        "N": 8,
+        "E": 3,
+        "U": 20
+      },
+      "map": [
+        "         ▓    ▓         ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ ",
+        " ▓                    ▓ ",
+        " ▓                  U ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓▓",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                    ▓▓",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        "                        "
+      ],
+      "monsters": [
+        {
+          "id": "ogre1",
+          "name": "UGLY OGRE",
+          "glyph": "☺",
+          "kind": "fighter",
+          "hp": 80,
+          "row": 9,
+          "col": 13
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "East Ballroom",
+      "area": "Ground Floor",
+      "description": "You are in The East Ballroom. There are arch ways to the north & west; a spiral staircase in one corner.",
+      "exits": {
+        "N": 6,
+        "W": 3,
+        "U": 21
+      },
+      "map": [
+        "         ▓    ▓         ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ ",
+        " ▓                    ▓ ",
+        " ▓ U                  ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        "▓▓                    ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "▓▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        "                        "
+      ]
+    },
+    {
+      "id": 6,
+      "name": "East Dining room",
+      "area": "Ground Floor",
+      "description": "You are in the East Dining room. The large opening to the east leads to the garden patio.",
+      "exits": {
+        "N": 12,
+        "S": 5,
+        "E": 18,
+        "W": 7
+      },
+      "map": [
+        "         ▓    ▓         ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓  ",
+        " ▓                   ▓  ",
+        " ▓                   ▓  ",
+        " ▓                   ▓▓▓",
+        " ▓                      ",
+        "▓▓                      ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "▓▓                      ",
+        " ▓                      ",
+        " ▓                   ▓▓▓",
+        " ▓                   ▓  ",
+        " ▓                   ▓  ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓  ",
+        "         ▓    ▓         "
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Central Hall",
+      "area": "Ground Floor",
+      "description": "You are in The Central Hall. Exits are in all directions. There is a large spiral staircase in the middle.",
+      "exits": {
+        "N": 13,
+        "S": 3,
+        "E": 6,
+        "W": 8,
+        "U": 23
+      },
+      "map": [
+        "         ▓    ▓         ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        "▓▓                    ▓▓",
+        "                        ",
+        "           UU           ",
+        "           UU           ",
+        "                        ",
+        "▓▓                    ▓▓",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ ",
+        "         ▓    ▓         "
+      ]
+    },
+    {
+      "id": 8,
+      "name": "West Dining room",
+      "area": "Ground Floor",
+      "description": "You are in the West Dining room. There 2 doorways to the north, & archways to the east & south.",
+      "exits": {
+        "N": 9,
+        "S": 4,
+        "E": 7
+      },
+      "map": [
+        "    ▓  ▓        ▓  ▓    ",
+        " ▓▓▓▓  ▓▓▓▓▓▓▓▓▓▓  ▓▓▓▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓▓",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                    ▓▓",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ ",
+        "         ▓    ▓         "
+      ],
+      "items": [
+        {
+          "id": "goblet",
+          "name": "FANCY GOBLET",
+          "glyph": "µ",
+          "row": 14,
+          "col": 6,
+          "look": [
+            "It's made of",
+            "Gold!"
+          ],
+          "treasure": true
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Kitchen",
+      "area": "Ground Floor",
+      "description": "You are in The Kitchen. In the Center is a large stone table.",
+      "exits": {
+        "N": 11,
+        "S": 8,
+        "E": 10
+      },
+      "map": [
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "   ▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓  ",
+        "   ▓                 ▓▓▓",
+        "   ▓                    ",
+        "   ▓                 ▓▓▓",
+        "   ▓                 ▓  ",
+        "   ▓                 ▓  ",
+        "   ▓    █████████    ▓  ",
+        "   ▓    █████████    ▓  ",
+        "   ▓                 ▓  ",
+        "   ▓                 ▓  ",
+        "   ▓                 ▓  ",
+        "   ▓                 ▓  ",
+        "   ▓                 ▓  ",
+        "   ▓▓  ▓▓▓▓▓▓▓▓▓▓  ▓▓▓  ",
+        "    ▓  ▓        ▓  ▓    ",
+        "    ▓  ▓        ▓  ▓    "
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Chef's Quarters",
+      "area": "Ground Floor",
+      "description": "You are in The Chef's Quarters. There is a small desk & a Bed here.",
+      "exits": {
+        "W": 9
+      },
+      "map": [
+        "  ▓▓▓▓▓▓▓▓▓▓▓           ",
+        "  ▓      ███▓           ",
+        "  ▓         ▓           ",
+        "▓▓▓         ▓           ",
+        "            ▓           ",
+        "▓▓▓         ▓           ",
+        "  ▓         ▓           ",
+        "  ▓         ▓           ",
+        "  ▓         ▓           ",
+        "  ▓         ▓           ",
+        "  ▓   ┌──┐  ▓           ",
+        "  ▓   └──┘  ▓           ",
+        "  ▓         ▓           ",
+        "  ▓▓▓▓▓▓▓▓▓▓▓           ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "items": [
+        {
+          "id": "flask",
+          "name": "WINE FLASK",
+          "glyph": "!",
+          "hiddenIn": "─│"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Storage room",
+      "area": "Ground Floor",
+      "description": "You are in the Storage room. There are Two large shelves in the middle,and a Small Staircase in one corner.",
+      "exits": {
+        "S": 9,
+        "D": 68
+      },
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓     ",
+        "▓                 ▓     ",
+        "▓ D               ▓     ",
+        "▓     █████████   ▓     ",
+        "▓                 ▓     ",
+        "▓                 ▓     ",
+        "▓     █████████   ▓     ",
+        "▓                 ▓     ",
+        "▓                 ▓     ",
+        "▓                 ▓     ",
+        "▓▓▓▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓     ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          "
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Castle Museum",
+      "area": "Ground Floor",
+      "description": "You are in The Castle Museum. This room was once decorated with many artifacts.",
+      "exits": {
+        "S": 6,
+        "E": 17
+      },
+      "map": [
+        "                        ",
+        "       ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  ",
+        "       ▓             ▓  ",
+        "       ▓             ▓  ",
+        "       ▓             ▓▓▓",
+        "       ▓                ",
+        "       ▓                ",
+        "       ▓                ",
+        "       ▓                ",
+        "       ▓                ",
+        "       ▓                ",
+        "       ▓                ",
+        "       ▓                ",
+        "       ▓             ▓▓▓",
+        "       ▓             ▓  ",
+        "       ▓             ▓  ",
+        "       ▓▓▓    ▓▓▓▓▓▓▓▓  ",
+        "         ▓    ▓         "
+      ],
+      "items": [
+        {
+          "id": "sword",
+          "name": "SWORD",
+          "glyph": "┼",
+          "row": 5,
+          "col": 11,
+          "look": [
+            "It looks",
+            "Sharp!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Ante Room",
+      "area": "Ground Floor",
+      "description": "You are in the Ante Room. Here People waited for an audience with the King It was once lined with benches.",
+      "exits": {
+        "N": 14,
+        "S": 7
+      },
+      "map": [
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "      ▓▓▓▓    ▓▓▓▓      ",
+        "      ▓          ▓      ",
+        "      ▓          ▓      ",
+        "      ▓          ▓      ",
+        "      ▓          ▓      ",
+        "      ▓          ▓      ",
+        "      ▓          ▓      ",
+        "      ▓▓▓▓    ▓▓▓▓      ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         "
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Throne Room",
+      "area": "Ground Floor",
+      "description": "You are in the Throne Room. There is a Large Throne at one end of the room.",
+      "exits": {
+        "S": 13,
+        "E": 16,
+        "W": 15
+      },
+      "map": [
+        "                        ",
+        "                        ",
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        "▓▓        █  █        ▓▓",
+        "          █──█          ",
+        "▓▓                    ▓▓",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓                    ▓ ",
+        " ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ ",
+        "         ▓    ▓         "
+      ],
+      "items": [
+        {
+          "id": "crown",
+          "name": "CROWN",
+          "glyph": "⌂",
+          "row": 5,
+          "col": 9,
+          "look": [
+            "It's made of",
+            "Gold!"
+          ],
+          "treasure": true
+        }
+      ],
+      "monsters": [
+        {
+          "id": "demon1",
+          "name": "ANGRY DEMON",
+          "glyph": "☻",
+          "kind": "fighter",
+          "hp": 120,
+          "row": 7,
+          "col": 13
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Kings Dressing room",
+      "area": "Ground Floor",
+      "description": "You are In the Kings Dressing room. It was Once Filled with clothes. There is a Staircase in one corner.",
+      "exits": {
+        "E": 14,
+        "U": 31
+      },
+      "map": [
+        "      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        "      ▓               ▓ ",
+        "      ▓               ▓ ",
+        "      ▓               ▓▓",
+        "      ▓                 ",
+        "      ▓               ▓▓",
+        "      ▓             U ▓ ",
+        "      ▓               ▓ ",
+        "      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Queen's Dressing room",
+      "area": "Ground Floor",
+      "description": "You are in the Queen's Dressing room. It was once filled with clothes. There is a Staircase in one corner.",
+      "exits": {
+        "W": 14,
+        "U": 30
+      },
+      "map": [
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ",
+        " ▓               ▓      ",
+        " ▓               ▓      ",
+        "▓▓               ▓      ",
+        "                 ▓      ",
+        "▓▓               ▓      ",
+        " ▓ U             ▓      ",
+        " ▓               ▓      ",
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ]
+    },
+    {
+      "id": 17,
+      "name": "North end of the Castle Garden",
+      "area": "Ground Floor",
+      "description": "You are In The North end of the Castle Garden. It is overgrown with bushes.",
+      "exits": {
+        "S": 18,
+        "W": 12
+      },
+      "map": [
+        "                        ",
+        "  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        "  ▓                   ▓ ",
+        "  ▓     ▒             ▓ ",
+        "▓▓▓               ░   ▓ ",
+        "              ▒       ▓ ",
+        "            ▒         ▓ ",
+        "       ░          ░   ▓ ",
+        "                      ▓ ",
+        "         ▒   ░        ▓ ",
+        "                      ▓ ",
+        "          ▒      ▒    ▓ ",
+        "                      ▓ ",
+        "▓▓▓  ░       ░        ▓ ",
+        "  ▓                ░  ▓ ",
+        "  ▓                   ▓ ",
+        "  ▓           ░       ▓ ",
+        "  ▓                   ▓ "
+      ],
+      "items": [
+        {
+          "id": "lamp",
+          "name": "LAMP",
+          "glyph": "♠",
+          "row": 14,
+          "col": 19,
+          "look": [
+            "It's lit",
+            "Magically"
+          ]
+        }
+      ],
+      "monsters": [
+        {
+          "id": "snake",
+          "name": "SNAKE",
+          "glyph": "δ",
+          "kind": "fighter",
+          "hp": 60,
+          "row": 14,
+          "col": 17
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "South end of The Castle garden",
+      "area": "Ground Floor",
+      "description": "You are in The South end of The Castle garden. In the center is a fountain.",
+      "exits": {
+        "N": 17,
+        "W": 6
+      },
+      "map": [
+        "  ▓░              ░   ▓ ",
+        "  ▓                   ▓ ",
+        "  ▓        ▒          ▓ ",
+        "  ▓                   ▓ ",
+        "▓▓▓    ░              ▓ ",
+        "                 ░    ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "          ┌─┐         ▓ ",
+        "          │Γ│         ▓ ",
+        "          └─┘     ▒   ▓ ",
+        "       ░              ▓ ",
+        "                      ▓ ",
+        "▓▓▓      ▒            ▓ ",
+        "  ▓            ░      ▓ ",
+        "  ▓                   ▓ ",
+        "  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        "                        "
+      ],
+      "items": [
+        {
+          "id": "gem",
+          "name": "LARGE GEM",
+          "glyph": "Θ",
+          "hiddenIn": "─│",
+          "look": [
+            "It looks",
+            "Expensive!"
+          ],
+          "treasure": true
+        }
+      ]
+    }
+  ],
+  "start": {
+    "room": 1,
+    "row": 15,
+    "col": 15
+  }
+}

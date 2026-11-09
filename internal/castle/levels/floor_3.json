@@ -1,0 +1,502 @@
+{
+  "floor": 3,
+  "name": "Castle Walls and King's Quarters",
+  "rooms": [
+    {
+      "id": 48,
+      "name": "Castle wall",
+      "area": "Castle Walls",
+      "description": "You are on the Castle wall. There is a stair case leading down in one corner.",
+      "exits": {
+        "S": 61,
+        "E": 49,
+        "D": 45
+      },
+      "map": [
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        " ▓                      ",
+        " ▓  DD                  ",
+        " ▓                      ",
+        " ▓      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               "
+      ]
+    },
+    {
+      "id": 49,
+      "name": "Castle wall",
+      "area": "Castle Walls",
+      "description": "You are on the Castle wall. There is a stair case leading down in one corner.",
+      "exits": {
+        "S": 50,
+        "W": 48,
+        "D": 42
+      },
+      "map": [
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        "                      ▓ ",
+        "                  DD  ▓ ",
+        "                      ▓ ",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ "
+      ]
+    },
+    {
+      "id": 50,
+      "name": "Bottom of the East Tower",
+      "area": "Castle Walls",
+      "description": "You are at the Bottom of the East Tower.",
+      "exits": {
+        "N": 49,
+        "S": 51,
+        "U": 63
+      },
+      "map": [
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "              ▓▓      ▓▓",
+        "              ▓        ▓",
+        "              ▓   UU   ▓",
+        "              ▓   UU   ▓",
+        "              ▓        ▓",
+        "              ▓▓      ▓▓",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ "
+      ]
+    },
+    {
+      "id": 51,
+      "name": "Castle wall",
+      "area": "Castle Walls",
+      "description": "You are on the Castle wall.",
+      "exits": {
+        "N": 50,
+        "W": 60
+      },
+      "map": [
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ "
+      ]
+    },
+    {
+      "id": 52,
+      "name": "Cooridor",
+      "area": "King's Quarters",
+      "description": "You are in a Cooridor.",
+      "exits": {
+        "S": 53,
+        "E": 56,
+        "W": 57
+      },
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        "▓                       ",
+        "                        ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         "
+      ],
+      "spawns": [
+        {"monster": "fairy", "row": 10, "col": 1, "unlessFrom": 57}
+      ],
+      "monsters": [
+        {
+          "id": "fairy",
+          "name": "FAIRY",
+          "glyph": "÷",
+          "kind": "fairy",
+          "hp": 1,
+          "start": false
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "name": "Cooridor",
+      "area": "King's Quarters",
+      "description": "You are in a Cooridor. there is a Stairway going down.",
+      "exits": {
+        "N": 52,
+        "E": 55,
+        "W": 54,
+        "D": 41
+      },
+      "map": [
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "                        ",
+        "                        ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "         ▓ DD ▓         ",
+        "         ▓    ▓         ",
+        "         ▓▓▓▓▓▓         ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ]
+    },
+    {
+      "id": 54,
+      "name": "Cooridor",
+      "area": "King's Quarters",
+      "description": "You are in a Cooridor.",
+      "exits": {
+        "N": 57,
+        "S": 58,
+        "E": 53
+      },
+      "map": [
+        "          ▓ ▓▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "     ▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓▓▓",
+        "     ▓                  ",
+        "     ▓                  ",
+        "     ▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓▓▓",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          "
+      ],
+      "spawns": [
+        {"monster": "fairy", "row": 1, "col": 12, "unlessFrom": 57}
+      ]
+    },
+    {
+      "id": 55,
+      "name": "Cooridor",
+      "area": "King's Quarters",
+      "description": "You are in a Cooridor.",
+      "exits": {
+        "N": 56,
+        "S": 59,
+        "W": 53
+      },
+      "map": [
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "▓▓▓▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓     ",
+        "                  ▓     ",
+        "                  ▓     ",
+        "▓▓▓▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓     ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          "
+      ]
+    },
+    {
+      "id": 56,
+      "name": "King's Study",
+      "area": "King's Quarters",
+      "description": "You are in the King's Study. A large Wooden Desk is all that is left.",
+      "exits": {
+        "S": 55,
+        "W": 52
+      },
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ",
+        "   ▓                ▓   ",
+        "   ▓     ┌────┐     ▓   ",
+        "   ▓     │    │     ▓   ",
+        "▓▓▓▓     └────┘     ▓   ",
+        "                    ▓   ",
+        "                    ▓   ",
+        "▓▓▓▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓   ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          "
+      ],
+      "items": [
+        {
+          "id": "key",
+          "name": "KEY",
+          "glyph": "τ",
+          "hiddenIn": "─│",
+          "look": [
+            "It looks Old!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "name": "Totally Empty room",
+      "area": "King's Quarters",
+      "description": "You are in a totally Empty room.",
+      "exits": {
+        "S": 54,
+        "E": 52
+      },
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓▓▓▓",
+        "   ▓                   ▓",
+        "   ▓                    ",
+        "   ▓                ▓▓▓▓",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓   ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓ ▓▓          "
+      ],
+      "items": [
+        {
+          "id": "diamond",
+          "name": "DIAMOND",
+          "glyph": "♦",
+          "row": 10,
+          "col": 13,
+          "look": [
+            "It looks",
+            "Expensive!"
+          ],
+          "treasure": true
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "name": "West end of The King's Library",
+      "area": "King's Quarters",
+      "description": "You are in the west end of The King's Library. It is full of shelves.",
+      "exits": {
+        "N": 54,
+        "E": 59
+      },
+      "map": [
+        "          ▓  ▓          ",
+        "    ▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓▓▓",
+        "    ▓                   ",
+        "    ▓                   ",
+        "    ▓                   ",
+        "    ▓                   ",
+        "    ▓                   ",
+        "    ▓  ███████   ███████",
+        "    ▓                   ",
+        "    ▓                   ",
+        "    ▓  ███████   ███████",
+        "    ▓                   ",
+        "    ▓                   ",
+        "    ▓  ███████   ███████",
+        "    ▓                   ",
+        "    ▓                   ",
+        "    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        "                        "
+      ],
+      "items": [
+        {
+          "id": "book",
+          "name": "BOOK",
+          "glyph": "▬",
+          "hiddenIn": "█",
+          "look": [
+            "It is titled",
+            "`The Gate'"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "name": "East end of the King's Library",
+      "area": "King's Quarters",
+      "description": "You are in the East end of the King's Library. It is full of shelves.",
+      "exits": {
+        "N": 55,
+        "W": 58
+      },
+      "map": [
+        "          ▓  ▓          ",
+        "▓▓▓▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓    ",
+        "                   ▓    ",
+        "                   ▓    ",
+        "                   ▓    ",
+        "                   ▓    ",
+        "                   ▓    ",
+        "███████   ███████  ▓    ",
+        "                   ▓    ",
+        "                   ▓    ",
+        "███████   ███████  ▓    ",
+        "                   ▓    ",
+        "                   ▓    ",
+        "███████   ███████  ▓    ",
+        "                   ▓    ",
+        "                   ▓    ",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓    ",
+        "                        "
+      ]
+    },
+    {
+      "id": 60,
+      "name": "Castle Wall",
+      "area": "Castle Walls",
+      "description": "You are on the Castle Wall.",
+      "exits": {
+        "N": 61,
+        "E": 51
+      },
+      "map": [
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
+      ],
+      "items": [
+        {
+          "id": "rubys",
+          "name": "RUBYS",
+          "glyph": ":",
+          "row": 16,
+          "col": 4,
+          "look": [
+            "They look",
+            "Expensive!"
+          ],
+          "treasure": true
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "name": "Below the West Tower",
+      "area": "Castle Walls",
+      "description": "You are Below the West Tower. there is a large staircase leading up the tower.",
+      "exits": {
+        "N": 48,
+        "S": 60,
+        "U": 62
+      },
+      "map": [
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        "▓▓      ▓▓              ",
+        "▓        ▓              ",
+        "▓   UU   ▓              ",
+        "▓   UU   ▓              ",
+        "▓        ▓              ",
+        "▓▓      ▓▓              ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               "
+      ]
+    }
+  ]
+}

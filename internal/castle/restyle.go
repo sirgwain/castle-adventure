@@ -110,6 +110,9 @@ var railing = map[rune]rune{'─': '═', '┐': '╗', '┘': '╝', '│': '�
 
 const boxChars = "─│┌┐└┘├═Γα"
 
+// Door is the character the game draws for a locked door (the original CHR$(8)).
+const Door = '◘'
+
 // Wall line sets, indexed by the 4-neighbour mask N=1 E=2 S=4 W=8.
 type WallStyle [16]rune
 
@@ -155,6 +158,8 @@ func Restyle(r *Room) Styled {
 				s[y][x].Role = RoleChain
 			case c == 'k' || c == 'b':
 				s[y][x].Role = RoleGold // Kevin Bales's initials in the maze wall
+			case c == Door:
+				s[y][x] = Cell{'▒', RoleWood} // a locked wooden door
 			}
 		}
 	}
@@ -412,4 +417,13 @@ func containsAny(s string, words ...string) bool {
 		}
 	}
 	return false
+}
+
+// Inside reports whether the floor square at row y, column x (0-based) is
+// enclosed by the room rather than outside its walls.
+func (r *Room) Inside(y, x int) bool {
+	if y < 0 || y >= MapH || x < 0 || x >= MapW {
+		return false
+	}
+	return insideMask(r)[y][x]
 }

@@ -22,19 +22,98 @@ const (
 	exitOff  = descOff + 125
 )
 
-// Room is one record of CASTLE.RAN.
+// Room is one room of the castle: its map and description from CASTLE.RAN,
+// plus the level data from the JSON files (items, monsters, doors, traps …).
 type Room struct {
 	ID    int
-	Map   [MapH][MapW]rune // decoded from code page 437
-	Desc  string           // 125 characters: the original 5 lines of 25
+	Title string           // short name, e.g. "Castle Courtyard"
+	Area  string           // the map area it belongs to, e.g. "Ground Floor"
+	Floor int              // 0 = ground floor, -1 = cellars
+	Map   [MapH][MapW]rune // the original characters (code page 437 decoded)
+	Desc  string           // description text
 	Exits map[byte]int     // 'N','S','E','W','U','D' -> room number (0 = outside)
+
+	Dark     bool      // too dark to enter without the lamp
+	Doors    []Pos     // squares of a door that starts locked
+	Traps    []Trap    // squares that drown you unless you carry the necklace
+	OnArrive []Arrival // effects of arriving from a given room
+	OnWave   []Wave    // what waving an item here does
+	Spawns   []Spawn   // monsters placed in the way when you arrive
+	Items    []ItemDef // items that start in this room
+	Monsters []MonsterDef
+}
+
+// Pos is a 1-based map position, as the original's LOCATE row, col.
+type Pos struct{ Row, Col int }
+
+// Edit writes text into a room's map, starting at Row, Col (1-based).
+type Edit struct {
+	Row  int    `json:"row"`
+	Col  int    `json:"col"`
+	Text string `json:"text"`
+}
+
+// Trap drowns the player on any of Cells unless they carry the necklace.
+type Trap struct {
+	Cells []Pos
+	Flood []Edit // drawn when the trap springs
+}
+
+// Arrival applies when the player enters the room from room From.
+type Arrival struct {
+	From    int      `json:"from"`
+	Row     int      `json:"row,omitempty"` // move the player here (0 = stay)
+	Col     int      `json:"col,omitempty"`
+	Edits   []Edit   `json:"edits,omitempty"`
+	Message []string `json:"message,omitempty"`
+}
+
+// Wave is the effect of waving an item in this room.
+type Wave struct {
+	Item    string   `json:"item"`
+	Edits   []Edit   `json:"edits"`
+	Message []string `json:"message"`
+}
+
+// Spawn places a monster in the room on arrival, unless arriving from UnlessFrom.
+type Spawn struct {
+	Monster    string `json:"monster"`
+	Row        int    `json:"row"`
+	Col        int    `json:"col"`
+	UnlessFrom int    `json:"unlessFrom,omitempty"`
+}
+
+// ItemDef is an item's starting state.
+type ItemDef struct {
+	ID       string   `json:"id"`   // lower-case noun: "lamp", "wand" …
+	Name     string   `json:"name"` // "MAGIC WAND"
+	Glyph    string   `json:"glyph"`
+	Row      int      `json:"row,omitempty"`
+	Col      int      `json:"col,omitempty"`
+	HiddenIn string   `json:"hiddenIn,omitempty"` // hidden: GET it next to one of these characters
+	Look     []string `json:"look,omitempty"`     // LOOK text when carried
+	Treasure bool     `json:"treasure,omitempty"`
+	Room     int      `json:"-"`
+}
+
+// MonsterDef is a monster's starting state.
+type MonsterDef struct {
+	ID    string `json:"id"`
+	Name  string `json:"name"`
+	Glyph string `json:"glyph"`
+	Kind  string `json:"kind"` // "fighter", "vampire" or "fairy"
+	HP    int    `json:"hp"`
+	Row   int    `json:"row,omitempty"`
+	Col   int    `json:"col,omitempty"`
+	Start *bool  `json:"start,omitempty"` // false: not placed until a Spawn puts it somewhere
+	Room  int    `json:"-"`
 }
 
 var exitRe = regexp.MustCompile(`([NSEWUD])(\d+)`)
 
-// LoadRooms decodes CASTLE.RAN. The result is 1-based like the original game:
-// rooms[1] is the courtyard and rooms[0] is nil.
-func LoadRooms(ran []byte) ([]*Room, error) {
+// LoadRAN decodes the original CASTLE.RAN (maps, descriptions and exits only).
+// The result is 1-based like the original game: rooms[1] is the courtyard.
+func LoadRAN(ran []byte) ([]*Room, error) {
 	if len(ran) < NumRooms*recSize {
 		return nil, fmt.Errorf("castle: CASTLE.RAN is %d bytes, want at least %d", len(ran), NumRooms*recSize)
 	}
@@ -54,7 +133,7 @@ func LoadRooms(ran []byte) ([]*Room, error) {
 		if err != nil {
 			return nil, fmt.Errorf("castle: room %d description: %w", i, err)
 		}
-		r.Desc = string(desc)
+		r.Desc = strings.Join(strings.Fields(string(desc)), " ")
 		for _, m := range exitRe.FindAllStringSubmatch(string(rec[exitOff:recSize]), -1) {
 			n, _ := strconv.Atoi(m[2])
 			r.Exits[m[1][0]] = n
@@ -69,8 +148,11 @@ func (r *Room) Text() string { return strings.Join(strings.Fields(r.Desc), " ") 
 
 var nameRe = regexp.MustCompile(`(?i)^You(?:'re| are)\s+(?:in|on|at)?\s*(?:(?:the|an|a)\s+)?(.*?)[.!,]`)
 
-// Name is a short name taken from the description ("Castle Courtyard").
+// Name is the room's short name, from the level data or else the description.
 func (r *Room) Name() string {
+	if r.Title != "" {
+		return r.Title
+	}
 	t := r.Text()
 	if m := nameRe.FindStringSubmatch(t); m != nil {
 		t = strings.TrimSpace(m[1])

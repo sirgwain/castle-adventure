@@ -1,0 +1,78 @@
+{
+  "floor": 5,
+  "name": "Tower Tops",
+  "rooms": [
+    {
+      "id": 64,
+      "name": "Top of the West tower",
+      "area": "West Tower Top",
+      "description": "You are at the top of the West tower.",
+      "exits": {
+        "D": 62
+      },
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        " ▓▓────▓▓               ",
+        "▓▓      ▓▓              ",
+        "▓        ▓              ",
+        "│   DD   │              ",
+        "│   DD   │              ",
+        "▓        ▓              ",
+        "▓▓      ▓▓              ",
+        " ▓▓────▓▓               ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ]
+    },
+    {
+      "id": 65,
+      "name": "Top of the East Tower",
+      "area": "East Tower Top",
+      "description": "You are at the top of the East Tower.",
+      "exits": {
+        "D": 63
+      },
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "               ▓▓────▓▓ ",
+        "              ▓▓      ▓▓",
+        "              ▓        ▓",
+        "              │   DD   │",
+        "              │   DD   │",
+        "              ▓        ▓",
+        "              ▓▓      ▓▓",
+        "               ▓▓────▓▓ ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "items": [
+        {
+          "id": "harp",
+          "name": "HARP",
+          "glyph": "♫",
+          "row": 8,
+          "col": 16,
+          "look": [
+            "It's made of",
+            "Gold!"
+          ],
+          "treasure": true
+        }
+      ]
+    }
+  ]
+}

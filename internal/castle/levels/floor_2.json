@@ -1,0 +1,461 @@
+{
+  "floor": 2,
+  "name": "Coloured Rooms and Upper Battlements",
+  "rooms": [
+    {
+      "id": 34,
+      "name": "Cooridor",
+      "area": "Coloured Rooms",
+      "description": "You are In a Cooridor. there is a staircase at on end.",
+      "exits": {
+        "S": 41,
+        "E": 40,
+        "W": 39,
+        "D": 32
+      },
+      "map": [
+        "                        ",
+        "         ▓▓▓▓▓▓         ",
+        "         ▓    ▓         ",
+        "         ▓ DD ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "                        ",
+        "                        ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         "
+      ]
+    },
+    {
+      "id": 35,
+      "name": "Cooridor",
+      "area": "Coloured Rooms",
+      "description": "You are in a Cooridor.",
+      "exits": {
+        "N": 39,
+        "S": 37,
+        "E": 41
+      },
+      "map": [
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "     ▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓▓▓",
+        "     ▓                  ",
+        "     ▓                  ",
+        "     ▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓▓▓",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          "
+      ]
+    },
+    {
+      "id": 36,
+      "name": "Cooridor",
+      "area": "Coloured Rooms",
+      "description": "You are in a Cooridor.",
+      "exits": {
+        "N": 40,
+        "S": 38,
+        "W": 41
+      },
+      "map": [
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "▓▓▓▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓     ",
+        "                  ▓     ",
+        "                  ▓     ",
+        "▓▓▓▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓     ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          "
+      ]
+    },
+    {
+      "id": 37,
+      "name": "Red Room",
+      "area": "Coloured Rooms",
+      "description": "You are in The Red Room. This is decorated all in red. It is mostly empty now except for 2 beds.",
+      "exits": {
+        "N": 35
+      },
+      "map": [
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "   ▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓  ██        ██  ▓   ",
+        "   ▓  ██        ██  ▓   ",
+        "   ▓  ██        ██  ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "items": [
+        {
+          "id": "cross",
+          "name": "HOLY CROSS",
+          "glyph": "t",
+          "row": 13,
+          "col": 15,
+          "look": [
+            "It's made of",
+            "Gold!"
+          ],
+          "treasure": true
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "name": "Blue room",
+      "area": "Coloured Rooms",
+      "description": "You are in the Blue room. This room is decorated all in blue. It is now empty except for 2 beds.",
+      "exits": {
+        "N": 36
+      },
+      "map": [
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "   ▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓  ██        ██  ▓   ",
+        "   ▓  ██        ██  ▓   ",
+        "   ▓  ██        ██  ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ",
+        "                        ",
+        "                        ",
+        "                        "
+      ]
+    },
+    {
+      "id": 39,
+      "name": "Purple room",
+      "area": "Coloured Rooms",
+      "description": "You are in the Purple room. It is Decorated all in purple. There is 1 bed left.",
+      "exits": {
+        "S": 35,
+        "E": 34
+      },
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ",
+        "   ▓                ▓   ",
+        "   ▓ ████           ▓   ",
+        "   ▓ ████           ▓   ",
+        "   ▓                ▓▓▓▓",
+        "   ▓                    ",
+        "   ▓                    ",
+        "   ▓                ▓▓▓▓",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓                ▓   ",
+        "   ▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓   ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          "
+      ]
+    },
+    {
+      "id": 40,
+      "name": "Yellow room",
+      "area": "Coloured Rooms",
+      "description": "You are in the Yellow room. It is decorated all in Yellow.Now it is empty except for a desk & bed.",
+      "exits": {
+        "S": 36,
+        "W": 34
+      },
+      "map": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ",
+        "   ▓                ▓   ",
+        "   ▓ ████           ▓   ",
+        "   ▓ ████           ▓   ",
+        "▓▓▓▓                ▓   ",
+        "                    ▓   ",
+        "                    ▓   ",
+        "▓▓▓▓                ▓   ",
+        "   ▓            ┌─┐ ▓   ",
+        "   ▓            └─┘ ▓   ",
+        "   ▓                ▓   ",
+        "   ▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓   ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          ",
+        "          ▓  ▓          "
+      ],
+      "items": [
+        {
+          "id": "glasses",
+          "name": "EYE GLASSES",
+          "glyph": "∞",
+          "hiddenIn": "─│",
+          "look": [
+            "They're",
+            "Bifocals"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "name": "Cooridor",
+      "area": "Coloured Rooms",
+      "description": "You are in a cooridor. There is a staircase at one end.",
+      "exits": {
+        "N": 34,
+        "E": 36,
+        "W": 35,
+        "U": 53
+      },
+      "map": [
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "         ▓    ▓         ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "                        ",
+        "                        ",
+        "▓▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓▓",
+        "         ▓ UU ▓         ",
+        "         ▓    ▓         ",
+        "         ▓▓▓▓▓▓         ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ]
+    },
+    {
+      "id": 42,
+      "name": "Upper Battlement",
+      "area": "Upper Battlements",
+      "description": "You are in An upper Battlement. There is a staircase in one corner.",
+      "exits": {
+        "S": 43,
+        "W": 45,
+        "U": 49,
+        "D": 25
+      },
+      "map": [
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ",
+        "                      ▓ ",
+        "                  DU  ▓ ",
+        "                      ▓ ",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ "
+      ]
+    },
+    {
+      "id": 43,
+      "name": "Upper Battlement",
+      "area": "Upper Battlements",
+      "description": "You are In an Upper Battlement. There is a long staircase leading down.",
+      "exits": {
+        "N": 42,
+        "S": 46,
+        "D": 82
+      },
+      "map": [
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓▓",
+        "               ▓       ▓",
+        "               ▓      D▓",
+        "               ▓      D▓",
+        "               ▓       ▓",
+        "               ▓      ▓▓",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ "
+      ]
+    },
+    {
+      "id": 44,
+      "name": "Upper Batlement",
+      "area": "Upper Battlements",
+      "description": "You are in an Upper Batlement.",
+      "exits": {
+        "N": 45,
+        "S": 47
+      },
+      "map": [
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               "
+      ]
+    },
+    {
+      "id": 45,
+      "name": "Upper Battlement",
+      "area": "Upper Battlements",
+      "description": "You are in an Upper Battlement. There is a staircase in one corner.",
+      "exits": {
+        "S": 44,
+        "E": 42,
+        "U": 48,
+        "D": 26
+      },
+      "map": [
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        " ▓                      ",
+        " ▓  UD                  ",
+        " ▓                      ",
+        " ▓      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               "
+      ]
+    },
+    {
+      "id": 46,
+      "name": "Upper Battlement",
+      "area": "Upper Battlements",
+      "description": "You are in an Upper Battlement.",
+      "exits": {
+        "N": 43,
+        "W": 47
+      },
+      "map": [
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "               ▓      ▓ ",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "                      ▓ ",
+        "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ "
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Upper Battlement",
+      "area": "Upper Battlements",
+      "description": "You are in an Upper Battlement.",
+      "exits": {
+        "N": 44,
+        "E": 46
+      },
+      "map": [
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓               ",
+        " ▓      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓                      ",
+        " ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
+      ]
+    }
+  ]
+}

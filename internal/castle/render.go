@@ -13,6 +13,15 @@ type RenderOptions struct {
 	Scale   Scale // terminal cells per map square; zero means 1x1
 	PlayerY int   // 0-based player position; negative hides the player
 	PlayerX int
+	// Overlays draw items and monsters on top of the map.
+	Overlays []Overlay
+}
+
+// Overlay is a glyph drawn over one map square (0-based Y, X).
+type Overlay struct {
+	Y, X int
+	R    rune
+	FG   color.Color
 }
 
 var (
@@ -25,7 +34,7 @@ var (
 // Player glyphs: the original drew CHR$(5), a club.
 const (
 	PlayerClassic = '♣'
-	PlayerModern  = '☻'
+	PlayerModern  = '@' // ☻ is the Angry Demon's glyph
 )
 
 // At scales two rows tall and up, the player fills its square with a small
@@ -115,6 +124,15 @@ func Render(r *Room, opt RenderOptions) []string {
 					p.bg = t.Floor
 				}
 				grid[y][x] = p
+			}
+		}
+	}
+	for _, o := range opt.Overlays {
+		if o.Y >= 0 && o.Y < MapH && o.X >= 0 && o.X < MapW {
+			p := &grid[o.Y][o.X]
+			p.r, p.fg = o.R, o.FG
+			if opt.Classic {
+				p.fg = cgaGrey
 			}
 		}
 	}
