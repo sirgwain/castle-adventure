@@ -4,7 +4,7 @@ package castle
 
 type Room struct {
 	ID          int
-	Map         string // 18 rows x 24 cols, rows joined by \n
+	Map         string    // 18 rows x 24 cols, rows joined by \n
 	Description [5]string // original 25-column lines
 	Exits       map[byte]int
 }
@@ -32,7 +32,7 @@ var Rooms = [...]Room{
 ▓                      ▓
 ▓▓▓▓▓▓▓▓▓▓════▓▓▓▓▓▓▓▓▓▓`,
 		Description: [5]string{"You are in the Castle    ", "Courtyard. To the north  ", "is a large Doorway.To the", "south is a large gate.   ", "                         "},
-		Exits: map[byte]int{'N': 2},
+		Exits:       map[byte]int{'N': 2},
 	},
 	{ // room 2
 		ID: 2,
@@ -55,7 +55,7 @@ var Rooms = [...]Room{
          ▓    ▓         
          ▓    ▓         `,
 		Description: [5]string{"You are in the Entrance  ", "room. Exits are to the   ", "north & south.           ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 3, 'S': 1},
+		Exits:       map[byte]int{'N': 3, 'S': 1},
 	},
 	{ // room 3
 		ID: 3,
@@ -78,7 +78,7 @@ var Rooms = [...]Room{
  ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ 
          ▓    ▓         `,
 		Description: [5]string{"You are in The Welcome   ", "Hall. This room was used ", "to welcome guests. There ", "are large archways in    ", "all four walls.          "},
-		Exits: map[byte]int{'N': 7, 'S': 2, 'E': 5, 'W': 4},
+		Exits:       map[byte]int{'N': 7, 'S': 2, 'E': 5, 'W': 4},
 	},
 	{ // room 4
 		ID: 4,
@@ -101,7 +101,7 @@ var Rooms = [...]Room{
  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 
                         `,
 		Description: [5]string{"You are in The West      ", "Ballroom. There are arch ", "ways to the north & east;", "a spiral staircase in one", "corner.                  "},
-		Exits: map[byte]int{'N': 8, 'E': 3, 'U': 20},
+		Exits:       map[byte]int{'N': 8, 'E': 3, 'U': 20},
 	},
 	{ // room 5
 		ID: 5,
@@ -124,7 +124,7 @@ var Rooms = [...]Room{
  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 
                         `,
 		Description: [5]string{"You are in The East      ", "Ballroom. There are arch ", "ways to the north & west;", "a spiral staircase in one", "corner.                  "},
-		Exits: map[byte]int{'N': 6, 'W': 3, 'U': 21},
+		Exits:       map[byte]int{'N': 6, 'W': 3, 'U': 21},
 	},
 	{ // room 6
 		ID: 6,
@@ -147,7 +147,7 @@ var Rooms = [...]Room{
  ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓  
          ▓    ▓         `,
 		Description: [5]string{"You are in the East      ", "Dining room. The large   ", "opening to the east leads", "to the garden patio.     ", "                         "},
-		Exits: map[byte]int{'N': 12, 'S': 5, 'E': 18, 'W': 7},
+		Exits:       map[byte]int{'N': 12, 'S': 5, 'E': 18, 'W': 7},
 	},
 	{ // room 7
 		ID: 7,
@@ -170,7 +170,7 @@ var Rooms = [...]Room{
  ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ 
          ▓    ▓         `,
 		Description: [5]string{"You are in The Central   ", "Hall. Exits are in all   ", "directions. There is a   ", "large spiral staircase   ", "in the middle.           "},
-		Exits: map[byte]int{'N': 13, 'S': 3, 'E': 6, 'W': 8, 'U': 23},
+		Exits:       map[byte]int{'N': 13, 'S': 3, 'E': 6, 'W': 8, 'U': 23},
 	},
 	{ // room 8
 		ID: 8,
@@ -193,7 +193,7 @@ var Rooms = [...]Room{
  ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ 
          ▓    ▓         `,
 		Description: [5]string{"You are in the West      ", "Dining room. There 2 door", "ways to the north, & arch", "ways to the east & south.", "                         "},
-		Exits: map[byte]int{'N': 9, 'S': 4, 'E': 7},
+		Exits:       map[byte]int{'N': 9, 'S': 4, 'E': 7},
 	},
 	{ // room 9
 		ID: 9,
@@ -216,7 +216,7 @@ var Rooms = [...]Room{
     ▓  ▓        ▓  ▓    
     ▓  ▓        ▓  ▓    `,
 		Description: [5]string{"You are in The Kitchen.  ", "In the Center is a large ", "stone table.             ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 11, 'S': 8, 'E': 10},
+		Exits:       map[byte]int{'N': 11, 'S': 8, 'E': 10},
 	},
 	{ // room 10
 		ID: 10,
@@ -239,7 +239,7 @@ var Rooms = [...]Room{
                         
                         `,
 		Description: [5]string{"You are in The Chef's    ", "Quarters. There is a     ", "small desk & a Bed here. ", "                         ", "                         "},
-		Exits: map[byte]int{'W': 9},
+		Exits:       map[byte]int{'W': 9},
 	},
 	{ // room 11
 		ID: 11,
@@ -262,7 +262,7 @@ var Rooms = [...]Room{
           ▓  ▓          
           ▓  ▓          `,
 		Description: [5]string{"You are in the Storage   ", "room. There are Two large", "shelves in the middle,and", "a Small Staircase in one ", "corner.                  "},
-		Exits: map[byte]int{'S': 9, 'D': 68},
+		Exits:       map[byte]int{'S': 9, 'D': 68},
 	},
 	{ // room 12
 		ID: 12,
@@ -285,7 +285,7 @@ var Rooms = [...]Room{
        ▓▓▓    ▓▓▓▓▓▓▓▓  
          ▓    ▓         `,
 		Description: [5]string{"You are in The Castle    ", "Museum. This room was    ", "once decorated with many ", "artifacts.               ", "                         "},
-		Exits: map[byte]int{'S': 6, 'E': 17},
+		Exits:       map[byte]int{'S': 6, 'E': 17},
 	},
 	{ // room 13
 		ID: 13,
@@ -308,7 +308,7 @@ var Rooms = [...]Room{
          ▓    ▓         
          ▓    ▓         `,
 		Description: [5]string{"You are in the Ante Room.", "Here People waited for   ", "an audience with the King", "It was once lined with   ", "benches.                 "},
-		Exits: map[byte]int{'N': 14, 'S': 7},
+		Exits:       map[byte]int{'N': 14, 'S': 7},
 	},
 	{ // room 14
 		ID: 14,
@@ -331,7 +331,7 @@ var Rooms = [...]Room{
  ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ 
          ▓    ▓         `,
 		Description: [5]string{"You are in the Throne    ", "Room. There is a Large   ", "Throne at one end of the ", "room.                    ", "                         "},
-		Exits: map[byte]int{'S': 13, 'E': 16, 'W': 15},
+		Exits:       map[byte]int{'S': 13, 'E': 16, 'W': 15},
 	},
 	{ // room 15
 		ID: 15,
@@ -354,7 +354,7 @@ var Rooms = [...]Room{
                         
                         `,
 		Description: [5]string{"You are In the Kings     ", "Dressing room. It was    ", "Once Filled with clothes.", "There is a Staircase in  ", "one corner.              "},
-		Exits: map[byte]int{'E': 14, 'U': 31},
+		Exits:       map[byte]int{'E': 14, 'U': 31},
 	},
 	{ // room 16
 		ID: 16,
@@ -377,7 +377,7 @@ var Rooms = [...]Room{
                         
                         `,
 		Description: [5]string{"You are in the Queen's   ", "Dressing room. It was    ", "once filled with clothes.", "There is a Staircase in  ", "one corner.              "},
-		Exits: map[byte]int{'W': 14, 'U': 30},
+		Exits:       map[byte]int{'W': 14, 'U': 30},
 	},
 	{ // room 17
 		ID: 17,
@@ -400,7 +400,7 @@ var Rooms = [...]Room{
   ▓           ░       ▓ 
   ▓                   ▓ `,
 		Description: [5]string{"You are In The North end ", "of the Castle Garden. It ", "is overgrown with bushes.", "                         ", "                         "},
-		Exits: map[byte]int{'S': 18, 'W': 12},
+		Exits:       map[byte]int{'S': 18, 'W': 12},
 	},
 	{ // room 18
 		ID: 18,
@@ -423,7 +423,7 @@ var Rooms = [...]Room{
   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 
                         `,
 		Description: [5]string{"You are in The South end ", "of The Castle garden. In ", "the center is a fountain.", "                         ", "                         "},
-		Exits: map[byte]int{'N': 17, 'W': 6},
+		Exits:       map[byte]int{'N': 17, 'W': 6},
 	},
 	{ // room 19
 		ID: 19,
@@ -446,7 +446,7 @@ var Rooms = [...]Room{
 ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
                         `,
 		Description: [5]string{"You are in the center of ", "The upper Hall. There is ", "a statue of the King in  ", "the middle.              ", "                         "},
-		Exits: map[byte]int{'N': 23, 'E': 21, 'W': 20},
+		Exits:       map[byte]int{'N': 23, 'E': 21, 'W': 20},
 	},
 	{ // room 20
 		ID: 20,
@@ -469,7 +469,7 @@ var Rooms = [...]Room{
  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
                         `,
 		Description: [5]string{"You are in the west end  ", "of the Upper hall. There ", "is a staircase leading   ", "down.                    ", "                         "},
-		Exits: map[byte]int{'N': 24, 'E': 19, 'D': 4},
+		Exits:       map[byte]int{'N': 24, 'E': 19, 'D': 4},
 	},
 	{ // room 21
 		ID: 21,
@@ -492,7 +492,7 @@ var Rooms = [...]Room{
 ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 
                         `,
 		Description: [5]string{"You are in the east end  ", "of the Upper Hall. There ", "is a Staircase leading   ", "down.                    ", "                         "},
-		Exits: map[byte]int{'N': 22, 'W': 19, 'D': 5},
+		Exits:       map[byte]int{'N': 22, 'W': 19, 'D': 5},
 	},
 	{ // room 22
 		ID: 22,
@@ -515,7 +515,7 @@ var Rooms = [...]Room{
  ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ 
          ▓    ▓         `,
 		Description: [5]string{"You are in The Guards    ", "Hall. This room was once ", "used to honor Members of ", "the Royal Guard.         ", "                         "},
-		Exits: map[byte]int{'N': 25, 'S': 21, 'E': 33, 'W': 23},
+		Exits:       map[byte]int{'N': 25, 'S': 21, 'E': 33, 'W': 23},
 	},
 	{ // room 23
 		ID: 23,
@@ -538,7 +538,7 @@ var Rooms = [...]Room{
  ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ 
          ▓    ▓         `,
 		Description: [5]string{"You are in the Anex Hall.", "There is a large spiral  ", "staircase in the middle. ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 28, 'S': 19, 'E': 22, 'W': 24, 'D': 7},
+		Exits:       map[byte]int{'N': 28, 'S': 19, 'E': 22, 'W': 24, 'D': 7},
 	},
 	{ // room 24
 		ID: 24,
@@ -561,7 +561,7 @@ var Rooms = [...]Room{
  ▓▓▓▓▓▓▓▓▓    ▓▓▓▓▓▓▓▓▓ 
          ▓    ▓         `,
 		Description: [5]string{"You are in The Knights   ", "Hall. This room was once ", "used to Honor The King's ", "Knights.                 ", "                         "},
-		Exits: map[byte]int{'N': 26, 'S': 20, 'E': 23},
+		Exits:       map[byte]int{'N': 26, 'S': 20, 'E': 23},
 	},
 	{ // room 25
 		ID: 25,
@@ -584,7 +584,7 @@ var Rooms = [...]Room{
                  ▓  ▓   
                  ▓  ▓   `,
 		Description: [5]string{"You are in a lower       ", "Battlement. There is a   ", "staircase at one end.    ", "                         ", "                         "},
-		Exits: map[byte]int{'S': 22, 'U': 42},
+		Exits:       map[byte]int{'S': 22, 'U': 42},
 	},
 	{ // room 26
 		ID: 26,
@@ -607,7 +607,7 @@ var Rooms = [...]Room{
  ▓▓▓  ▓▓▓               
    ▓  ▓                 `,
 		Description: [5]string{"You are In a Lower       ", "Battlement. There is a   ", "staircase at one end.    ", "                         ", "                         "},
-		Exits: map[byte]int{'S': 24, 'U': 45},
+		Exits:       map[byte]int{'S': 24, 'U': 45},
 	},
 	{ // room 27
 		ID: 27,
@@ -630,7 +630,7 @@ var Rooms = [...]Room{
                         
                         `,
 		Description: [5]string{"You are In a Guest room. ", "                         ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'E': 28},
+		Exits:       map[byte]int{'E': 28},
 	},
 	{ // room 28
 		ID: 28,
@@ -653,7 +653,7 @@ var Rooms = [...]Room{
          ▓▓  ▓▓         
           ▓  ▓          `,
 		Description: [5]string{"You are in a Cooridor.   ", "                         ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 32, 'S': 23, 'E': 29, 'W': 27},
+		Exits:       map[byte]int{'N': 32, 'S': 23, 'E': 29, 'W': 27},
 	},
 	{ // room 29
 		ID: 29,
@@ -676,7 +676,7 @@ var Rooms = [...]Room{
                         
                         `,
 		Description: [5]string{"You are In a Guest Room. ", "                         ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'W': 28},
+		Exits:       map[byte]int{'W': 28},
 	},
 	{ // room 30
 		ID: 30,
@@ -699,7 +699,7 @@ var Rooms = [...]Room{
                         
                         `,
 		Description: [5]string{"You are in the Queen's   ", "Bed room. It was once    ", "furnished but is now     ", "empty. there is a stair  ", "case in one corner.      "},
-		Exits: map[byte]int{'W': 32, 'D': 16},
+		Exits:       map[byte]int{'W': 32, 'D': 16},
 	},
 	{ // room 31
 		ID: 31,
@@ -722,7 +722,7 @@ var Rooms = [...]Room{
                         
                         `,
 		Description: [5]string{"You are In the Kings room", ". It was once Furnished  ", "but is now empty. There  ", "is a staircase in one    ", "corner.                  "},
-		Exits: map[byte]int{'E': 32, 'D': 15},
+		Exits:       map[byte]int{'E': 32, 'D': 15},
 	},
 	{ // room 32
 		ID: 32,
@@ -745,7 +745,7 @@ var Rooms = [...]Room{
          ▓    ▓         
          ▓    ▓         `,
 		Description: [5]string{"You are In a Cooridor.   ", "There is a staircase at  ", "one end.                 ", "                         ", "                         "},
-		Exits: map[byte]int{'S': 28, 'E': 30, 'W': 31, 'U': 34},
+		Exits:       map[byte]int{'S': 28, 'E': 30, 'W': 31, 'U': 34},
 	},
 	{ // room 33
 		ID: 33,
@@ -768,7 +768,7 @@ var Rooms = [...]Room{
  ▓▓▓▓▓▓█─┘              
                         `,
 		Description: [5]string{"You are on a Balcony     ", "looking over the Castle  ", "Gardens.                 ", "                         ", "                         "},
-		Exits: map[byte]int{'W': 22},
+		Exits:       map[byte]int{'W': 22},
 	},
 	{ // room 34
 		ID: 34,
@@ -791,7 +791,7 @@ var Rooms = [...]Room{
          ▓    ▓         
          ▓    ▓         `,
 		Description: [5]string{"You are In a Cooridor.   ", "there is a staircase at  ", "on end.                  ", "                         ", "                         "},
-		Exits: map[byte]int{'S': 41, 'E': 40, 'W': 39, 'D': 32},
+		Exits:       map[byte]int{'S': 41, 'E': 40, 'W': 39, 'D': 32},
 	},
 	{ // room 35
 		ID: 35,
@@ -814,7 +814,7 @@ var Rooms = [...]Room{
           ▓  ▓          
           ▓  ▓          `,
 		Description: [5]string{"You are in a Cooridor.   ", "                         ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 39, 'S': 37, 'E': 41},
+		Exits:       map[byte]int{'N': 39, 'S': 37, 'E': 41},
 	},
 	{ // room 36
 		ID: 36,
@@ -837,7 +837,7 @@ var Rooms = [...]Room{
           ▓  ▓          
           ▓  ▓          `,
 		Description: [5]string{"You are in a Cooridor.   ", "                         ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 40, 'S': 38, 'W': 41},
+		Exits:       map[byte]int{'N': 40, 'S': 38, 'W': 41},
 	},
 	{ // room 37
 		ID: 37,
@@ -860,7 +860,7 @@ var Rooms = [...]Room{
                         
                         `,
 		Description: [5]string{"You are in The Red Room. ", "This is decorated all in ", "red. It is mostly empty  ", "now except for 2 beds.   ", "                         "},
-		Exits: map[byte]int{'N': 35},
+		Exits:       map[byte]int{'N': 35},
 	},
 	{ // room 38
 		ID: 38,
@@ -883,7 +883,7 @@ var Rooms = [...]Room{
                         
                         `,
 		Description: [5]string{"You are in the Blue room.", "This room is decorated   ", "all in blue. It is now   ", "empty except for 2 beds. ", "                         "},
-		Exits: map[byte]int{'N': 36},
+		Exits:       map[byte]int{'N': 36},
 	},
 	{ // room 39
 		ID: 39,
@@ -906,7 +906,7 @@ var Rooms = [...]Room{
           ▓  ▓          
           ▓  ▓          `,
 		Description: [5]string{"You are in the Purple    ", "room. It is Decorated all", "in purple. There is 1 bed", "left.                    ", "                         "},
-		Exits: map[byte]int{'S': 35, 'E': 34},
+		Exits:       map[byte]int{'S': 35, 'E': 34},
 	},
 	{ // room 40
 		ID: 40,
@@ -929,7 +929,7 @@ var Rooms = [...]Room{
           ▓  ▓          
           ▓  ▓          `,
 		Description: [5]string{"You are in the Yellow    ", "room. It is decorated all", "in Yellow.Now it is empty", "except for a desk & bed. ", "                         "},
-		Exits: map[byte]int{'S': 36, 'W': 34},
+		Exits:       map[byte]int{'S': 36, 'W': 34},
 	},
 	{ // room 41
 		ID: 41,
@@ -952,7 +952,7 @@ var Rooms = [...]Room{
                         
                         `,
 		Description: [5]string{"You are in a cooridor.   ", "There is a staircase at  ", "one end.                 ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 34, 'E': 36, 'W': 35, 'U': 53},
+		Exits:       map[byte]int{'N': 34, 'E': 36, 'W': 35, 'U': 53},
 	},
 	{ // room 42
 		ID: 42,
@@ -975,7 +975,7 @@ var Rooms = [...]Room{
                ▓      ▓ 
                ▓      ▓ `,
 		Description: [5]string{"You are in An upper      ", "Battlement. There is a   ", "staircase in one corner. ", "                         ", "                         "},
-		Exits: map[byte]int{'S': 43, 'W': 45, 'U': 49, 'D': 25},
+		Exits:       map[byte]int{'S': 43, 'W': 45, 'U': 49, 'D': 25},
 	},
 	{ // room 43
 		ID: 43,
@@ -998,7 +998,7 @@ var Rooms = [...]Room{
                ▓      ▓ 
                ▓      ▓ `,
 		Description: [5]string{"You are In an Upper      ", "Battlement. There is a   ", "long staircase leading   ", "down.                    ", "                         "},
-		Exits: map[byte]int{'N': 42, 'S': 46, 'D': 82},
+		Exits:       map[byte]int{'N': 42, 'S': 46, 'D': 82},
 	},
 	{ // room 44
 		ID: 44,
@@ -1021,7 +1021,7 @@ var Rooms = [...]Room{
  ▓      ▓               
  ▓      ▓               `,
 		Description: [5]string{"You are in an Upper      ", "Batlement.               ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 45, 'S': 47},
+		Exits:       map[byte]int{'N': 45, 'S': 47},
 	},
 	{ // room 45
 		ID: 45,
@@ -1044,7 +1044,7 @@ var Rooms = [...]Room{
  ▓      ▓               
  ▓      ▓               `,
 		Description: [5]string{"You are in an Upper      ", "Battlement. There is a   ", "staircase in one corner. ", "                         ", "                         "},
-		Exits: map[byte]int{'S': 44, 'E': 42, 'U': 48, 'D': 26},
+		Exits:       map[byte]int{'S': 44, 'E': 42, 'U': 48, 'D': 26},
 	},
 	{ // room 46
 		ID: 46,
@@ -1067,7 +1067,7 @@ var Rooms = [...]Room{
                       ▓ 
 ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ `,
 		Description: [5]string{"You are in an Upper      ", "Battlement.              ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 43, 'W': 47},
+		Exits:       map[byte]int{'N': 43, 'W': 47},
 	},
 	{ // room 47
 		ID: 47,
@@ -1090,7 +1090,7 @@ var Rooms = [...]Room{
  ▓                      
  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓`,
 		Description: [5]string{"You are in an Upper      ", "Battlement.              ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 44, 'E': 46},
+		Exits:       map[byte]int{'N': 44, 'E': 46},
 	},
 	{ // room 48
 		ID: 48,
@@ -1113,7 +1113,7 @@ var Rooms = [...]Room{
  ▓      ▓               
  ▓      ▓               `,
 		Description: [5]string{"You are on the Castle    ", "wall. There is a stair   ", "case leading down in one ", "corner.                  ", "                         "},
-		Exits: map[byte]int{'S': 61, 'E': 49, 'D': 45},
+		Exits:       map[byte]int{'S': 61, 'E': 49, 'D': 45},
 	},
 	{ // room 49
 		ID: 49,
@@ -1136,7 +1136,7 @@ var Rooms = [...]Room{
                ▓      ▓ 
                ▓      ▓ `,
 		Description: [5]string{"You are on the Castle    ", "wall. There is a stair   ", "case leading down in one ", "corner.                  ", "                         "},
-		Exits: map[byte]int{'S': 50, 'W': 48, 'D': 42},
+		Exits:       map[byte]int{'S': 50, 'W': 48, 'D': 42},
 	},
 	{ // room 50
 		ID: 50,
@@ -1159,7 +1159,7 @@ var Rooms = [...]Room{
                ▓      ▓ 
                ▓      ▓ `,
 		Description: [5]string{"You are at the Bottom of ", "the East Tower.          ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 49, 'S': 51, 'U': 63},
+		Exits:       map[byte]int{'N': 49, 'S': 51, 'U': 63},
 	},
 	{ // room 51
 		ID: 51,
@@ -1182,7 +1182,7 @@ var Rooms = [...]Room{
                       ▓ 
 ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ `,
 		Description: [5]string{"You are on the Castle    ", "wall.                    ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 50, 'W': 60},
+		Exits:       map[byte]int{'N': 50, 'W': 60},
 	},
 	{ // room 52
 		ID: 52,
@@ -1205,7 +1205,7 @@ var Rooms = [...]Room{
          ▓    ▓         
          ▓    ▓         `,
 		Description: [5]string{"You are in a Cooridor.   ", "                         ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'S': 53, 'E': 56, 'W': 57},
+		Exits:       map[byte]int{'S': 53, 'E': 56, 'W': 57},
 	},
 	{ // room 53
 		ID: 53,
@@ -1228,7 +1228,7 @@ var Rooms = [...]Room{
                         
                         `,
 		Description: [5]string{"You are in a Cooridor.   ", "there is a Stairway going", "down.                    ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 52, 'E': 55, 'W': 54, 'D': 41},
+		Exits:       map[byte]int{'N': 52, 'E': 55, 'W': 54, 'D': 41},
 	},
 	{ // room 54
 		ID: 54,
@@ -1251,7 +1251,7 @@ var Rooms = [...]Room{
           ▓  ▓          
           ▓  ▓          `,
 		Description: [5]string{"You are in a Cooridor.   ", "                         ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 57, 'S': 58, 'E': 53},
+		Exits:       map[byte]int{'N': 57, 'S': 58, 'E': 53},
 	},
 	{ // room 55
 		ID: 55,
@@ -1274,7 +1274,7 @@ var Rooms = [...]Room{
           ▓  ▓          
           ▓  ▓          `,
 		Description: [5]string{"You are in a Cooridor.   ", "                         ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 56, 'S': 59, 'W': 53},
+		Exits:       map[byte]int{'N': 56, 'S': 59, 'W': 53},
 	},
 	{ // room 56
 		ID: 56,
@@ -1297,7 +1297,7 @@ var Rooms = [...]Room{
           ▓  ▓          
           ▓  ▓          `,
 		Description: [5]string{"You are in the King's    ", "Study. A large Wooden    ", "Desk is all that is left.", "                         ", "                         "},
-		Exits: map[byte]int{'S': 55, 'W': 52},
+		Exits:       map[byte]int{'S': 55, 'W': 52},
 	},
 	{ // room 57
 		ID: 57,
@@ -1320,7 +1320,7 @@ var Rooms = [...]Room{
           ▓  ▓          
           ▓ ▓▓          `,
 		Description: [5]string{"You are in a totally     ", "Empty room.              ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'S': 54, 'E': 52},
+		Exits:       map[byte]int{'S': 54, 'E': 52},
 	},
 	{ // room 58
 		ID: 58,
@@ -1343,7 +1343,7 @@ var Rooms = [...]Room{
     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
                         `,
 		Description: [5]string{"You are in the west end  ", "of The King's Library. It", "is full of shelves.      ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 54, 'E': 59},
+		Exits:       map[byte]int{'N': 54, 'E': 59},
 	},
 	{ // room 59
 		ID: 59,
@@ -1366,7 +1366,7 @@ var Rooms = [...]Room{
 ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓    
                         `,
 		Description: [5]string{"You are in the East end  ", "of the King's Library. It", "is full of shelves.      ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 55, 'W': 58},
+		Exits:       map[byte]int{'N': 55, 'W': 58},
 	},
 	{ // room 60
 		ID: 60,
@@ -1389,7 +1389,7 @@ var Rooms = [...]Room{
  ▓                      
  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓`,
 		Description: [5]string{"You are on the Castle    ", "Wall.                    ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 61, 'E': 51},
+		Exits:       map[byte]int{'N': 61, 'E': 51},
 	},
 	{ // room 61
 		ID: 61,
@@ -1412,7 +1412,7 @@ var Rooms = [...]Room{
  ▓      ▓               
  ▓      ▓               `,
 		Description: [5]string{"You are Below the West   ", "Tower. there is a large  ", "staircase leading up the ", "tower.                   ", "                         "},
-		Exits: map[byte]int{'N': 48, 'S': 60, 'U': 62},
+		Exits:       map[byte]int{'N': 48, 'S': 60, 'U': 62},
 	},
 	{ // room 62
 		ID: 62,
@@ -1435,7 +1435,7 @@ var Rooms = [...]Room{
                         
                         `,
 		Description: [5]string{"You are in the West Tower", ".There is a Passage to   ", "the East.                ", "                         ", "                         "},
-		Exits: map[byte]int{'E': 67, 'U': 64, 'D': 61},
+		Exits:       map[byte]int{'E': 67, 'U': 64, 'D': 61},
 	},
 	{ // room 63
 		ID: 63,
@@ -1458,7 +1458,7 @@ var Rooms = [...]Room{
                         
                         `,
 		Description: [5]string{"You are in The East Tower", ". There are Stairs Going ", "both up & down.          ", "                         ", "                         "},
-		Exits: map[byte]int{'U': 65, 'D': 50},
+		Exits:       map[byte]int{'U': 65, 'D': 50},
 	},
 	{ // room 64
 		ID: 64,
@@ -1481,7 +1481,7 @@ var Rooms = [...]Room{
                         
                         `,
 		Description: [5]string{"You are at the top of the", "West tower.              ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'D': 62},
+		Exits:       map[byte]int{'D': 62},
 	},
 	{ // room 65
 		ID: 65,
@@ -1504,7 +1504,7 @@ var Rooms = [...]Room{
                         
                         `,
 		Description: [5]string{"You are at the top of the", "East Tower.              ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'D': 63},
+		Exits:       map[byte]int{'D': 63},
 	},
 	{ // room 66
 		ID: 66,
@@ -1527,7 +1527,7 @@ var Rooms = [...]Room{
                         
                         `,
 		Description: [5]string{"You are in the Sorcerers ", "secret laboratory.       ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'W': 67},
+		Exits:       map[byte]int{'W': 67},
 	},
 	{ // room 67
 		ID: 67,
@@ -1550,7 +1550,7 @@ var Rooms = [...]Room{
                         
                         `,
 		Description: [5]string{"You are in the Sorcerers ", "Quarters. Two Beds and a ", "large mirror are all that", "is left.                 ", "                         "},
-		Exits: map[byte]int{'W': 62, 'E': 66},
+		Exits:       map[byte]int{'W': 62, 'E': 66},
 	},
 	{ // room 68
 		ID: 68,
@@ -1573,7 +1573,7 @@ var Rooms = [...]Room{
        ▓  ▓             
        ▓  ▓             `,
 		Description: [5]string{"You are in the Royal Wine", "Cellar. It is filled with", "many Barrels. At one end ", "is a Large metal Door.   ", "                         "},
-		Exits: map[byte]int{'S': 69, 'U': 11},
+		Exits:       map[byte]int{'S': 69, 'U': 11},
 	},
 	{ // room 69
 		ID: 69,
@@ -1596,7 +1596,7 @@ var Rooms = [...]Room{
        ▓  ▓             
        ▓  ▓             `,
 		Description: [5]string{"You are in a long        ", "Passageway.              ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 68, 'S': 70},
+		Exits:       map[byte]int{'N': 68, 'S': 70},
 	},
 	{ // room 70
 		ID: 70,
@@ -1619,7 +1619,7 @@ var Rooms = [...]Room{
 ▓ ▓      ▓        ▓     
 ▓ ▓ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓`,
 		Description: [5]string{"You are in a Maze.       ", "                         ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 69, 'S': 72, 'E': 71},
+		Exits:       map[byte]int{'N': 69, 'S': 72, 'E': 71},
 	},
 	{ // room 71
 		ID: 71,
@@ -1642,7 +1642,7 @@ var Rooms = [...]Room{
              ▓▒▒▒▓     ▓
 ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▓▓▓▓▓▓▓`,
 		Description: [5]string{"You are in a Maze.       ", "                         ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'W': 70},
+		Exits:       map[byte]int{'W': 70},
 	},
 	{ // room 72
 		ID: 72,
@@ -1665,7 +1665,7 @@ var Rooms = [...]Room{
 ▓  ▓▒▒▒▒▓  ▓           ▓
 ▓  ▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓▓▓▓▓`,
 		Description: [5]string{"You are in a Maze.       ", "                         ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 70, 'S': 74, 'E': 73},
+		Exits:       map[byte]int{'N': 70, 'S': 74, 'E': 73},
 	},
 	{ // room 73
 		ID: 73,
@@ -1688,7 +1688,7 @@ var Rooms = [...]Room{
 ▓▒▒▒▒▓  ▓  ▓           ▓
 ▓▓▓▓▓▓  ▓  ▓▓▓  ▓▓▓▓▓▓▓▓`,
 		Description: [5]string{"You are in a Maze.       ", "                         ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'S': 75, 'W': 72},
+		Exits:       map[byte]int{'S': 75, 'W': 72},
 	},
 	{ // room 74
 		ID: 74,
@@ -1711,7 +1711,7 @@ var Rooms = [...]Room{
 ▓     ▓▓▓▓     ▓       ▓
 ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓`,
 		Description: [5]string{"You are in a Maze.       ", "                         ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 72, 'E': 75},
+		Exits:       map[byte]int{'N': 72, 'E': 75},
 	},
 	{ // room 75
 		ID: 75,
@@ -1734,7 +1734,7 @@ var Rooms = [...]Room{
 ▓▒▒▒▒▓    ▓  ▓░░░▓     ▓
 ▓▓▓▓▓▓▓▓▓▓▓  ▓▓▓▓▓▓▓▓▓▓▓`,
 		Description: [5]string{"You are in a Maze.       ", "                         ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 73, 'S': 76, 'W': 74},
+		Exits:       map[byte]int{'N': 73, 'S': 76, 'W': 74},
 	},
 	{ // room 76
 		ID: 76,
@@ -1757,7 +1757,7 @@ var Rooms = [...]Room{
                         
                         `,
 		Description: [5]string{"You are in a Winding     ", "Passage.                 ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 75, 'E': 77},
+		Exits:       map[byte]int{'N': 75, 'E': 77},
 	},
 	{ // room 77
 		ID: 77,
@@ -1780,7 +1780,7 @@ var Rooms = [...]Room{
    ▓                  ▓ 
    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ `,
 		Description: [5]string{"You are in a Winding     ", "Passage.                 ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 78, 'W': 76, 'S': 83},
+		Exits:       map[byte]int{'N': 78, 'W': 76, 'S': 83},
 	},
 	{ // room 78
 		ID: 78,
@@ -1803,7 +1803,7 @@ var Rooms = [...]Room{
           ▓  ▓          
           ▓  ▓          `,
 		Description: [5]string{"You are in a Winding     ", "passage.                 ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'S': 77, 'E': 81},
+		Exits:       map[byte]int{'S': 77, 'E': 81},
 	},
 	{ // room 79
 		ID: 79,
@@ -1826,7 +1826,7 @@ var Rooms = [...]Room{
                         
                         `,
 		Description: [5]string{"You are in the Toture    ", "room. There are chains on", "one wall, and a Large    ", "Table.                   ", "                         "},
-		Exits: map[byte]int{'N': 81},
+		Exits:       map[byte]int{'N': 81},
 	},
 	{ // room 80
 		ID: 80,
@@ -1849,7 +1849,7 @@ var Rooms = [...]Room{
          ▓    ▓         
          ▓    ▓         `,
 		Description: [5]string{"You are in the Dungeon.  ", "                         ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'S': 81},
+		Exits:       map[byte]int{'S': 81},
 	},
 	{ // room 81
 		ID: 81,
@@ -1872,7 +1872,7 @@ var Rooms = [...]Room{
           ▓  ▓          
           ▓  ▓          `,
 		Description: [5]string{"You are in the Dungeon   ", "Annex.                   ", "                         ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 80, 'S': 79, 'E': 82, 'W': 78},
+		Exits:       map[byte]int{'N': 80, 'S': 79, 'E': 82, 'W': 78},
 	},
 	{ // room 82
 		ID: 82,
@@ -1895,7 +1895,7 @@ var Rooms = [...]Room{
                         
                         `,
 		Description: [5]string{"You are in the Dungeon   ", "entrace hall. There is a ", "long staircase leading   ", "up.                      ", "                         "},
-		Exits: map[byte]int{'W': 81, 'U': 43},
+		Exits:       map[byte]int{'W': 81, 'U': 43},
 	},
 	{ // room 83
 		ID: 83,
@@ -1918,6 +1918,6 @@ var Rooms = [...]Room{
                         
                         `,
 		Description: [5]string{"You are in the King's    ", "Secret room. The walls   ", "are many colors.         ", "                         ", "                         "},
-		Exits: map[byte]int{'N': 77},
+		Exits:       map[byte]int{'N': 77},
 	},
 }
