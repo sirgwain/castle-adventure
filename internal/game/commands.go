@@ -54,7 +54,7 @@ func (g *Game) Command(line string) {
 	}
 	verb, noun, ok := strings.Cut(cmd, " ")
 	if !ok {
-		g.Notice = "What???"
+		g.what()
 		return
 	}
 	switch verb {
@@ -106,7 +106,7 @@ func (g *Game) Command(line string) {
 			g.say("The wicked", "witch never", "lived here!!")
 			return
 		}
-		g.Notice = "What???"
+		g.what()
 	case "PET":
 		g.pet(noun)
 	case "KILL":
@@ -118,8 +118,14 @@ func (g *Game) Command(line string) {
 	case "LOAD":
 		g.load(noun)
 	default:
-		g.Notice = "What???"
+		g.what()
 	}
+}
+
+// what is the original's answer to anything it doesn't understand.
+func (g *Game) what() {
+	g.Notice = "What???"
+	g.Sounds = append(g.Sounds, Sound{Beep: true})
 }
 
 // findItem is the item whose noun the player typed.
@@ -413,6 +419,7 @@ func (g *Game) drop(noun string) {
 		return
 	}
 	it.Room, it.Row, it.Col = g.Room, r, c
+	g.sound(150, 1)
 	g.say("Done.")
 }
 
@@ -451,6 +458,7 @@ func (g *Game) getItem(it *Item, noun string) {
 	case !g.near(it.HiddenIn):
 		g.say("I can't", "reach it!")
 	case g.pickUp(it):
+		g.sound(500, 1)
 		g.say("Done.")
 	}
 }
@@ -560,6 +568,7 @@ func (g *Game) play(noun string) {
 		g.say("The "+noun, "makes Horrible", "music!!")
 		return
 	}
+	g.Sounds = append(g.Sounds, Sound{Music: "MB O3 L24 C D E F# G# A# O4 C O3 A# G# F# E D C6"})
 	lines := []string{"The Harp makes", "Beautiful", "Music!"}
 	for _, m := range g.MonstersHere() {
 		if m.Kind == "fairy" {
@@ -662,6 +671,7 @@ func (g *Game) lockUnlock(verb, noun string) {
 			}
 		}
 		g.Locked[r.ID] = true
+		g.sound(50, 1)
 		g.say("Done.")
 		return
 	}
@@ -670,6 +680,7 @@ func (g *Game) lockUnlock(verb, noun string) {
 		return
 	}
 	g.Locked[r.ID] = false
+	g.sound(50, 1)
 	g.say("Done.")
 }
 

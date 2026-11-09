@@ -313,3 +313,17 @@ func TestHiddenItemsReachable(t *testing.T) {
 		}
 	}
 }
+
+func TestSounds(t *testing.T) {
+	g := newGame(t)
+	g.Move(1, 0)
+	g.Move(1, 0)
+	g.Move(1, 0) // into the south wall
+	if s := g.TakeSounds(); len(s) != 1 || s[0].Freq != 50 {
+		t.Fatalf("wall bump sounds %+v", s)
+	}
+	g.Command("xyzzy")
+	if s := g.TakeSounds(); len(s) != 1 || !s[0].Beep {
+		t.Fatalf("What??? sounds %+v", s)
+	}
+}

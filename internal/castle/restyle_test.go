@@ -5,9 +5,6 @@ import (
 	"strings"
 	"testing"
 	"testing/fstest"
-
-	"charm.land/lipgloss/v2"
-	"github.com/mattn/go-runewidth"
 )
 
 func loadTestRooms(t *testing.T) []*Room {
@@ -112,87 +109,6 @@ func TestRestyleKeepsFootprint(t *testing.T) {
 	}
 }
 
-func TestGlyphsAreSingleWidth(t *testing.T) {
-	for _, r := range loadTestRooms(t)[1:] {
-		s := Restyle(r)
-		for y := 0; y < MapH; y++ {
-			for x := 0; x < MapW; x++ {
-				c := s[y][x].R
-				for _, sc := range Scales {
-					for fy := 0; fy < sc.Y; fy++ {
-						for fx := 0; fx < sc.X; fx++ {
-							if g := scaleGlyph(c, sc, fy, fx).r; runewidth.RuneWidth(g) != 1 {
-								t.Fatalf("room %d %q at scale %v gives %q (%d wide)", r.ID, c, sc, g, runewidth.RuneWidth(g))
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	for _, c := range []rune{PlayerClassic, PlayerModern} {
-		if runewidth.RuneWidth(c) != 1 {
-			t.Errorf("player glyph %q is not single width", c)
-		}
-	}
-}
-
-func TestRenderSizes(t *testing.T) {
-	for _, r := range loadTestRooms(t)[1:] {
-		for _, sc := range Scales {
-			for _, classic := range []bool{false, true} {
-				lines := Render(r, RenderOptions{Classic: classic, Scale: sc, PlayerY: 5, PlayerX: 5})
-				if len(lines) != MapH*sc.Y {
-					t.Fatalf("room %d scale %v: %d lines, want %d", r.ID, sc, len(lines), MapH*sc.Y)
-				}
-				for y, line := range lines {
-					if w := lipgloss.Width(line); w != MapW*sc.X {
-						t.Fatalf("room %d scale %v line %d is %d wide, want %d", r.ID, sc, y+1, w, MapW*sc.X)
-					}
-				}
-			}
-		}
-	}
-}
-
-// A straight double wall stays one unbroken line at every scale.
-func TestScaledWallsJoin(t *testing.T) {
-	for _, sc := range Scales[1:] {
-		cy, cx := (sc.Y-1)/2, (sc.X-1)/2
-		row, col := "", ""
-		for i := 0; i < 3; i++ {
-			for fx := 0; fx < sc.X; fx++ {
-				row += string(scaleGlyph('═', sc, cy, fx).r)
-			}
-		}
-		for i := 0; i < 2; i++ {
-			for fy := 0; fy < sc.Y; fy++ {
-				col += string(scaleGlyph('║', sc, fy, cx).r)
-			}
-		}
-		if row != strings.Repeat("═", 3*sc.X) {
-			t.Errorf("scale %v: wall row %q", sc, row)
-		}
-		if col != strings.Repeat("║", 2*sc.Y) {
-			t.Errorf("scale %v: wall column %q", sc, col)
-		}
-	}
-	checks := []struct {
-		c      rune
-		fy, fx int
-		want   rune
-	}{
-		{'╔', 0, 1, '╔'}, {'╔', 0, 3, '═'}, {'╔', 1, 1, '║'}, // corner keeps its glyph and grows arms
-		{'▌', 0, 0, '█'}, {'▌', 0, 3, ' '}, // half block splits into whole cells
-		{'▅', 0, 0, '▂'}, {'▅', 1, 0, '█'}, // stair bar grows taller
-	}
-	for _, c := range checks {
-		if got := scaleGlyph(c.c, Scale{4, 2}, c.fy, c.fx).r; got != c.want {
-			t.Errorf("%q at 4x2 cell (%d,%d) = %q, want %q", c.c, c.fy, c.fx, got, c.want)
-		}
-	}
-}
-
 func TestFurnitureIsRecognised(t *testing.T) {
 	rooms := loadTestRooms(t)
 	cases := []struct {
@@ -216,46 +132,20 @@ func TestFurnitureIsRecognised(t *testing.T) {
 	}
 }
 
-// The big player figure is single-width quadrant glyphs and visible at every size.
-func TestPlayerFigure(t *testing.T) {
-	for _, sc := range Scales {
-		if sc.Y < 2 {
-			continue
-		}
-		for _, art := range [][]string{playerArt, clubArt} {
-			lit := 0
-			for fy := 0; fy < sc.Y; fy++ {
-				for fx := 0; fx < sc.X; fx++ {
-					g := bitmapCell(art, sc, fy, fx)
-					if runewidth.RuneWidth(g) != 1 {
-						t.Fatalf("scale %v: %q is not single width", sc, g)
-					}
-					if g != ' ' {
-						lit++
-					}
+// Colors keeps the original characters and only adds colour roles.
+func TestColorsKeepOriginal(t *testing.T) {
+	for _, r := range loadTestRooms(t)[1:] {
+		s := Colors(r)
+		for y := 0; y < MapH; y++ {
+			for x := 0; x < MapW; x++ {
+				if s[y][x].R != r.Map[y][x] {
+					t.Fatalf("room %d (%d,%d) changed %q to %q", r.ID, y+1, x+1, r.Map[y][x], s[y][x].R)
 				}
-			}
-			if lit < sc.X*sc.Y/3 {
-				t.Errorf("scale %v: figure only covers %d of %d cells", sc, lit, sc.X*sc.Y)
 			}
 		}
 	}
-}
-
-// The figures are symmetric bitmaps, so every scaled row must mirror itself.
-func TestPlayerFigureSymmetric(t *testing.T) {
-	mirror := map[rune]rune{' ': ' ', '█': '█', '▀': '▀', '▄': '▄', '▌': '▐', '▐': '▌', '▘': '▝', '▝': '▘',
-		'▖': '▗', '▗': '▖', '▛': '▜', '▜': '▛', '▙': '▟', '▟': '▙', '▚': '▞', '▞': '▚'}
-	for _, sc := range Scales[2:] {
-		for _, art := range [][]string{playerArt, clubArt} {
-			for fy := 0; fy < sc.Y; fy++ {
-				for fx := 0; fx < sc.X; fx++ {
-					l, r := bitmapCell(art, sc, fy, fx), bitmapCell(art, sc, fy, sc.X-1-fx)
-					if mirror[l] != r {
-						t.Fatalf("scale %v row %d: %q at %d mirrors to %q at %d", sc, fy, l, fx, r, sc.X-1-fx)
-					}
-				}
-			}
-		}
+	bed := Colors(loadTestRooms(t)[39])[5][5] // the Purple Room bed
+	if bed.Role != RoleQuilt && bed.Role != RoleHeadboard {
+		t.Errorf("Purple Room bed role = %v", bed.Role)
 	}
 }

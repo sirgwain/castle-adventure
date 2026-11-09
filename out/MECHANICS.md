@@ -21,7 +21,7 @@ Rooms are in `rooms.json`/`rooms.go`; objects and monsters are in `objects_monst
 - `Uppercase` converts lower-case letters. Only A–Z and space are accepted, Backspace edits, Enter goes to `DoCommand`, and typing past 14 characters beeps.
 - `WaitKey` does `IDLE += 1` on every pass through the loop, whether or not a key was pressed. At 200 the **monsters take a turn** (`MonsterTurn`).
   That makes monster speed depend on CPU speed. `tools/timing.py` measured 57,313 instructions per monster turn, which is about 0.2 s (≈5 turns a second) on a 4.77 MHz IBM PC.
-  On a 486 it's 2–3 ms. In the port, use a timer (`tea.Tick`) of about 200 ms. `castle.conf` runs the original at this speed in DOSBox.
+  On a 486 it's 2–3 ms. The port uses a 200 ms timer (`game.MonsterTick`). `castle.conf` runs the original at this speed in DOSBox.
 
 ## Commands (`DoCommand`)
 `DoCommand` splits the line into `VERB$` and `NOUN$` at the first space. INV… and QUIT are recognised before the split. Each verb has its own section:

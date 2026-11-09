@@ -7,7 +7,7 @@ edited copies directly:
 ```sh
 go run . -levels internal/castle/levels            # play the files on disk
 go run . -levels internal/castle/levels -room 67   # start in a room to test it
-go run . -levels internal/castle/levels -dump -room 67
+go run . -levels internal/castle/levels -room 67 -screenshot room67.png   # a PNG of the room
 ```
 
 The files started as an export of the original data (`tools/export_levels.py`). They are now the source;

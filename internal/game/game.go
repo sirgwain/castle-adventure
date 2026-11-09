@@ -73,6 +73,24 @@ func (m *Monster) Alive() bool { return m.HP > -1 }
 // Noun is the word the player types for it ("OGRE" for "UGLY OGRE").
 func (m *Monster) Noun() string { return afterFirstSpace(m.Name) }
 
+// Sound is one SOUND, BEEP or PLAY from the original.
+type Sound struct {
+	Freq, Ticks float64 // SOUND freq, ticks (18.2 ticks a second)
+	Beep        bool
+	Music       string // a PLAY string
+}
+
+func (g *Game) sound(freq, ticks float64) {
+	g.Sounds = append(g.Sounds, Sound{Freq: freq, Ticks: ticks})
+}
+
+// TakeSounds returns and clears the pending sounds.
+func (g *Game) TakeSounds() []Sound {
+	s := g.Sounds
+	g.Sounds = nil
+	return s
+}
+
 // HighScore is the score on the courtyard wall.
 type HighScore struct {
 	Name  string `json:"name"`
@@ -112,6 +130,10 @@ type Game struct {
 
 	HighScore HighScore
 	Store     Store
+
+	// Sounds are what the original played since the UI last took them:
+	// SOUND freq, ticks; BEEP; or a PLAY music string.
+	Sounds []Sound
 
 	rng *rand.Rand
 }
@@ -324,6 +346,7 @@ func (g *Game) takeExit(dir byte, row, col int) {
 	}
 	if r := g.World.Room(to); r != nil && r.Dark && !g.carrying("lamp") {
 		g.say("It's too dark", "to go that way!")
+		g.sound(100, 1)
 		return
 	}
 	g.Prev, g.Room = g.Room, to
@@ -377,29 +400,36 @@ func (g *Game) editsApplied(edits []castle.Edit) bool {
 
 func (g *Game) bump(row, col int, ch rune) {
 	if it := g.itemAt(row, col); it != nil {
+		g.sound(500, 1)
 		g.pickUp(it)
 		return
 	}
 	switch ch {
 	case castle.Door:
+		g.sound(50, 1.5)
 		g.say("The Door is", "locked.")
 		return
 	case gateGlyph:
+		g.sound(50, 1)
 		g.say("The Gate is", "locked.")
 		return
 	}
 	if m := g.monsterAt(row, col); m != nil {
 		switch m.Kind {
 		case "vampire":
+			g.sound(50, 1)
 			g.say("The Vampire", "is blocking", "your way. He", "can't be hurt.")
 		case "fairy":
+			g.sound(50, 1)
 			g.say("The Fairy", "is blocking", "your way. He", "can't be hurt.")
 		default:
 			if m.Alive() {
 				g.attack(m)
 			}
 		}
+		return
 	}
+	g.sound(50, 0.1) // a wall
 }
 
 func (g *Game) pickUp(it *Item) bool {
@@ -452,6 +482,9 @@ func (g *Game) MonsterTurn() {
 				continue
 			}
 			name := m.Noun()
+			g.sound(150, 1)
+			g.sound(90, 0.5)
+			g.sound(40, 0.5)
 			g.Strength = g.damage(g.Strength)
 			g.Hits++
 			if g.Strength < 0 {
