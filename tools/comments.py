@@ -307,3 +307,152 @@ def data_section():
         d_ = f'    DATA {m["room"]}, "{m["name"]}", {m["char"]}, {m["row"]}, {m["col"]}, {m["hp"]}'
         lines.append(f'{d_:<52}\' {m["id"]:>2} {m["glyph"]}')
     return "\n".join(lines) + "\n"
+
+
+# ------------------------------------------------------------------ named constants
+# The original (1984 BASIC) had no CONST; QuickBASIC 4.0 (1987) added it. The
+# listing uses it for readability.
+ROOM_CONSTS = {
+    1: "RM_COURTYARD", 9: "RM_KITCHEN", 10: "RM_CHEFS_QUARTERS", 11: "RM_STORAGE",
+    14: "RM_THRONE_ROOM", 18: "RM_GARDEN_SOUTH", 19: "RM_UPPER_HALL", 28: "RM_VAMPIRE_CORRIDOR",
+    33: "RM_BALCONY", 37: "RM_RED_ROOM", 38: "RM_BLUE_ROOM", 39: "RM_PURPLE_ROOM",
+    40: "RM_YELLOW_ROOM", 52: "RM_FAIRY_CORRIDOR1", 54: "RM_FAIRY_CORRIDOR2", 56: "RM_KINGS_STUDY",
+    57: "RM_EMPTY_ROOM", 58: "RM_LIBRARY_WEST", 59: "RM_LIBRARY_EAST", 64: "RM_WEST_TOWER_TOP",
+    65: "RM_EAST_TOWER_TOP", 66: "RM_SORCERERS_LAB", 67: "RM_SORCERERS_QUARTERS",
+    68: "RM_WINE_CELLAR", 74: "RM_MAZE_WALL", 76: "RM_TRAP_PASSAGE1", 77: "RM_WINDING_PASSAGE",
+    78: "RM_TRAP_PASSAGE2", 79: "RM_TORTURE_ROOM", 82: "RM_DUNGEON_HALL", 83: "RM_KINGS_SECRET_ROOM",
+}
+ROOM_WHY = {28: "the vampire's corridor", 52: "the fairy appears here", 54: "the fairy appears here",
+            57: "the diamond room", 74: "Kevin Bales was here", 76: "drowning trap",
+            77: "secret passage at row 18", 78: "drowning trap"}
+OBJ_CONSTS = ["OBJ_LAMP", "OBJ_HARP", "OBJ_NECKLACE", "OBJ_BOOK", "OBJ_WAND", "OBJ_SWORD", "OBJ_KEY",
+              "OBJ_GLASSES", "OBJ_BALL", "OBJ_HELMET", "OBJ_FLASK", "OBJ_CROSS", "OBJ_DIAMOND",
+              "OBJ_SILVER_BARS", "OBJ_RUBYS", "OBJ_FIGURINE", "OBJ_SCEPTER", "OBJ_HOURGLASS", "OBJ_GEM",
+              "OBJ_GOLDBAR", "OBJ_GOBLET", "OBJ_CROWN"]
+MON_CONSTS = ["MON_OGRE1", "MON_OGRE2", "MON_DEMON1", "MON_DEMON2", "MON_BIG_SPIDER",
+              "MON_SMALL_SPIDER", "MON_BAT", "MON_SNAKE", "MON_VAMPIRE", "MON_FAIRY"]
+CHAR_CONSTS = {5: ("CH_PLAYER", "♣  the player (the vampire uses it too)"), 8: ("CH_DOOR", "◘  a locked door"),
+               32: ("CH_SPACE", "   empty floor"), 179: ("CH_VLINE", "│  furniture edge"),
+               196: ("CH_HLINE", "─  furniture edge"), 205: ("CH_GATE", "═  the courtyard gate"),
+               246: ("CH_FAIRY", "÷  the fairy")}
+# sections where the loop variable I is an object number
+OBJ_I_SECTIONS = {"WaveIt", "WearIt", "PlayIt", "CleanIt", "ShowIt", "DontHaveIt", "WaveScepter"}
+
+
+def const_block():
+    rooms_json = {}
+    try:
+        rooms_json = {r["id"]: r for r in json.loads((OUT / "rooms.json").read_text())["rooms"]}
+    except OSError:
+        pass
+    L = ["", "' ============================================================================",
+         "'  CONSTANTS  (not in the 1984 original, which used bare numbers; CONST is",
+         "'  QuickBASIC syntax, added here so the code says what the numbers mean)",
+         "' ============================================================================",
+         "' Counts",
+         "CONST NOBJECTS = 22                 ' objects 1-22",
+         "CONST NMONSTERS = 10                ' monsters 1-10",
+         "CONST NFIGHTERS = 8                 ' monsters 1-8 move and fight; 9-10 only block",
+         "",
+         "' Special OBJROOM / MONROOM values",
+         "CONST CARRIED = 0                   ' OBJROOM(i) = CARRIED: the player has it",
+         "CONST HIDDEN = 100                  ' OBJROOM(i) = HIDDEN + room: hidden in that room",
+         "CONST RM_NONE = 0                   ' MONROOM(i) = RM_NONE: monster removed from play",
+         "CONST RM_OUTSIDE = 0                ' ROOM = RM_OUTSIDE: escaped, the game is won",
+         "", "' Rooms (only the ones the code refers to by number)"]
+    for k, n in sorted(ROOM_CONSTS.items()):
+        desc = ROOMS.get(k, "")
+        why = f" - {ROOM_WHY[k]}" if k in ROOM_WHY else ""
+        L.append(f"{'CONST ' + n + ' = ' + str(k):<36}' {desc}{why}")
+    L += ["", "' Objects (index into OBJROOM, OBJNAME$, OBJCHAR, OBJROW, OBJCOL)"]
+    L += [f"{'CONST ' + n + ' = ' + str(k + 1):<36}' {OBJ[k]}" for k, n in enumerate(OBJ_CONSTS)]
+    L += ["", "' Monsters (index into MONROOM, MONNAME$, MONCHAR, MONROW, MONCOL, MONHP)"]
+    L += [f"{'CONST ' + n + ' = ' + str(k + 1):<36}' {MON[k]}" for k, n in enumerate(MON_CONSTS)]
+    L += ["", "' Screen characters the game looks for with SCREEN(row, col)"]
+    L += [f"{'CONST ' + n + ' = ' + str(k):<36}' {d}" for k, (n, d) in sorted(CHAR_CONSTS.items())]
+    L += ["", "' Keys", "CONST KEY_BACKSPACE = 8", "CONST KEY_ENTER = 13"]
+    return "\n".join(L) + "\n"
+
+
+def _room(v, field="ROOM"):
+    v = int(v)
+    if v == 0:
+        return "RM_OUTSIDE" if field == "ROOM" else "RM_NONE"
+    return ROOM_CONSTS.get(v, str(v))
+
+
+def _objroom_value(v):
+    v = int(v)
+    if v == 0:
+        return "CARRIED"
+    if v > 100 and v - 100 in ROOM_CONSTS:
+        return f"HIDDEN + {ROOM_CONSTS[v - 100]}"
+    return ROOM_CONSTS.get(v, str(v))
+
+
+def _code(line, fn):
+    """Apply fn to the code part of a line, leaving string literals and comments alone."""
+    parts = line.split('"')
+    for n in range(0, len(parts), 2):
+        if "'" in parts[n]:
+            parts[n], rest = parts[n].split("'", 1)
+            parts[n] = fn(parts[n]) + "'" + rest
+            return '"'.join(parts[:n + 1] + parts[n + 1:])
+        parts[n] = fn(parts[n])
+    return '"'.join(parts)
+
+
+def constify(lines):
+    out, section = [], ""
+    for idx, ln in enumerate(lines):
+        m = re.match(r"^(\w+):\s+' @", ln)
+        if m:
+            section = m.group(1)
+        if ln.lstrip().startswith("'") or m:
+            out.append(ln)
+            continue
+        ahead = " ".join(lines[idx:idx + 4])
+
+        def fix(s):
+            s = re.sub(r"\bOBJROOM\(([^()]*)\) (=|<>) (\d+)\b",
+                       lambda g: f"OBJROOM({g.group(1)}) {g.group(2)} {_objroom_value(g.group(3))}", s)
+            s = re.sub(r"\bOBJROOM\(([^()]*)\) (=|<>) ROOM \+ 100\b",
+                       lambda g: f"OBJROOM({g.group(1)}) {g.group(2)} HIDDEN + ROOM", s)
+            s = re.sub(r"\bMONROOM\(([^()]*)\) (=|<>) (\d+)\b",
+                       lambda g: f"MONROOM({g.group(1)}) {g.group(2)} {_room(g.group(3), 'MON')}", s)
+            s = re.sub(r"\b(PREVROOM|ROOM|VAL\(W\$\)) (=|<>|<=|>=|<|>) (\d+)\b",
+                       lambda g: f"{g.group(1)} {g.group(2)} {_room(g.group(3))}", s)
+            s = re.sub(r"\b(OBJ[A-Z]+\$?)\((\d+)\)",
+                       lambda g: f"{g.group(1)}({OBJ_CONSTS[int(g.group(2)) - 1]})"
+                       if 1 <= int(g.group(2)) <= 22 else g.group(0), s)
+            s = re.sub(r"\b(MON[A-Z]+\$?)\((\d+)\)",
+                       lambda g: f"{g.group(1)}({MON_CONSTS[int(g.group(2)) - 1]})"
+                       if 1 <= int(g.group(2)) <= 10 else g.group(0), s)
+            # characters read back off the screen, and printed glyphs
+            s = re.sub(r"\b(CH|T) (=|<>) (5|8|32|179|196|205|246)\b",
+                       lambda g: f"{g.group(1)} {g.group(2)} {CHAR_CONSTS[int(g.group(3))][0]}", s)
+            s = re.sub(r"(SCREEN\([^()]*\)) (=|<>) (8|32)\b",
+                       lambda g: f"{g.group(1)} {g.group(2)} {CHAR_CONSTS[int(g.group(3))][0]}", s)
+            s = re.sub(r"CHR\$\((13|8)\) (=|<>) K\$",
+                       lambda g: f"CHR$({'KEY_ENTER' if g.group(1) == '13' else 'KEY_BACKSPACE'}) {g.group(2)} K$", s)
+            s = re.sub(r"PRINT (.*)", lambda g: "PRINT " + re.sub(
+                r"CHR\$\((5|8|32)\)", lambda h: f"CHR$({CHAR_CONSTS[int(h.group(1))][0]})", g.group(1)), s)
+            # loop bounds and index tests
+            if "OBJ" in ahead:
+                s = re.sub(r"\bFOR I = 1 TO 22\b", "FOR I = 1 TO NOBJECTS", s)
+            if "MON" in ahead:
+                s = re.sub(r"\bFOR I = 1 TO 10\b", "FOR I = 1 TO NMONSTERS", s)
+                s = re.sub(r"\bFOR I = 1 TO 8\b", "FOR I = 1 TO NFIGHTERS", s)
+            s = s.replace("IF I <= 8 THEN GOTO MonsterLoop", "IF I <= NFIGHTERS THEN GOTO MonsterLoop")
+            if section == "DrawRoom":
+                s = s.replace("IF I < 9 THEN", "IF I < MON_VAMPIRE THEN")
+            if section == "LookMonster":
+                s = re.sub(r"\bI (<|>=) 10\b", lambda g: f"I {g.group(1)} MON_FAIRY", s)
+            if section in OBJ_I_SECTIONS:
+                s = re.sub(r"(?<!FOR )\bI (=|<>) (\d+)\b",
+                           lambda g: f"I {g.group(1)} {OBJ_CONSTS[int(g.group(2)) - 1]}"
+                           if 1 <= int(g.group(2)) <= 22 else g.group(0), s)
+            return s
+
+        out.append(_code(ln, fix))
+    return out

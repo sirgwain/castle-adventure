@@ -388,8 +388,9 @@ HEADER = """' CASTLE ADVENTURE (1984, Kevin Bales)
 def render_structured(items):
     s = structure(items)
     names = name_labels(s)
-    body = comments.annotate(render(s, names))
-    return (HEADER + comments.PRIMER + comments.CONVENTIONS + comments.glossary() + "\n"
+    body = comments.annotate(comments.constify(render(s, names)))
+    return (HEADER + comments.PRIMER + comments.CONVENTIONS + comments.glossary()
+            + comments.const_block() + "\n"
             + "\n".join(body).lstrip("\n") + "\n" + comments.data_section())
 
 

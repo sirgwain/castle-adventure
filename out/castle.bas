@@ -135,6 +135,103 @@
 '  SCORE / HISCORE               final score / stored high score
 '  I J K N T T2 C X T$ SC$       loop counters and scratch values
 
+' ============================================================================
+'  CONSTANTS  (not in the 1984 original, which used bare numbers; CONST is
+'  QuickBASIC syntax, added here so the code says what the numbers mean)
+' ============================================================================
+' Counts
+CONST NOBJECTS = 22                 ' objects 1-22
+CONST NMONSTERS = 10                ' monsters 1-10
+CONST NFIGHTERS = 8                 ' monsters 1-8 move and fight; 9-10 only block
+
+' Special OBJROOM / MONROOM values
+CONST CARRIED = 0                   ' OBJROOM(i) = CARRIED: the player has it
+CONST HIDDEN = 100                  ' OBJROOM(i) = HIDDEN + room: hidden in that room
+CONST RM_NONE = 0                   ' MONROOM(i) = RM_NONE: monster removed from play
+CONST RM_OUTSIDE = 0                ' ROOM = RM_OUTSIDE: escaped, the game is won
+
+' Rooms (only the ones the code refers to by number)
+CONST RM_COURTYARD = 1              ' Castle Courtyard
+CONST RM_KITCHEN = 9                ' Kitchen
+CONST RM_CHEFS_QUARTERS = 10        ' Chef's Quarters
+CONST RM_STORAGE = 11               ' Storage room
+CONST RM_THRONE_ROOM = 14           ' Throne Room
+CONST RM_GARDEN_SOUTH = 18          ' South end of The Castle garden
+CONST RM_UPPER_HALL = 19            ' center of The upper Hall
+CONST RM_VAMPIRE_CORRIDOR = 28      ' Cooridor - the vampire's corridor
+CONST RM_BALCONY = 33               ' Balcony looking over the Castle Gardens
+CONST RM_RED_ROOM = 37              ' Red Room
+CONST RM_BLUE_ROOM = 38             ' Blue room
+CONST RM_PURPLE_ROOM = 39           ' Purple room
+CONST RM_YELLOW_ROOM = 40           ' Yellow room
+CONST RM_FAIRY_CORRIDOR1 = 52       ' Cooridor - the fairy appears here
+CONST RM_FAIRY_CORRIDOR2 = 54       ' Cooridor - the fairy appears here
+CONST RM_KINGS_STUDY = 56           ' King's Study
+CONST RM_EMPTY_ROOM = 57            ' totally Empty room - the diamond room
+CONST RM_LIBRARY_WEST = 58          ' west end of The King's Library
+CONST RM_LIBRARY_EAST = 59          ' East end of the King's Library
+CONST RM_WEST_TOWER_TOP = 64        ' top of the West tower
+CONST RM_EAST_TOWER_TOP = 65        ' top of the East Tower
+CONST RM_SORCERERS_LAB = 66         ' Sorcerers secret laboratory
+CONST RM_SORCERERS_QUARTERS = 67    ' Sorcerers Quarters
+CONST RM_WINE_CELLAR = 68           ' Royal Wine Cellar
+CONST RM_MAZE_WALL = 74             ' Maze - Kevin Bales was here
+CONST RM_TRAP_PASSAGE1 = 76         ' Winding Passage - drowning trap
+CONST RM_WINDING_PASSAGE = 77       ' Winding Passage - secret passage at row 18
+CONST RM_TRAP_PASSAGE2 = 78         ' Winding passage - drowning trap
+CONST RM_TORTURE_ROOM = 79          ' Toture room
+CONST RM_DUNGEON_HALL = 82          ' Dungeon entrace hall
+CONST RM_KINGS_SECRET_ROOM = 83     ' King's Secret room
+
+' Objects (index into OBJROOM, OBJNAME$, OBJCHAR, OBJROW, OBJCOL)
+CONST OBJ_LAMP = 1                  ' LAMP
+CONST OBJ_HARP = 2                  ' HARP
+CONST OBJ_NECKLACE = 3              ' NECKLACE
+CONST OBJ_BOOK = 4                  ' BOOK
+CONST OBJ_WAND = 5                  ' MAGIC WAND
+CONST OBJ_SWORD = 6                 ' SWORD
+CONST OBJ_KEY = 7                   ' KEY
+CONST OBJ_GLASSES = 8               ' EYE GLASSES
+CONST OBJ_BALL = 9                  ' CRYSTAL BALL
+CONST OBJ_HELMET = 10               ' HELMET
+CONST OBJ_FLASK = 11                ' WINE FLASK
+CONST OBJ_CROSS = 12                ' HOLY CROSS
+CONST OBJ_DIAMOND = 13              ' DIAMOND
+CONST OBJ_SILVER_BARS = 14          ' SILVER BARS
+CONST OBJ_RUBYS = 15                ' RUBYS
+CONST OBJ_FIGURINE = 16             ' JADE FIGURINE
+CONST OBJ_SCEPTER = 17              ' SCEPTER
+CONST OBJ_HOURGLASS = 18            ' HOURGLASS
+CONST OBJ_GEM = 19                  ' LARGE GEM
+CONST OBJ_GOLDBAR = 20              ' GOLDBAR
+CONST OBJ_GOBLET = 21               ' FANCY GOBLET
+CONST OBJ_CROWN = 22                ' CROWN
+
+' Monsters (index into MONROOM, MONNAME$, MONCHAR, MONROW, MONCOL, MONHP)
+CONST MON_OGRE1 = 1                 ' UGLY OGRE
+CONST MON_OGRE2 = 2                 ' UGLY OGRE
+CONST MON_DEMON1 = 3                ' ANGRY DEMON
+CONST MON_DEMON2 = 4                ' ANGRY DEMON
+CONST MON_BIG_SPIDER = 5            ' BIG SPIDER
+CONST MON_SMALL_SPIDER = 6          ' SMALL SPIDER
+CONST MON_BAT = 7                   ' BAT
+CONST MON_SNAKE = 8                 ' SNAKE
+CONST MON_VAMPIRE = 9               ' VAMPIRE
+CONST MON_FAIRY = 10                ' FAIRY
+
+' Screen characters the game looks for with SCREEN(row, col)
+CONST CH_PLAYER = 5                 ' ♣  the player (the vampire uses it too)
+CONST CH_DOOR = 8                   ' ◘  a locked door
+CONST CH_SPACE = 32                 '    empty floor
+CONST CH_VLINE = 179                ' │  furniture edge
+CONST CH_HLINE = 196                ' ─  furniture edge
+CONST CH_GATE = 205                 ' ═  the courtyard gate
+CONST CH_FAIRY = 246                ' ÷  the fairy
+
+' Keys
+CONST KEY_BACKSPACE = 8
+CONST KEY_ENTER = 13
+
 ' Program entry: freeware notice, title screen, then a new game.
 Start:                       ' @001A
     GOSUB FreewareNotice
@@ -144,16 +241,16 @@ Start:                       ' @001A
 NewGame:                     ' @0039
     ON ERROR GOTO ErrorHandler
     WIDTH 40
-    ROOM = 1                                                 ' 1=Castle Courtyard
+    ROOM = RM_COURTYARD
     PY = 15
     PX = 15
     DOOR68LOCKED = 1
     DOOR82LOCKED = 1
     STRENGTH = 100
-    FOR I = 1 TO 22
+    FOR I = 1 TO NOBJECTS
         READ OBJROOM(I), OBJNAME$(I), OBJCHAR(I), OBJROW(I), OBJCOL(I)
     NEXT I
-    FOR I = 1 TO 10
+    FOR I = 1 TO NMONSTERS
         READ MONROOM(I), MONNAME$(I), MONCHAR(I), MONROW(I), MONCOL(I), MONHP(I)
     NEXT I
     OPEN "R", #1, "CASTLE.RAN", 575
@@ -220,7 +317,7 @@ DrawRoom:                    ' @0469
         PRINT DESC$(I);
     NEXT I
     NOBJ = 0
-    FOR I = 1 TO 22
+    FOR I = 1 TO NOBJECTS
         IF OBJROOM(I) = ROOM THEN
             LOCATE OBJROW(I), OBJCOL(I)
             PRINT CHR$(OBJCHAR(I));
@@ -233,23 +330,23 @@ DrawRoom:                    ' @0469
             END IF
         END IF
     NEXT I
-    IF PREVROOM <> 57 AND ROOM = 52 THEN                     ' 52=Cooridor, 57=totally Empty room
-        MONROOM(10) = 52                                     ' monster 10=FAIRY
-        MONROW(10) = 10
-        MONCOL(10) = 1
+    IF PREVROOM <> RM_EMPTY_ROOM AND ROOM = RM_FAIRY_CORRIDOR1 THEN
+        MONROOM(MON_FAIRY) = RM_FAIRY_CORRIDOR1
+        MONROW(MON_FAIRY) = 10
+        MONCOL(MON_FAIRY) = 1
     END IF
-    IF PREVROOM <> 57 AND ROOM = 54 THEN                     ' 54=Cooridor, 57=totally Empty room
-        MONROOM(10) = 54                                     ' monster 10=FAIRY
-        MONROW(10) = 1
-        MONCOL(10) = 12
+    IF PREVROOM <> RM_EMPTY_ROOM AND ROOM = RM_FAIRY_CORRIDOR2 THEN
+        MONROOM(MON_FAIRY) = RM_FAIRY_CORRIDOR2
+        MONROW(MON_FAIRY) = 1
+        MONCOL(MON_FAIRY) = 12
     END IF
     NMON = 0
     MONHERE = 0
-    FOR I = 1 TO 10
+    FOR I = 1 TO NMONSTERS
         IF MONROOM(I) = ROOM THEN
             LOCATE MONROW(I), MONCOL(I)
             PRINT CHR$(MONCHAR(I));
-            IF I < 9 THEN
+            IF I < MON_VAMPIRE THEN
                 IF MONHP(I) > -1 THEN MONHERE = 1
             END IF
         END IF
@@ -261,12 +358,12 @@ DrawRoom:                    ' @0469
             END IF
         END IF
     NEXT I
-    IF PREVROOM = 66 THEN                                    ' 66=Sorcerers secret laboratory
+    IF PREVROOM = RM_SORCERERS_LAB THEN
         PY = 10
         PX = 17
         UNDER = 32
         LOCATE PY, PX
-        PRINT CHR$(5);                                       ' draw the player
+        PRINT CHR$(CH_PLAYER);
         NMSG = 4
         MSG$(1) = "There is a puff"
         MSG$(2) = "of smoke & you"
@@ -274,23 +371,23 @@ DrawRoom:                    ' @0469
         MSG$(4) = "Sorcerers room!"
         GOTO ShowMessage
     END IF
-    IF PREVROOM = 83 THEN                                    ' 83=King's Secret room
+    IF PREVROOM = RM_KINGS_SECRET_ROOM THEN
         LOCATE 18, 11
         PRINT "▌  ▐";
     END IF
-    IF DOOR68LOCKED = 1 AND ROOM = 68 THEN                   ' 68=Royal Wine Cellar
+    IF DOOR68LOCKED = 1 AND ROOM = RM_WINE_CELLAR THEN
         LOCATE 15, 9
-        PRINT CHR$(8);CHR$(8);
+        PRINT CHR$(CH_DOOR);CHR$(CH_DOOR);
     END IF
-    IF DOOR82LOCKED = 1 AND ROOM = 82 THEN                   ' 82=Dungeon entrace hall
+    IF DOOR82LOCKED = 1 AND ROOM = RM_DUNGEON_HALL THEN
         LOCATE 9, 14
-        PRINT CHR$(8);
+        PRINT CHR$(CH_DOOR);
         LOCATE 10, 14
-        PRINT CHR$(8);
+        PRINT CHR$(CH_DOOR);
     END IF
     UNDER = SCREEN(PY, PX)                                   ' remember what the player stands on
     LOCATE PY, PX, 0
-    PRINT CHR$(5);                                           ' draw the player
+    PRINT CHR$(CH_PLAYER);
     DEF SEG = 0                                              ' PEEK/POKE address BIOS memory
     POKE 1050, PEEK(1052)                                    ' discard keys typed ahead
 
@@ -318,13 +415,13 @@ WaitKey:                     ' @0C83
 ReadKey:                     ' @0CB1
     K$ = INKEY$
     IF K$ = "" THEN GOTO WaitKey
-    IF OBJROOM(3) <> 0 THEN                                  ' 3=NECKLACE
-        IF PX = 15 AND ROOM = 76 THEN                        ' 76=Winding Passage
+    IF OBJROOM(OBJ_NECKLACE) <> CARRIED THEN
+        IF PX = 15 AND ROOM = RM_TRAP_PASSAGE1 THEN
             IF PY = 14 OR PY = 13 THEN GOTO TrapRoom76
         END IF
     END IF
-    IF OBJROOM(3) <> 0 THEN                                  ' 3=NECKLACE
-        IF PX = 18 AND ROOM = 78 THEN                        ' 78=Winding passage
+    IF OBJROOM(OBJ_NECKLACE) <> CARRIED THEN
+        IF PX = 18 AND ROOM = RM_TRAP_PASSAGE2 THEN
             IF PY = 10 OR PY = 9 THEN GOTO TrapRoom78
         END IF
     END IF
@@ -371,12 +468,12 @@ ReadKey:                     ' @0CB1
             GOTO MovePlayer
         END IF
     END IF
-    IF CHR$(13) = K$ THEN
+    IF CHR$(KEY_ENTER) = K$ THEN
         LOCATE 23, 26
         PRINT SPACE$(15);
         GOTO DoCommand
     END IF
-    IF LEN(CMD$) > 0 AND CHR$(8) = K$ THEN
+    IF LEN(CMD$) > 0 AND CHR$(KEY_BACKSPACE) = K$ THEN
         CMD$ = LEFT$(CMD$, LEN(CMD$) - 1)
         GOTO InputLoop
     END IF
@@ -432,7 +529,7 @@ MovePlayer:                  ' @103E
         T$ = "D"
         GOTO TakeExit
     END IF
-    IF CH <> 32 THEN                                         ' 32=space
+    IF CH <> CH_SPACE THEN
         SOUND 50, 0.1
         GOTO Bump
     END IF
@@ -442,7 +539,7 @@ MovePlayer:                  ' @103E
     PY = NY
     PX = NX
     LOCATE PY, PX
-    PRINT CHR$(5);                                           ' draw the player
+    PRINT CHR$(CH_PLAYER);
     GOTO InputLoop
 
 ' Look up the exit letter T$ in the room's exits text and read the room number.
@@ -460,13 +557,13 @@ ExitDigits:                  ' @126E
             GOTO ExitDigits
         END IF
     END IF
-    IF VAL(W$) = 68 OR VAL(W$) = 83 THEN                     ' 68=Royal Wine Cellar, 83=King's Secret room
-        IF OBJROOM(1) <> 0 THEN                              ' 1=LAMP
+    IF VAL(W$) = RM_WINE_CELLAR OR VAL(W$) = RM_KINGS_SECRET_ROOM THEN
+        IF OBJROOM(OBJ_LAMP) <> CARRIED THEN
             NMSG = 2
             MSG$(1) = "It's too dark"
             MSG$(2) = "to go that way!"
             SOUND 100, 1
-            IF ROOM = 77 THEN                                ' 77=Winding Passage
+            IF ROOM = RM_WINDING_PASSAGE THEN
                 PY = 18
                 GOTO ShowMessage
             END IF
@@ -475,7 +572,7 @@ ExitDigits:                  ' @126E
     END IF
     PREVROOM = ROOM
     ROOM = VAL(W$)
-    IF ROOM = 0 THEN GOTO Escaped
+    IF ROOM = RM_OUTSIDE THEN GOTO Escaped
     IF PAGE + 9 < ROOM OR ROOM < PAGE THEN GOTO LoadRoomPage
     SLOT = ROOM - PAGE + 1
     GOTO DrawRoom
@@ -504,7 +601,7 @@ DoCommand:                   ' @142D
         IF VERB$ = "THROW" OR VERB$ = "DROP" THEN GOTO CmdDrop
         IF NOUN$ = "FLASK" AND VERB$ = "FILL" THEN
             VERB$ = "GET"
-            IF ROOM = 68 THEN                                ' 68=Royal Wine Cellar
+            IF ROOM = RM_WINE_CELLAR THEN
                 NOUN$ = "WINE"
             ELSE
                 NOUN$ = "WATER"
@@ -535,7 +632,7 @@ DoCommand:                   ' @142D
             MSG$(2) = "to climb."
             GOTO ShowMessage
         END IF
-        IF ROOM = 67 THEN                                    ' 67=Sorcerers Quarters
+        IF ROOM = RM_SORCERERS_QUARTERS THEN
             IF NOUN$ = "MIRROR" AND VERB$ = "MIRROR" THEN
                 NMSG = 3
                 MSG$(1) = " The wicked"
@@ -562,24 +659,24 @@ DoCommand:                   ' @142D
 ' The player walked into something: an item (pick it up), a door, the
 ' gate, the vampire or fairy (blocked), or a monster (attack).
 Bump:                        ' @1911
-    FOR I = 1 TO 22
+    FOR I = 1 TO NOBJECTS
         IF OBJCHAR(I) = CH THEN GOTO PickUpBumped
     NEXT I
-    IF CH = 8 THEN                                           ' 8=locked door
+    IF CH = CH_DOOR THEN
         SOUND 50, 1.5
         NMSG = 2
         MSG$(1) = "The Door is"
         MSG$(2) = "locked."
         GOTO ShowMessage
     END IF
-    IF CH = 205 THEN                                         ' 205=═ gate
+    IF CH = CH_GATE THEN
         SOUND 50, 1
         NMSG = 2
         MSG$(1) = "The Gate is"
         MSG$(2) = "locked."
         GOTO ShowMessage
     END IF
-    IF CH = 5 THEN                                           ' 5=♣ player / vampire
+    IF CH = CH_PLAYER THEN
         SOUND 50, 1
         NMSG = 4
         MSG$(1) = "The Vampire"
@@ -588,7 +685,7 @@ Bump:                        ' @1911
         MSG$(4) = "can't be hurt."
         GOTO ShowMessage
     END IF
-    IF CH = 246 THEN                                         ' 246=fairy
+    IF CH = CH_FAIRY THEN
         SOUND 50, 1
         NMSG = 4
         MSG$(1) = "The Fairy"
@@ -598,7 +695,7 @@ Bump:                        ' @1911
         GOTO ShowMessage
     END IF
     IF MONHERE <> 0 THEN
-        FOR I = 1 TO 8
+        FOR I = 1 TO NFIGHTERS
             IF MONCHAR(I) = CH THEN
                 IF MONCOL(I) = NX AND MONROW(I) = NY THEN
                     TARGET = I
@@ -621,7 +718,7 @@ PickUpBumped:                ' @1B42
         GOTO ShowMessage
     END IF
     NCARRY = NCARRY + 1
-    OBJROOM(I) = 0
+    OBJROOM(I) = CARRIED
     LOCATE NY, NX
     PRINT " ";
     GOTO WaitKey
@@ -654,7 +751,7 @@ MonsterNext:                 ' @1D02
     I = I + 1
 
 MonsterLoopTest:             ' @1D0D
-    IF I <= 8 THEN GOTO MonsterLoop
+    IF I <= NFIGHTERS THEN GOTO MonsterLoop
     GOTO ReadKey
 
 ' Step one square toward the player (diagonals allowed) if that square
@@ -667,10 +764,10 @@ MonsterStep:                 ' @1D24
     IF MONCOL(I) < PX THEN MDX = 1
     IF MONCOL(I) > PX THEN MDX = -1
     T = SCREEN(MONROW(I) + MDY, MONCOL(I) + MDX)
-    IF T <> 5 THEN                                           ' 5=♣ player / vampire
-        IF T <> 32 THEN GOTO MonsterNext                     ' 32=space
+    IF T <> CH_PLAYER THEN
+        IF T <> CH_SPACE THEN GOTO MonsterNext
         LOCATE MONROW(I), MONCOL(I)
-        PRINT CHR$(32);
+        PRINT CHR$(CH_SPACE);
         MONROW(I) = MONROW(I) + MDY
         MONCOL(I) = MONCOL(I) + MDX
         LOCATE MONROW(I), MONCOL(I)
@@ -678,7 +775,7 @@ MonsterStep:                 ' @1D24
         GOTO MonsterNext
     END IF
     ROLL = INT(RND * 100) + 1
-    IF OBJROOM(10) = 0 THEN ROLL = ROLL - 10                 ' 10=HELMET
+    IF OBJROOM(OBJ_HELMET) = CARRIED THEN ROLL = ROLL - 10
     IF ROLL <= 40 THEN GOTO MonsterNext
     MN$ = MONNAME$(I)
     T = INSTR(MN$, " ")
@@ -696,7 +793,7 @@ MonsterStep:                 ' @1D24
         MSG$(2) = "has Killed you!"
         GOTO PlayerDied
     END IF
-    IF OBJROOM(10) = 0 THEN                                  ' 10=HELMET
+    IF OBJROOM(OBJ_HELMET) = CARRIED THEN
         NMSG = 5
         MSG$(3) = ""
         MSG$(4) = "The Helmet"
@@ -706,7 +803,7 @@ MonsterStep:                 ' @1D24
 
 ' The player hits monster TARGET: needs the sword, 50% to hit.
 PlayerAttacks:               ' @20BF
-    IF OBJROOM(6) <> 0 THEN                                  ' 6=SWORD
+    IF OBJROOM(OBJ_SWORD) <> CARRIED THEN
         NMSG = 2
         MSG$(1) = "You have no"
         MSG$(2) = "Weapon!"
@@ -729,14 +826,14 @@ PlayerAttacks:               ' @20BF
     MSG$(2) = "the " + MN$ + "!"
     MONHERE = 0
     MONNAME$(TARGET) = "Dead " + MN$
-    FOR I = 1 TO 8
+    FOR I = 1 TO NFIGHTERS
         IF MONHP(I) > -1 AND MONROOM(I) = ROOM THEN MONHERE = 1
     NEXT I
     GOTO ShowMessage
 
 ' LOOK / EXAMINE / SEARCH: objects first, then furniture, then monsters.
 CmdLook:                     ' @22EA
-    FOR I = 1 TO 22
+    FOR I = 1 TO NOBJECTS
         W$ = OBJNAME$(I)
         NMSG = INSTR(W$, CHR$(32))
         IF NMSG > 0 THEN W$ = RIGHT$(W$, LEN(W$) - NMSG)
@@ -756,21 +853,21 @@ CmdLook:                     ' @22EA
     IF NOUN$ = "GARDENS" OR NOUN$ = "GARDEN" THEN GOTO CmdLookGarden
     IF NOUN$ = "STAIRCASE" OR NOUN$ = "STAIR" OR NOUN$ = "STAIRS" THEN GOTO CmdLookStairs
     IF NOUN$ = "BALCONY" THEN GOTO CmdLookBalcony
-    IF ROOM = 1 AND NOUN$ = "GATE" THEN                      ' 1=Castle Courtyard
+    IF ROOM = RM_COURTYARD AND NOUN$ = "GATE" THEN
         NMSG = 2
         MSG$(1) = " It looks"
         MSG$(2) = " very Strong."
         GOTO ShowMessage
     END IF
     IF NOUN$ = "DOOR" THEN
-        IF ROOM = 68 OR ROOM = 82 THEN                       ' 68=Royal Wine Cellar, 82=Dungeon entrace hall
+        IF ROOM = RM_WINE_CELLAR OR ROOM = RM_DUNGEON_HALL THEN
             NMSG = 2
             MSG$(1) = " It looks"
             MSG$(2) = " very Strong."
             GOTO ShowMessage
         END IF
     END IF
-    FOR I = 1 TO 10
+    FOR I = 1 TO NMONSTERS
         W$ = MONNAME$(I)
         T = INSTR(W$, CHR$(32))
         IF T > 0 THEN W$ = RIGHT$(W$, LEN(W$) - T)
@@ -786,13 +883,13 @@ CmdLook:                     ' @22EA
 
 ' Describe a monster in the room.
 LookMonster:                 ' @2756
-    IF MONHP(I) > 0 AND I < 10 THEN
+    IF MONHP(I) > 0 AND I < MON_FAIRY THEN
         NMSG = 2
         MSG$(1) = "The " + W$
         MSG$(2) = "looks Mean!"
         GOTO ShowMessage
     END IF
-    IF MONHP(I) < 1 AND I < 10 THEN
+    IF MONHP(I) < 1 AND I < MON_FAIRY THEN
         NMSG = 2
         MSG$(1) = "The " + W$
         MSG$(2) = "looks Dead!"
@@ -806,7 +903,7 @@ LookMonster:                 ' @2756
 
 ' Describe object I (only if carried): one line per object via ON I GOTO.
 LookObject:                  ' @2854
-    IF OBJROOM(I) <> 0 THEN
+    IF OBJROOM(I) <> CARRIED THEN
         NMSG = 2
         MSG$(1) = " You Don't"
         MSG$(2) = " Have it!"
@@ -905,13 +1002,13 @@ DescBars:                    ' @2AF1
     GOTO ShowMessage
 
 CmdLookTable:                ' @2B15
-    IF ROOM = 9 THEN                                         ' 9=Kitchen
+    IF ROOM = RM_KITCHEN THEN
         NMSG = 2
         MSG$(1) = " It's made of"
         MSG$(2) = " Stone."
         GOTO ShowMessage
     END IF
-    IF ROOM = 79 THEN                                        ' 79=Toture room
+    IF ROOM = RM_TORTURE_ROOM THEN
         NMSG = 2
         MSG$(1) = " It's covered"
         MSG$(2) = " with Blood!"
@@ -923,14 +1020,14 @@ CmdLookTable:                ' @2B15
     GOTO ShowMessage
 
 CmdLookDesk:                 ' @2BA1
-    IF OBJROOM(11) = 110 AND ROOM = 10 THEN                  ' 11=WINE FLASK, 10=Chef's Quarters
+    IF OBJROOM(OBJ_FLASK) = HIDDEN + RM_CHEFS_QUARTERS AND ROOM = RM_CHEFS_QUARTERS THEN
         NMSG = 3
         MSG$(1) = " There is a"
         MSG$(2) = " Wine Flask"
         MSG$(3) = " on top."
         GOTO ShowMessage
     END IF
-    IF OBJROOM(8) = 140 AND ROOM = 40 THEN                   ' 8=EYE GLASSES, 40=Yellow room
+    IF OBJROOM(OBJ_GLASSES) = HIDDEN + RM_YELLOW_ROOM AND ROOM = RM_YELLOW_ROOM THEN
         NMSG = 4
         MSG$(1) = " There is a"
         MSG$(2) = " Pair of Eye"
@@ -938,13 +1035,13 @@ CmdLookDesk:                 ' @2BA1
         MSG$(4) = " Top."
         GOTO ShowMessage
     END IF
-    IF OBJROOM(7) = 156 AND ROOM = 56 THEN                   ' 7=KEY, 56=King's Study
+    IF OBJROOM(OBJ_KEY) = HIDDEN + RM_KINGS_STUDY AND ROOM = RM_KINGS_STUDY THEN
         NMSG = 2
         MSG$(1) = " There is a"
         MSG$(2) = " Key on top"
         GOTO ShowMessage
     END IF
-    IF ROOM = 56 OR ROOM = 40 OR ROOM = 10 THEN              ' 10=Chef's Quarters, 40=Yellow room, 56=King's Study
+    IF ROOM = RM_KINGS_STUDY OR ROOM = RM_YELLOW_ROOM OR ROOM = RM_CHEFS_QUARTERS THEN
         NMSG = 2
         MSG$(1) = " It's made"
         MSG$(2) = " of Wood."
@@ -957,35 +1054,35 @@ CmdLookDesk:                 ' @2BA1
 
 CmdLookBed:                  ' @2D32
     NMSG = 1
-    IF ROOM = 37 AND NOUN$ = "BEDS" THEN                     ' 37=Red Room
+    IF ROOM = RM_RED_ROOM AND NOUN$ = "BEDS" THEN
         MSG$(1) = " They're Red."
         GOTO ShowMessage
     END IF
-    IF ROOM = 38 AND NOUN$ = "BEDS" THEN                     ' 38=Blue room
+    IF ROOM = RM_BLUE_ROOM AND NOUN$ = "BEDS" THEN
         MSG$(1) = " They're Blue."
         GOTO ShowMessage
     END IF
-    IF ROOM = 67 AND NOUN$ = "BEDS" THEN                     ' 67=Sorcerers Quarters
+    IF ROOM = RM_SORCERERS_QUARTERS AND NOUN$ = "BEDS" THEN
         MSG$(1) = " They're Old."
         GOTO ShowMessage
     END IF
-    IF ROOM = 67 OR ROOM = 10 THEN                           ' 10=Chef's Quarters, 67=Sorcerers Quarters
+    IF ROOM = RM_SORCERERS_QUARTERS OR ROOM = RM_CHEFS_QUARTERS THEN
         MSG$(1) = " It's Old."
         GOTO ShowMessage
     END IF
-    IF ROOM = 37 THEN                                        ' 37=Red Room
+    IF ROOM = RM_RED_ROOM THEN
         MSG$(1) = " It's Red."
         GOTO ShowMessage
     END IF
-    IF ROOM = 38 THEN                                        ' 38=Blue room
+    IF ROOM = RM_BLUE_ROOM THEN
         MSG$(1) = " It's Blue."
         GOTO ShowMessage
     END IF
-    IF ROOM = 39 THEN                                        ' 39=Purple room
+    IF ROOM = RM_PURPLE_ROOM THEN
         MSG$(1) = " It's Purple."
         GOTO ShowMessage
     END IF
-    IF ROOM = 40 THEN                                        ' 40=Yellow room
+    IF ROOM = RM_YELLOW_ROOM THEN
         MSG$(1) = " It's Yellow."
         GOTO ShowMessage
     END IF
@@ -999,8 +1096,8 @@ CmdLookBed:                  ' @2D32
     GOTO ShowMessage
 
 CmdLookShelf:                ' @2ED8
-    IF OBJROOM(4) = 158 AND ROOM = 58 THEN                   ' 4=BOOK, 58=west end of The King's Library
-        IF OBJROOM(4) = 158 THEN                             ' 4=BOOK
+    IF OBJROOM(OBJ_BOOK) = HIDDEN + RM_LIBRARY_WEST AND ROOM = RM_LIBRARY_WEST THEN
+        IF OBJROOM(OBJ_BOOK) = HIDDEN + RM_LIBRARY_WEST THEN
             NMSG = 2
             MSG$(1) = "There's a book"
             IF NOUN$ = "SHELF" THEN
@@ -1011,7 +1108,7 @@ CmdLookShelf:                ' @2ED8
             GOTO ShowMessage
         END IF
     END IF
-    IF ROOM = 59 OR ROOM = 11 OR ROOM = 58 THEN              ' 11=Storage room, 58=west end of The King's Library, 59=East end of the King's Library
+    IF ROOM = RM_LIBRARY_EAST OR ROOM = RM_STORAGE OR ROOM = RM_LIBRARY_WEST THEN
         NMSG = 2
         MSG$(1) = " They're made"
         MSG$(2) = " of wood."
@@ -1058,7 +1155,7 @@ CmdLookStairs:               ' @2FF3
     GOTO ShowMessage
 
 CmdLookThrone:               ' @315B
-    IF ROOM <> 14 THEN                                       ' 14=Throne Room
+    IF ROOM <> RM_THRONE_ROOM THEN
         NMSG = 2
         MSG$(1) = " I don't see"
         MSG$(2) = " A throne!"
@@ -1070,7 +1167,7 @@ CmdLookThrone:               ' @315B
     GOTO ShowMessage
 
 CmdLookFountain:             ' @31B3
-    IF ROOM <> 18 THEN                                       ' 18=South end of The Castle garden
+    IF ROOM <> RM_GARDEN_SOUTH THEN
         NMSG = 2
         MSG$(1) = " I don't see"
         MSG$(2) = " A fountain!"
@@ -1085,13 +1182,13 @@ CmdLookFountain:             ' @31B3
     GOTO ShowMessage
 
 CmdLookStatue:               ' @322C
-    IF ROOM <> 19 THEN                                       ' 19=center of The upper Hall
+    IF ROOM <> RM_UPPER_HALL THEN
         NMSG = 2
         MSG$(1) = " I don't see"
         MSG$(2) = " A Statue!"
         GOTO ShowMessage
     END IF
-    IF OBJROOM(3) = 119 THEN                                 ' 3=NECKLACE
+    IF OBJROOM(OBJ_NECKLACE) = HIDDEN + RM_UPPER_HALL THEN
         NMSG = 3
         MSG$(1) = " The statue is"
         MSG$(2) = " wearing a"
@@ -1105,7 +1202,7 @@ CmdLookStatue:               ' @322C
     GOTO ShowMessage
 
 CmdLookMirror:               ' @32CE
-    IF ROOM <> 67 THEN                                       ' 67=Sorcerers Quarters
+    IF ROOM <> RM_SORCERERS_QUARTERS THEN
         NMSG = 2
         MSG$(1) = " I don't see"
         MSG$(2) = " A Mirror!"
@@ -1117,7 +1214,7 @@ CmdLookMirror:               ' @32CE
     GOTO ShowMessage
 
 CmdLookBarrel:               ' @3326
-    IF ROOM <> 68 THEN                                       ' 68=Royal Wine Cellar
+    IF ROOM <> RM_WINE_CELLAR THEN
         NMSG = 2
         MSG$(1) = " I don't see"
         IF NOUN$ = "BARRELS" THEN
@@ -1137,7 +1234,7 @@ CmdLookBarrel:               ' @3326
     GOTO ShowMessage
 
 CmdLookChain:                ' @33BA
-    IF ROOM <> 79 THEN                                       ' 79=Toture room
+    IF ROOM <> RM_TORTURE_ROOM THEN
         NMSG = 2
         MSG$(1) = " I don't see"
         IF NOUN$ = "CHAINS" THEN
@@ -1157,20 +1254,20 @@ CmdLookChain:                ' @33BA
     GOTO ShowMessage
 
 CmdLookWalls:                ' @344E
-    IF ROOM = 74 THEN                                        ' 74=Maze
+    IF ROOM = RM_MAZE_WALL THEN
         NMSG = 3
         MSG$(1) = "The Wall Says:"
         MSG$(2) = "Kevin Bales"
         MSG$(3) = "was Here!"
         GOTO ShowMessage
     END IF
-    IF ROOM = 83 THEN                                        ' 83=King's Secret room
+    IF ROOM = RM_KINGS_SECRET_ROOM THEN
         NMSG = 2
         MSG$(1) = "The walls are"
         MSG$(2) = "many Colors!"
         GOTO ShowMessage
     END IF
-    IF ROOM = 1 THEN                                         ' 1=Castle Courtyard
+    IF ROOM = RM_COURTYARD THEN
         IF NOUN$ = "WALLS" OR NOUN$ = "WALL" THEN GOTO HighScoreWall
     END IF
     IF NOUN$ = "WALLS" THEN NOUN$ = "WALL"
@@ -1182,13 +1279,13 @@ CmdLookWalls:                ' @344E
     GOTO ShowMessage
 
 CmdLookGarden:               ' @356B
-    IF ROOM <> 33 THEN                                       ' 33=Balcony looking over the Castle Gardens
+    IF ROOM <> RM_BALCONY THEN
         NMSG = 2
         MSG$(1) = " I Don't see"
         MSG$(2) = " A Garden!"
         GOTO ShowMessage
     END IF
-    IF OBJROOM(19) <> 118 THEN                               ' 19=LARGE GEM
+    IF OBJROOM(OBJ_GEM) <> HIDDEN + RM_GARDEN_SOUTH THEN
         NMSG = 3
         MSG$(1) = "The Garden"
         MSG$(2) = "Has A Fountain"
@@ -1203,7 +1300,7 @@ CmdLookGarden:               ' @356B
     GOTO ShowMessage
 
 CmdLookBalcony:              ' @3618
-    IF ROOM <> 33 THEN                                       ' 33=Balcony looking over the Castle Gardens
+    IF ROOM <> RM_BALCONY THEN
         NMSG = 2
         MSG$(1) = "I don't see"
         MSG$(2) = "a Balcony!"
@@ -1216,11 +1313,11 @@ CmdLookBalcony:              ' @3618
 
 ' DROP / THROW: put a carried object on the square in front of the player.
 CmdDrop:                     ' @3670
-    FOR I = 1 TO 22
+    FOR I = 1 TO NOBJECTS
         W$ = OBJNAME$(I)
         NMSG = INSTR(W$, CHR$(32))
         IF NMSG > 0 THEN W$ = RIGHT$(W$, LEN(W$) - NMSG)
-        IF OBJROOM(I) = 0 AND NOUN$ = W$ THEN GOTO DropHere
+        IF OBJROOM(I) = CARRIED AND NOUN$ = W$ THEN GOTO DropHere
     NEXT I
     NMSG = 2
     MSG$(1) = "You don't have"
@@ -1229,7 +1326,7 @@ CmdDrop:                     ' @3670
 
 DropHere:                    ' @3769
     T = SCREEN(PY + DY, PX + DX)
-    IF T = 32 THEN                                           ' 32=space
+    IF T = CH_SPACE THEN
         IF PX + DX >= 1 AND PY + DY >= 1 THEN
             NCARRY = NCARRY - 1
             OBJROOM(I) = ROOM
@@ -1255,7 +1352,7 @@ CmdGet:                      ' @38D5
         MSG$(1) = "Yuc!!"
         GOTO ShowMessage
     END IF
-    FOR I = 1 TO 22
+    FOR I = 1 TO NOBJECTS
         W$ = OBJNAME$(I)
         NMSG = INSTR(W$, CHR$(32))
         IF NMSG > 0 THEN W$ = RIGHT$(W$, LEN(W$) - NMSG)
@@ -1263,7 +1360,7 @@ CmdGet:                      ' @38D5
     NEXT I
     IF NOUN$ = "BARRELS" OR NOUN$ = "SHELVES" OR NOUN$ = "BEDS" OR NOUN$ = "MIRROR" OR NOUN$ = "BARREL" OR NOUN$ = "STATUE" OR NOUN$ = "FOUNTAIN" OR NOUN$ = "THRONE" OR NOUN$ = "SHELF" OR NOUN$ = "BED" OR NOUN$ = "DESK" OR NOUN$ = "TABLE" THEN GOTO TooHeavy
     IF NOUN$ = "CHAINS" OR NOUN$ = "CHAIN" THEN
-        IF ROOM = 79 THEN                                    ' 79=Toture room
+        IF ROOM = RM_TORTURE_ROOM THEN
             NMSG = 3
             MSG$(1) = " They're"
             MSG$(2) = " Connected to"
@@ -1305,27 +1402,27 @@ TooHeavy:                    ' @3C13
     END IF
     MSG$(2) = "are too heavy!"
     IF NOUN$ = "TABLE" THEN
-        IF ROOM = 79 OR ROOM = 9 THEN GOTO ShowMessage       ' 9=Kitchen, 79=Toture room
+        IF ROOM = RM_TORTURE_ROOM OR ROOM = RM_KITCHEN THEN GOTO ShowMessage
     END IF
     IF NOUN$ = "DESK" THEN
-        IF ROOM = 56 OR ROOM = 40 OR ROOM = 10 THEN GOTO ShowMessage  ' 10=Chef's Quarters, 40=Yellow room, 56=King's Study
+        IF ROOM = RM_KINGS_STUDY OR ROOM = RM_YELLOW_ROOM OR ROOM = RM_CHEFS_QUARTERS THEN GOTO ShowMessage
     END IF
     IF NOUN$ = "BEDS" OR NOUN$ = "BED" THEN
-        IF ROOM = 67 OR ROOM = 40 OR ROOM = 39 OR ROOM = 38 OR ROOM = 37 OR ROOM = 10 THEN GOTO ShowMessage  ' 10=Chef's Quarters, 37=Red Room, 38=Blue room, 39=Purple room, 40=Yellow room, 67=Sorcerers Quarters
+        IF ROOM = RM_SORCERERS_QUARTERS OR ROOM = RM_YELLOW_ROOM OR ROOM = RM_PURPLE_ROOM OR ROOM = RM_BLUE_ROOM OR ROOM = RM_RED_ROOM OR ROOM = RM_CHEFS_QUARTERS THEN GOTO ShowMessage
     END IF
     IF NOUN$ = "SHELVES" OR NOUN$ = "SHELF" THEN
-        IF ROOM = 59 OR ROOM = 58 OR ROOM = 11 THEN GOTO ShowMessage  ' 11=Storage room, 58=west end of The King's Library, 59=East end of the King's Library
+        IF ROOM = RM_LIBRARY_EAST OR ROOM = RM_LIBRARY_WEST OR ROOM = RM_STORAGE THEN GOTO ShowMessage
     END IF
-    IF ROOM = 14 AND NOUN$ = "THRONE" THEN GOTO ShowMessage  ' 14=Throne Room
-    IF ROOM = 18 AND NOUN$ = "FOUNTAIN" THEN GOTO ShowMessage  ' 18=South end of The Castle garden
-    IF ROOM = 19 AND NOUN$ = "STATUE" THEN GOTO ShowMessage  ' 19=center of The upper Hall
+    IF ROOM = RM_THRONE_ROOM AND NOUN$ = "THRONE" THEN GOTO ShowMessage
+    IF ROOM = RM_GARDEN_SOUTH AND NOUN$ = "FOUNTAIN" THEN GOTO ShowMessage
+    IF ROOM = RM_UPPER_HALL AND NOUN$ = "STATUE" THEN GOTO ShowMessage
     IF NOUN$ = "BARRELS" OR NOUN$ = "BARREL" THEN
-        IF ROOM = 68 THEN GOTO ShowMessage                   ' 68=Royal Wine Cellar
+        IF ROOM = RM_WINE_CELLAR THEN GOTO ShowMessage
     END IF
     IF NOUN$ = "CHAINS" OR NOUN$ = "CHAIN" THEN
-        IF ROOM = 79 THEN GOTO ShowMessage                   ' 79=Toture room
+        IF ROOM = RM_TORTURE_ROOM THEN GOTO ShowMessage
     END IF
-    IF ROOM = 67 AND NOUN$ = "MIRROR" THEN GOTO ShowMessage  ' 67=Sorcerers Quarters
+    IF ROOM = RM_SORCERERS_QUARTERS AND NOUN$ = "MIRROR" THEN GOTO ShowMessage
     NMSG = 4
     MSG$(3) = "and I don't"
     MSG$(4) = "see any!"
@@ -1340,13 +1437,13 @@ GetObject:                   ' @3F61
         MSG$(2) = " Yourself!"
         GOTO ShowMessage
     END IF
-    IF OBJROOM(I) = 0 THEN
+    IF OBJROOM(I) = CARRIED THEN
         NMSG = 2
         MSG$(1) = " You already"
         MSG$(2) = " have it!"
         GOTO ShowMessage
     END IF
-    IF OBJROOM(I) <> ROOM + 100 THEN
+    IF OBJROOM(I) <> HIDDEN + ROOM THEN
         NMSG = 2
         MSG$(1) = " I don't see"
         MSG$(2) = " a " + NOUN$
@@ -1368,7 +1465,7 @@ GetObject:                   ' @3F61
 TakeHidden:                  ' @4164
     IF NCARRY = 6 THEN GOTO PickUpBumped
     NCARRY = NCARRY + 1
-    OBJROOM(I) = 0
+    OBJROOM(I) = CARRIED
     SOUND 500, 1
     NMSG = 1
     MSG$(1) = "Done."
@@ -1377,7 +1474,7 @@ TakeHidden:                  ' @4164
 ' GET WATER (fills the flask at the fountain) or GET WINE.
 GetLiquid:                   ' @41C5
     IF NOUN$ = "WINE" THEN
-        IF ROOM = 68 THEN                                    ' 68=Royal Wine Cellar
+        IF ROOM = RM_WINE_CELLAR THEN
             NMSG = 2
             MSG$(1) = " The Barrels"
             MSG$(2) = " are empty."
@@ -1385,8 +1482,8 @@ GetLiquid:                   ' @41C5
         END IF
         GOTO GetMonsterCheck
     END IF
-    IF ROOM <> 18 THEN GOTO GetMonsterCheck                  ' 18=South end of The Castle garden
-    IF OBJROOM(11) <> 0 THEN                                 ' 11=WINE FLASK
+    IF ROOM <> RM_GARDEN_SOUTH THEN GOTO GetMonsterCheck
+    IF OBJROOM(OBJ_FLASK) <> CARRIED THEN
         NMSG = 2
         MSG$(1) = "You don't have"
         MSG$(2) = "a Container!"
@@ -1403,7 +1500,7 @@ GetLiquid:                   ' @41C5
             IF PX = 24 OR PY = 18 OR PX + J < 1 OR PY + I < 1 THEN
             END IF
             T = SCREEN(PY + I, PX + J)
-            IF T = 196 OR T = 179 THEN                       ' 179=│ furniture, 196=─ furniture
+            IF T = CH_HLINE OR T = CH_VLINE THEN
                 FLASKFULL = 1
                 NMSG = 1
                 MSG$(1) = "Done."
@@ -1420,8 +1517,8 @@ GetLiquid:                   ' @41C5
 CmdInventory:                ' @43E5
     NMSG = 1
     MSG$(1) = "- Inventory -"
-    FOR I = 1 TO 22
-        IF OBJROOM(I) = 0 THEN
+    FOR I = 1 TO NOBJECTS
+        IF OBJROOM(I) = CARRIED THEN
             NMSG = NMSG + 1
             MSG$(NMSG) = CHR$(OBJCHAR(I)) + " " + OBJNAME$(I)
         END IF
@@ -1439,7 +1536,7 @@ InventoryDone:               ' @44AE
 
 ' WEAR: helmet, necklace, glasses (flavour text only).
 CmdWear:                     ' @44EC
-    FOR I = 1 TO 22
+    FOR I = 1 TO NOBJECTS
         W$ = OBJNAME$(I)
         NMSG = INSTR(W$, CHR$(32))
         IF NMSG > 0 THEN W$ = RIGHT$(W$, LEN(W$) - NMSG)
@@ -1451,25 +1548,25 @@ CmdWear:                     ' @44EC
     GOTO ShowMessage
 
 WearIt:                      ' @45C7
-    IF OBJROOM(I) <> 0 THEN
+    IF OBJROOM(I) <> CARRIED THEN
         NMSG = 2
         MSG$(1) = " You don't"
         MSG$(2) = " have it!"
         GOTO ShowMessage
     END IF
-    IF I = 10 OR I = 3 THEN
+    IF I = OBJ_HELMET OR I = OBJ_NECKLACE THEN
         NMSG = 2
         MSG$(1) = "Ok."
         MSG$(2) = "I'm wearing it."
         GOTO ShowMessage
     END IF
-    IF I = 22 THEN
+    IF I = OBJ_CROWN THEN
         NMSG = 2
         MSG$(1) = " The crown is"
         MSG$(2) = " too Heavy!"
         GOTO ShowMessage
     END IF
-    IF I = 8 THEN
+    IF I = OBJ_GLASSES THEN
         NMSG = 3
         MSG$(1) = " Ok."
         MSG$(2) = " I'm wearing"
@@ -1483,7 +1580,7 @@ WearIt:                      ' @45C7
 
 ' PLAY HARP: music; drives the fairy away if it is here.
 CmdPlay:                     ' @46EA
-    FOR I = 1 TO 22
+    FOR I = 1 TO NOBJECTS
         W$ = OBJNAME$(I)
         NMSG = INSTR(W$, CHR$(32))
         IF NMSG > 0 THEN W$ = RIGHT$(W$, LEN(W$) - NMSG)
@@ -1495,13 +1592,13 @@ CmdPlay:                     ' @46EA
     GOTO ShowMessage
 
 PlayIt:                      ' @47C5
-    IF OBJROOM(I) <> 0 THEN
+    IF OBJROOM(I) <> CARRIED THEN
         NMSG = 2
         MSG$(1) = " You don't"
         MSG$(2) = " have it!"
         GOTO ShowMessage
     END IF
-    IF I <> 2 THEN
+    IF I <> OBJ_HARP THEN
         NMSG = 3
         MSG$(1) = "The " + NOUN$
         MSG$(2) = "makes Horrible"
@@ -1513,10 +1610,10 @@ PlayIt:                      ' @47C5
     MSG$(1) = "The Harp makes"
     MSG$(2) = "Beautiful"
     MSG$(3) = "Music!"
-    IF MONROOM(10) <> ROOM THEN GOTO ShowMessage             ' monster 10=FAIRY
-    LOCATE MONROW(10), MONCOL(10)
-    PRINT CHR$(32);
-    MONROOM(10) = 0                                          ' monster 10=FAIRY
+    IF MONROOM(MON_FAIRY) <> ROOM THEN GOTO ShowMessage
+    LOCATE MONROW(MON_FAIRY), MONCOL(MON_FAIRY)
+    PRINT CHR$(CH_SPACE);
+    MONROOM(MON_FAIRY) = RM_NONE
     NMSG = 6
     MSG$(4) = "The fairy"
     MSG$(5) = "likes the music"
@@ -1526,7 +1623,7 @@ PlayIt:                      ' @47C5
 ' WAVE: wand (secret passages in rooms 67/77), cross (vampire),
 ' scepter (opens the gate in room 1).
 CmdWave:                     ' @48F6
-    FOR I = 1 TO 22
+    FOR I = 1 TO NOBJECTS
         W$ = OBJNAME$(I)
         NMSG = INSTR(W$, CHR$(32))
         IF NMSG > 0 THEN W$ = RIGHT$(W$, LEN(W$) - NMSG)
@@ -1540,20 +1637,20 @@ DontHaveIt:                  ' @499C
     GOTO ShowMessage
 
 WaveIt:                      ' @49D1
-    IF OBJROOM(I) <> 0 THEN GOTO DontHaveIt
-    IF I <> 5 THEN
-        IF ROOM = 28 AND I = 12 THEN                         ' 28=Cooridor
+    IF OBJROOM(I) <> CARRIED THEN GOTO DontHaveIt
+    IF I <> OBJ_WAND THEN
+        IF ROOM = RM_VAMPIRE_CORRIDOR AND I = OBJ_CROSS THEN
             NMSG = 4
             MSG$(1) = "The vampire"
             MSG$(2) = "sees the holy"
             MSG$(3) = "cross and"
             MSG$(4) = "disappears!"
-            LOCATE MONROW(9), MONCOL(9)                      ' monster 9=VAMPIRE
-            PRINT CHR$(32);
-            MONROOM(9) = 0                                   ' monster 9=VAMPIRE
+            LOCATE MONROW(MON_VAMPIRE), MONCOL(MON_VAMPIRE)
+            PRINT CHR$(CH_SPACE);
+            MONROOM(MON_VAMPIRE) = RM_NONE
             GOTO ShowMessage
         END IF
-        IF I = 17 THEN GOTO WaveScepter
+        IF I = OBJ_SCEPTER THEN GOTO WaveScepter
         NMSG = 3
         MSG$(1) = "You look awful"
         MSG$(2) = "Silly waving"
@@ -1566,8 +1663,8 @@ WaveIt:                      ' @49D1
     MSG$(3) = ""
     MSG$(4) = "  Nothing"
     MSG$(5) = "  Happens!"
-    IF ROOM <> 67 AND ROOM <> 77 THEN GOTO ShowMessage       ' 67=Sorcerers Quarters, 77=Winding Passage
-    IF ROOM = 77 THEN GOTO WaveWandRoom77                    ' 77=Winding Passage
+    IF ROOM <> RM_SORCERERS_QUARTERS AND ROOM <> RM_WINDING_PASSAGE THEN GOTO ShowMessage
+    IF ROOM = RM_WINDING_PASSAGE THEN GOTO WaveWandRoom77
     FOR I = 7 TO 12
         LOCATE I, 19
         PRINT " ";
@@ -1590,13 +1687,13 @@ SecretPassage:               ' @4C24
     GOTO ShowMessage
 
 WaveWandRoom77:              ' @4C5E
-    IF SCREEN(18, 12) = 32 THEN GOTO ShowMessage
+    IF SCREEN(18, 12) = CH_SPACE THEN GOTO ShowMessage
     LOCATE 18, 11
     PRINT "▌  ▐";
     GOTO SecretPassage
 
 WaveScepter:                 ' @4C94
-    IF ROOM <> 1 THEN                                        ' 1=Castle Courtyard
+    IF ROOM <> RM_COURTYARD THEN
         NMSG = 5
         MSG$(1) = "As you wave the"
         MSG$(2) = NOUN$ + "...."
@@ -1617,7 +1714,7 @@ WaveScepter:                 ' @4C94
 
 ' CLEAN / RUB: flavour text.
 CmdClean:                    ' @4D53
-    FOR I = 1 TO 22
+    FOR I = 1 TO NOBJECTS
         W$ = OBJNAME$(I)
         NMSG = INSTR(W$, CHR$(32))
         IF NMSG > 0 THEN W$ = RIGHT$(W$, LEN(W$) - NMSG)
@@ -1629,8 +1726,8 @@ CmdClean:                    ' @4D53
     GOTO ShowMessage
 
 CleanIt:                     ' @4E2E
-    IF OBJROOM(I) <> 0 THEN GOTO DontHaveIt
-    IF I = 1 THEN
+    IF OBJROOM(I) <> CARRIED THEN GOTO DontHaveIt
+    IF I = OBJ_LAMP THEN
         NMSG = 3
         MSG$(1) = " There's no"
         MSG$(2) = " Genii in this"
@@ -1648,7 +1745,7 @@ CmdSay:                      ' @4EB5
     MSG$(1) = CHR$(34) + NOUN$ + CHR$(34)
 
 MonstersReact:               ' @4EEA
-    FOR I = 1 TO 10
+    FOR I = 1 TO NMONSTERS
         IF MONROOM(I) = ROOM THEN GOTO MonsterLooksFunny
     NEXT I
     GOTO ShowMessage
@@ -1666,7 +1763,7 @@ MonsterLooksFunny:           ' @4F36
 
 ' OPEN / UNLOCK / CLOSE / LOCK the doors in rooms 68 and 82 (needs the key).
 CmdLockUnlock:               ' @4FE1
-    IF OBJROOM(7) <> 0 THEN                                  ' 7=KEY
+    IF OBJROOM(OBJ_KEY) <> CARRIED THEN
         NMSG = 2
         MSG$(1) = " You don't"
         MSG$(2) = " have a Key!"
@@ -1678,7 +1775,7 @@ CmdLockUnlock:               ' @4FE1
             MSG$(1) = "Impossible!!"
             GOTO ShowMessage
         END IF
-        IF ROOM <> 1 THEN                                    ' 1=Castle Courtyard
+        IF ROOM <> RM_COURTYARD THEN
             NMSG = 2
             MSG$(1) = " I don't see"
             MSG$(2) = " a Gate!"
@@ -1695,7 +1792,7 @@ CmdLockUnlock:               ' @4FE1
         MSG$(3) = " locked!"
         GOTO ShowMessage
     END IF
-    IF ROOM <> 82 AND ROOM <> 68 THEN                        ' 68=Royal Wine Cellar, 82=Dungeon entrace hall
+    IF ROOM <> RM_DUNGEON_HALL AND ROOM <> RM_WINE_CELLAR THEN
         NMSG = 2
         MSG$(1) = "I don't see"
         MSG$(2) = "a door!"
@@ -1705,7 +1802,7 @@ CmdLockUnlock:               ' @4FE1
         FOR I = -1 TO 1
             FOR J = -1 TO 1
                 IF PX + J >= 1 AND PY + I >= 1 THEN
-                    IF SCREEN(PY + I, PX + J) = 8 THEN GOTO DoorRoom68
+                    IF SCREEN(PY + I, PX + J) = CH_DOOR THEN GOTO DoorRoom68
                 END IF
             NEXT J
         NEXT I
@@ -1716,10 +1813,10 @@ CmdLockUnlock:               ' @4FE1
     END IF
 
 DoorRoom68:                  ' @521F
-    IF ROOM <> 82 THEN                                       ' 82=Dungeon entrace hall
+    IF ROOM <> RM_DUNGEON_HALL THEN
         IF VERB$ = "LOCK" THEN
             LOCATE 15, 9
-            PRINT CHR$(8);CHR$(8);
+            PRINT CHR$(CH_DOOR);CHR$(CH_DOOR);
             DOOR68LOCKED = 1
             NMSG = 1
             MSG$(1) = "Done."
@@ -1735,7 +1832,7 @@ DoorRoom68:                  ' @521F
         END IF
         PX = 9
         LOCATE PY, PX
-        PRINT CHR$(5);                                       ' draw the player
+        PRINT CHR$(CH_PLAYER);
         LOCATE 15, 9
         PRINT "  ";
         DOOR68LOCKED = 0
@@ -1746,9 +1843,9 @@ DoorRoom68:                  ' @521F
     END IF
     IF VERB$ = "LOCK" THEN
         LOCATE 9, 14
-        PRINT CHR$(8)
+        PRINT CHR$(CH_DOOR)
         LOCATE 10, 14
-        PRINT CHR$(8);
+        PRINT CHR$(CH_DOOR);
         DOOR82LOCKED = 1
         NMSG = 1
         MSG$(1) = "Done."
@@ -1764,7 +1861,7 @@ DoorRoom68:                  ' @521F
     END IF
     PY = 9
     LOCATE PY, PX
-    PRINT CHR$(5);                                           ' draw the player
+    PRINT CHR$(CH_PLAYER);
     LOCATE 9, 14
     PRINT " ";
     LOCATE 10, 14
@@ -1783,13 +1880,13 @@ CmdRead:                     ' @5509
         MSG$(2) = " read That!"
         GOTO ShowMessage
     END IF
-    IF OBJROOM(4) <> 0 THEN                                  ' 4=BOOK
+    IF OBJROOM(OBJ_BOOK) <> CARRIED THEN
         NMSG = 2
         MSG$(1) = " You don't"
         MSG$(2) = " have a book!"
         GOTO ShowMessage
     END IF
-    IF OBJROOM(8) <> 0 THEN                                  ' 8=EYE GLASSES
+    IF OBJROOM(OBJ_GLASSES) <> CARRIED THEN
         NMSG = 4
         MSG$(1) = " You can't see"
         MSG$(2) = " well enough."
@@ -1806,7 +1903,7 @@ CmdRead:                     ' @5509
 ' JUMP / LEEP: flavour text.
 CmdJump:                     ' @55E4
     IF NOUN$ = "DOWN" THEN
-        IF ROOM = 65 OR ROOM = 64 OR ROOM = 33 THEN          ' 33=Balcony looking over the Castle Gardens, 64=top of the West tower, 65=top of the East Tower
+        IF ROOM = RM_EAST_TOWER_TOP OR ROOM = RM_WEST_TOWER_TOP OR ROOM = RM_BALCONY THEN
             NMSG = 3
             MSG$(1) = " I don't think"
             MSG$(2) = " it's safe to"
@@ -1877,7 +1974,7 @@ CmdDrink:                    ' @58F2
         MSG$(2) = "any " + NOUN$ + "!"
         GOTO ShowMessage
     END IF
-    IF OBJROOM(11) <> 0 OR FLASKFULL = 0 THEN                ' 11=WINE FLASK
+    IF OBJROOM(OBJ_FLASK) <> CARRIED OR FLASKFULL = 0 THEN
         NMSG = 2
         MSG$(1) = "You don't have"
         MSG$(2) = "any " + NOUN$ + "!"
@@ -1905,7 +2002,7 @@ CmdPour:                     ' @5A04
         MSG$(2) = " have any."
         GOTO ShowMessage
     END IF
-    IF OBJROOM(11) <> 0 OR FLASKFULL = 0 THEN                ' 11=WINE FLASK
+    IF OBJROOM(OBJ_FLASK) <> CARRIED OR FLASKFULL = 0 THEN
         NMSG = 2
         MSG$(1) = "You don't"
         MSG$(2) = "have any."
@@ -1917,7 +2014,7 @@ CmdPour:                     ' @5A04
     MSG$(2) = "water & it"
     MSG$(3) = "spills on"
     MSG$(4) = "the ground."
-    IF OBJROOM(21) = 0 THEN                                  ' 21=FANCY GOBLET
+    IF OBJROOM(OBJ_GOBLET) = CARRIED THEN
         NMSG = 6
         MSG$(5) = "The goblet had"
         MSG$(6) = "a hole in it!"
@@ -1926,7 +2023,7 @@ CmdPour:                     ' @5A04
 
 ' PET: refusal.
 CmdPet:                      ' @5AF4
-    FOR I = 1 TO 10
+    FOR I = 1 TO NMONSTERS
         W$ = MONNAME$(I)
         T = INSTR(W$, CHR$(32))
         IF T > 0 THEN W$ = RIGHT$(W$, LEN(W$) - T)
@@ -1945,7 +2042,7 @@ CmdPet:                      ' @5AF4
 
 ' KILL: refusal.
 CmdKill:                     ' @5C28
-    FOR I = 1 TO 10
+    FOR I = 1 TO NMONSTERS
         W$ = MONNAME$(I)
         T = INSTR(W$, CHR$(32))
         IF T > 0 THEN W$ = RIGHT$(W$, LEN(W$) - T)
@@ -1962,11 +2059,11 @@ CmdKill:                     ' @5C28
 
 ' SHOW CROSS: the vampire disappears.
 CmdShow:                     ' @5D46
-    FOR I = 1 TO 22
+    FOR I = 1 TO NOBJECTS
         W$ = OBJNAME$(I)
         T = INSTR(W$, CHR$(32))
         IF T > 0 THEN W$ = RIGHT$(W$, LEN(W$) - T)
-        IF OBJROOM(I) = 0 AND W$ = NOUN$ THEN GOTO ShowIt
+        IF OBJROOM(I) = CARRIED AND W$ = NOUN$ THEN GOTO ShowIt
     NEXT I
     NMSG = 2
     MSG$(1) = "I don't have"
@@ -1974,20 +2071,20 @@ CmdShow:                     ' @5D46
     GOTO ShowMessage
 
 ShowIt:                      ' @5E48
-    IF I = 12 THEN
-        IF MONROOM(9) = ROOM THEN                            ' monster 9=VAMPIRE
+    IF I = OBJ_CROSS THEN
+        IF MONROOM(MON_VAMPIRE) = ROOM THEN
             NMSG = 4
             MSG$(1) = "The vampire"
             MSG$(2) = "sees the holy"
             MSG$(3) = "cross and"
             MSG$(4) = "disappears!"
-            LOCATE MONROW(9), MONCOL(9)                      ' monster 9=VAMPIRE
-            PRINT CHR$(32);
-            MONROOM(9) = 0                                   ' monster 9=VAMPIRE
+            LOCATE MONROW(MON_VAMPIRE), MONCOL(MON_VAMPIRE)
+            PRINT CHR$(CH_SPACE);
+            MONROOM(MON_VAMPIRE) = RM_NONE
             GOTO ShowMessage
         END IF
     END IF
-    IF MONROOM(10) = ROOM OR MONROOM(9) = ROOM THEN          ' monster 9=VAMPIRE, monster 10=FAIRY
+    IF MONROOM(MON_FAIRY) = ROOM OR MONROOM(MON_VAMPIRE) = ROOM THEN
         NMSG = 5
         MSG$(1) = ""
         GOTO MonstersReact
@@ -2028,10 +2125,10 @@ CmdSave:                     ' @601E
     PRINT #2, DOOR68LOCKED
     PRINT #2, DOOR82LOCKED
     PRINT #2, STRENGTH, PY, PX, UNDER, NCARRY
-    FOR I = 1 TO 22
+    FOR I = 1 TO NOBJECTS
         PRINT #2, OBJROOM(I), OBJROW(I), OBJCOL(I)
     NEXT I
-    FOR I = 1 TO 10
+    FOR I = 1 TO NMONSTERS
         PRINT #2, MONROOM(I)
         PRINT #2, MONNAME$(I)
         PRINT #2, MONHP(I), MONROW(I), MONCOL(I)
@@ -2059,10 +2156,10 @@ CmdLoad:                     ' @61A0
     INPUT #2, DOOR68LOCKED
     INPUT #2, DOOR82LOCKED
     INPUT #2, STRENGTH, PY, PX, UNDER, NCARRY
-    FOR I = 1 TO 22
+    FOR I = 1 TO NOBJECTS
         INPUT #2, OBJROOM(I), OBJROW(I), OBJCOL(I)
     NEXT I
-    FOR I = 1 TO 10
+    FOR I = 1 TO NMONSTERS
         INPUT #2, MONROOM(I)
         INPUT #2, MONNAME$(I)
         INPUT #2, MONHP(I)
@@ -2108,22 +2205,22 @@ Escaped:                     ' @653F
 ' 100 for escaping.  1550 is perfect.  Then high score / play again.
 FinalScore:                  ' @6577
     FOR I = 13 TO 22
-        IF OBJROOM(I) = 0 OR OBJROOM(I) = 1 THEN
+        IF OBJROOM(I) = CARRIED OR OBJROOM(I) = RM_COURTYARD THEN
             SCORE = SCORE + 50
             W$ = W$ + CHR$(OBJCHAR(I)) + " "
         END IF
     NEXT I
-    IF OBJROOM(2) = 0 OR OBJROOM(2) = 1 THEN                 ' 2=HARP
+    IF OBJROOM(OBJ_HARP) = CARRIED OR OBJROOM(OBJ_HARP) = RM_COURTYARD THEN
         SCORE = SCORE + 50
-        W$ = W$ + CHR$(OBJCHAR(2)) + " "                     ' 2=HARP
+        W$ = W$ + CHR$(OBJCHAR(OBJ_HARP)) + " "
     END IF
-    IF OBJROOM(3) = 0 OR OBJROOM(3) = 1 THEN                 ' 3=NECKLACE
+    IF OBJROOM(OBJ_NECKLACE) = CARRIED OR OBJROOM(OBJ_NECKLACE) = RM_COURTYARD THEN
         SCORE = SCORE + 50
-        W$ = W$ + CHR$(OBJCHAR(3)) + " "                     ' 3=NECKLACE
+        W$ = W$ + CHR$(OBJCHAR(OBJ_NECKLACE)) + " "
     END IF
-    IF OBJROOM(12) = 0 OR OBJROOM(12) = 1 THEN               ' 12=HOLY CROSS
+    IF OBJROOM(OBJ_CROSS) = CARRIED OR OBJROOM(OBJ_CROSS) = RM_COURTYARD THEN
         SCORE = SCORE + 50
-        W$ = W$ + CHR$(OBJCHAR(12)) + " "                    ' 12=HOLY CROSS
+        W$ = W$ + CHR$(OBJCHAR(OBJ_CROSS)) + " "
     END IF
     LOCATE 5, 2
     PRINT "You have collected these Treasues..."
@@ -2132,7 +2229,7 @@ FinalScore:                  ' @6577
     LOCATE 7, X
     PRINT W$;
     W$ = ""
-    FOR I = 1 TO 8
+    FOR I = 1 TO NFIGHTERS
         IF MONHP(I) < 0 THEN
             SCORE = SCORE + 100
             W$ = W$ + CHR$(MONCHAR(I)) + " "
