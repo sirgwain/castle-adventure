@@ -1,7 +1,7 @@
 # Castle Adventure (1984): game mechanics
 
 Taken from `castle.bas`, which was lifted from CASTLE.EXE. Names in backticks such as `MonsterTurn` are section labels in that listing. Each label is followed by its code address (`' @1CB8`), which is the label `castle_flat.bas` and `castle.asm` use.
-Rooms are in `rooms.json`/`rooms.go`; objects and monsters are in `objects_monsters.json` and in the DATA lines at the end of `castle.bas`.
+Rooms are in `rooms.json`; objects and monsters are in `objects_monsters.json` and in the DATA lines at the end of `castle.bas`.
 
 ## Start-up (`Start`, `NewGame`, `LoadRoomPage`, `DrawRoom`)
 - `Start` shows `FreewareNotice` and `TitleScreen` (P plays, I shows the instructions), then falls into `NewGame`.
@@ -21,7 +21,7 @@ Rooms are in `rooms.json`/`rooms.go`; objects and monsters are in `objects_monst
 - `Uppercase` converts lower-case letters. Only A–Z and space are accepted, Backspace edits, Enter goes to `DoCommand`, and typing past 14 characters beeps.
 - `WaitKey` does `IDLE += 1` on every pass through the loop, whether or not a key was pressed. At 200 the **monsters take a turn** (`MonsterTurn`).
   That makes monster speed depend on CPU speed. `tools/timing.py` measured 57,313 instructions per monster turn, which is about 0.2 s (≈5 turns a second) on a 4.77 MHz IBM PC.
-  On a 486 it's 2–3 ms. The port uses a 200 ms timer (`game.MonsterTick`). `castle.conf` runs the original at this speed in DOSBox.
+  On a 486 it's 2–3 ms. The port uses a 200 ms timer (`game.MonsterTick`). To play the original at this speed in DOSBox, use `machine=cga` and a fixed 300 cycles.
 
 ## Commands (`DoCommand`)
 `DoCommand` splits the line into `VERB$` and `NOUN$` at the first space. INV… and QUIT are recognised before the split. Each verb has its own section:

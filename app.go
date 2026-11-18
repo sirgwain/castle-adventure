@@ -46,7 +46,7 @@ const perfectTune = "MFT200O2L12DGBO3D4O2B4G4GABO3CO2BAGABO3C4MFT200O2L12DF#AO3C
 
 type app struct {
 	world *castle.World
-	store *fileStore
+	store *saveStore
 	seed  uint64
 	g     *game.Game
 
@@ -68,7 +68,7 @@ type app struct {
 	mute   bool
 }
 
-func newApp(w *castle.World, store *fileStore, seed uint64) (*app, error) {
+func newApp(w *castle.World, store *saveStore, seed uint64) (*app, error) {
 	f40, err := textmode.NewFont(cellW, cellH)
 	if err != nil {
 		return nil, err

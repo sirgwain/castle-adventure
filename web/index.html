@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Castle Adventure</title>
+<meta name="description" content="Kevin Bales's 1984 DOS game Castle Adventure, playable in the browser.">
+<style>
+  html, body { margin: 0; height: 100%; background: #000; color: #aaa; }
+  #status {
+    position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+    font: 20px/1.4 ui-monospace, Menlo, Consolas, monospace; text-align: center; padding: 16px;
+  }
+  #status a { color: #5ff; }
+</style>
+</head>
+<body>
+<div id="status">Loading Castle Adventure…</div>
+<script src="wasm_exec.js"></script>
+<script>
+  const status = document.getElementById("status");
+  const go = new Go();
+  WebAssembly.instantiateStreaming(fetch("castle.wasm"), go.importObject)
+    .then(result => {
+      status.remove();
+      go.run(result.instance);
+    })
+    .catch(err => {
+      status.innerHTML = "The game could not start in this browser.<br>" +
+        '<a href="https://github.com/sirgwain/castle-adventure">Download it from GitHub</a> to play.';
+      console.error(err);
+    });
+</script>
+</body>
+</html>

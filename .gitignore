@@ -12,7 +12,8 @@ venv/
 .idea/
 *.swp
 
-# Go (for the upcoming port)
+# Go
+/site/
 /bin/
 *.test
 *.out

@@ -45,7 +45,7 @@ func main() {
 	if *seed == 0 {
 		*seed = uint64(time.Now().UnixNano())
 	}
-	store, err := newFileStore()
+	store, err := newSaveStore()
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "saving disabled:", err)
 		store = nil
